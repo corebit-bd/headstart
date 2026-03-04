@@ -1,0 +1,25 @@
+version: 2
+updates:
+  # 1. Django & FastAPI (Backend)
+  - package-ecosystem: "pip"
+    directory: "/backend"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "chore/upgrade/backend"
+
+  # 2. NextJS & Tailwind CSS (Frontend)
+  - package-ecosystem: "npm"
+    directory: "/frontend"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "chore/upgrade/frontend"
+
+  # 3. Expo (Mobile)
+  - package-ecosystem: "npm"
+    directory: "/mobile"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "chore/upgrade/mobile"

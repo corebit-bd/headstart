@@ -1,0 +1,173 @@
+name: ❓ Question
+description: Ask A Question about PEND Boilerplate (Consider Using Discussions Instead)
+title: "[QUESTION] "
+labels: ["question", "triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ❓ Question
+
+        **Note** : For Most Questions, [GitHub Discussions](https://github.com/corebit-bd/pend-boilerplate/discussions) is a Better Place as it allows for Ongoing Conversation & Helps Others with Similar Questions.
+
+        Use this Issue Template only for Questions that might reveal a Bug, Missing Documentation / Feature Gap / Other Issues.
+
+        **Before Submitting** : 
+        - [ ] I have Searched [Existing Issues](https://github.com/corebit-bd/pend-boilerplate/issues)
+        - [ ] I have Searched [Discussions](https://github.com/corebit-bd/pend-boilerplate/discussions)
+        - [ ] I have Checked the [Documentation](https://github.com/corebit-bd/pend-boilerplate/tree/main/documentation)
+        - [ ] I have Read the [FAQ](https://github.com/corebit-bd/pend-boilerplate/blob/main/README.md) (If Available)
+        - [ ] I have Checked the [Troubleshooting Guide](https://github.com/corebit-bd/pend-boilerplate/tree/main/documentation/ci-cd/TROUBLESHOOTING.md) (Including the 10GB Cache Limit Section)
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Question Category
+      description: What is Your Question about?
+      options:
+        - Setup & Installation
+        - Configuration
+        - Usage & How-To
+        - Best Practices
+        - Architecture & Design
+        - Testing
+        - Deployment
+        - CI / CD
+        - Docker
+        - Database
+        - Authentication
+        - API Usage
+        - Frontend Development
+        - Backend Development
+        - Mobile Development
+        - Troubleshooting
+        - Contributing
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would You like to know?
+      placeholder: |
+        Example : How do I Configure Multi-Tenant Authentication so that Users from Different Tenants can't Access Each Other's Data?
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context & What You've Tried
+      description: Provide Context about What You're trying to achieve & What You've Already Attempted
+      placeholder: |
+        Example : 
+        - Goal : Implement Tenant Isolation for a SaaS Application
+        - What I've Tried : 
+          1. Checked `backend/apps/tenants/` Directory
+          2. Read Authentication Documentation
+          3. Tried Adding `tenant_id` to JWT Token
+        - Current Blocker : Not Sure Where to Add Tenant Filtering to Queries
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-outcome
+    attributes:
+      label: Expected Outcome
+      description: What Do You Hope to Achieve / Understand?
+      placeholder: |
+        I want to Understand : 
+        - Where to Add Tenant Filtering Logic
+        - Best Practices for Tenant Isolation
+        - Whether PEND Boilerplate has Built-In Support for This
+        - Example Code / Patterns to Follow
+
+  - type: textarea
+    id: documentation-checked
+    attributes:
+      label: Documentation Checked
+      description: Which Documentation have You Already Reviewed?
+      placeholder: |
+        - [ ] `README.md`
+        - [ ] `CONTRIBUTING.md`
+        - [ ] Backend README
+        - [ ] Frontend README
+        - [ ] Database Setup Guide
+        - [ ] CI / CD Documentation
+        - [ ] API Documentation (Swagger)
+        - [ ] Other Relevant Documentation
+
+  - type: textarea
+    id: code-samples
+    attributes:
+      label: Relevant Code Samples
+      description: If Applicable, Share Code You're Working with
+      placeholder: |
+        ```python
+        # Current Code that isn't Working As Expected
+        def get_users(request):
+            users = User.objects.all()  # How to Filter By Tenant?
+            return Response(users)
+        ```
+
+  - type: textarea
+    id: error-output
+    attributes:
+      label: Error Output (If Any)
+      description: If You're Encountering Errors, Include them here
+      placeholder: |
+        ```
+        Traceback / Error Message
+        ```
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgency
+      description: How Urgent is Getting an Answer?
+      options:
+        - 🔴 Blocking - Cannot Proceed without Answer
+        - 🟠 Important - Needed Soon But have Workaround
+        - 🟢 Casual - Just Curious / Planning Ahead
+    validations:
+      required: true
+
+  - type: textarea
+    id: system-info
+    attributes:
+      label: Environment (If Relevant)
+      description: Your Setup Details, If Relevant to the Question
+      placeholder: |
+        - OS : Ubuntu 22.04
+        - Docker : 24.0.6
+        - Python : 3.13
+        - Node : 20.10
+        - PEND Version : `main` Branch / v1.0.1
+
+  - type: checkboxes
+    id: actions
+    attributes:
+      label: Possible Actions
+      description: This Question might indicate a Need for...
+      options:
+        - label: Better Documentation on This Topic
+        - label: A Code Example / Tutorial
+        - label: A Bug Fix (Convert to Bug Report If Confirmed)
+        - label: A New Feature (Convert to Feature Request If Appropriate)
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-Submission Checklist
+      description: Please Confirm the Following
+      options:
+        - label: I have Searched for Similar Questions in Issues & Discussions
+          required: true
+        - label: I have Checked the Relevant Documentation
+          required: true
+        - label: I am willing to Move this to Discussions If More Appropriate
+          required: true
