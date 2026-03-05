@@ -8,7 +8,7 @@
 
 ## 📋 Project Information
 
-- **Project Name** : `[YOUR_PROJECT_NAME]`
+- **Project Name** : HeadStart
 - **Project Type** : `[E-commerce / SaaS / Healthcare / FinTech / Other]`
 - **Organization** : `[YOUR_COMPANY_NAME]`
 - **Start Date** : `[YYYY-MM-DD]`
