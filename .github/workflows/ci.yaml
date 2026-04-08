@@ -1,29 +1,12 @@
 name: CI Pipeline
 
-# ============================================================================
-# COST-OPTIMIZED TESTING STRATEGY (Hybrid Approach)
-# ============================================================================
-# This Configuration keeps GitHub Actions Usage under 2,000 Minutes/Month (FREE)
-#
-# Strategy :
-# - Test PUSHES to Main (main) / Development Environment (devEnv) Branches (Active Development - Full Test Suite)
-# - Test PULL REQUESTS to All Branches (Catches Issues Before Merge)
-# - Skip PUSHES to Staging Environment Branch ("stagingEnv") & Production Environment Branch ("prodEnv") (Code Already Tested in Lower Branches【"main" & "devEnv"】)
-#
-# Monthly Usage : ~1,672 Minutes (328 Minutes Under Free Tier Limit)
-#
-# Want Full Testing On All Branches?
-# Add Staging Environment Branch ("stagingEnv") & Production Environment Branch ("prodEnv") to the "push.branches" List Below
-# Note : This will increase Usage to ~2,672 Minutes/Month (~$5.38/Month Overage)
-# ============================================================================
-
 on:
   push:
     branches:
       - main # Main Development Branch - Full CI
       - devEnv # Development Environment - Full CI
-      # stagingEnv - Pull Request (PR) Testing Only (Cost Optimization)
-      # prodEnv - Pull Request (PR) Testing Only (Cost Optimization)
+      - stagingEnv # Pull Request (PR) Testing Only (Cost Optimization)
+      - prodEnv # Pull Request (PR) Testing Only (Cost Optimization)
       # Backup Branches are Explicitly Excluded
       - "!backup/**"
   pull_request:
@@ -33,7 +16,6 @@ on:
       - stagingEnv # Pull Requests (PRs) to Staging - Essential Tests Only
       - prodEnv # Pull Requests (PRs) to Production - Essential Tests Only
       # Backup Branches cannot have Pull Requests (PRs)
-      - "!backup/**"
 
 permissions:
   contents: read # Read Repository Contents
@@ -58,7 +40,7 @@ jobs:
       postgres:
         image: postgres:15-alpine
         env:
-          POSTGRES_DB: pend_test
+          POSTGRES_DB: headstart_test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
         ports:
@@ -83,6 +65,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set Up Python
         uses: actions/setup-python@v5
@@ -118,7 +102,7 @@ jobs:
 
       - name: Run Tests with Coverage
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/pend_test
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/headstart_test
           REDIS_URL: redis://localhost:6379/0
           DJANGO_SETTINGS_MODULE: core.settings.development
           SECRET_KEY: test-secret-key-for-ci
@@ -133,6 +117,7 @@ jobs:
           flags: backend
           name: backend-coverage
           token: ${{ secrets.CODECOV_TOKEN }}
+          slug: corebit-bd/headstart
 
       - name: Archive Coverage Report
         uses: actions/upload-artifact@v4
@@ -282,6 +267,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Required for Trivy to Scan the Entire Repository
 
       - name: Set Up NodeJS
         uses: actions/setup-node@v4
@@ -492,7 +479,7 @@ jobs:
           context: ./backend
           file: ./backend/Dockerfile
           push: false
-          tags: pend-backend:${{ github.sha }}
+          tags: headstart-backend:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
@@ -504,7 +491,7 @@ jobs:
           context: ./frontend
           file: ./frontend/Dockerfile
           push: false
-          tags: pend-frontend:${{ github.sha }}
+          tags: headstart_frontend:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
@@ -576,7 +563,7 @@ jobs:
       postgres:
         image: postgres:15-alpine
         env:
-          POSTGRES_DB: pend_test
+          POSTGRES_DB: headstart_test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
         ports:
@@ -624,7 +611,7 @@ jobs:
 
       - name: Start Backend Server
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/pend_test
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/headstart_test
           REDIS_URL: redis://localhost:6379/0
           DJANGO_SETTINGS_MODULE: core.settings.development
           SECRET_KEY: test-secret-key-for-e2e
