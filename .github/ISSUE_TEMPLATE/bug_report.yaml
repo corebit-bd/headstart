@@ -1,0 +1,176 @@
+name: 🐛 Bug Report
+description: Report A Bug / Unexpected Behavior in PEND Boilerplate
+title: "[BUG] "
+labels: ["bug", "triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🐛 Bug Report
+
+        Thank You for taking the time to Report a Bug! Please Fill Out the Information below to help us Understand & Resolve the Issue.
+
+        **Before Submitting** : 
+        - [ ] I have Searched [Existing Issues](https://github.com/corebit-bd/headstart/issues) to Ensure this Bug hasn't been Reported
+        - [ ] I have Read the [Documentation](https://github.com/corebit-bd/headstart/tree/main/documentation)
+        - [ ] I have Checked the [Troubleshooting Guide](https://github.com/corebit-bd/headstart/blob/main/documentation/ci-cd/TROUBLESHOOTING.md)
+        - [ ] This is NOT A Security Vulnerability (If It is, Use [Security Advisories](https://github.com/corebit-bd/headstart/security/advisories/new))
+
+  - type: dropdown
+    id: module
+    attributes:
+      label: Module
+      description: Which Module is Affected?
+      options:
+        - Backend (Django)
+        - Frontend (NextJS)
+        - Mobile (Expo)
+        - Database (PostgreSQL)
+        - CI / CD (GitHub Actions)
+        - Docker / Infrastructure
+        - Documentation
+        - Scripts / Automation
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How Severe Is This Bug?
+      options:
+        - 🔴 Critical - System Rashes, Data Loss, Security Issue
+        - 🟠 High - Major Functionality Broken, Blocking Progress
+        - 🟡 Medium - Feature Partially Working, Workaround Exists
+        - 🟢 Low - Minor Issue, Cosmetic Problem
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A Clear & Concise Description of What the Bug is
+      placeholder: |
+        Example : When Attempting to Log In with Valid Credentials, the Application returns a 500 Error instead of Authenticating the User.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Detailed Steps to Reproduce the Behavior
+      placeholder: |
+        1. Clone the Repository
+        2. Run "./scripts/setup.sh"
+        3. Navigate to "http://localhost:3000/login"
+        4. Enter Credentials (username : "testuser", password : "testuser123")
+        5. Click "Login" Button
+        6. See Error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What You Expected to Happen
+      placeholder: "User should be Authenticated & Redirected to the Dashboard"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What Actually Happened
+      placeholder: "Application returns 500 Internal Server Error"
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots / Logs
+      description: |
+        If Applicable, Add Screenshots / Error Logs to help explain the Problem.
+        Tip : You can Drag & Drop Images Directly into this Field.
+      placeholder: |
+        ```
+        Paste Error Logs Here
+        ```
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: Where did this Bug Occur?
+      options:
+        - Local Development (Docker)
+        - Local Development (Native)
+        - Development Environment (devEnv)
+        - Staging Environment (stagingEnv)
+        - Production Environment (prodEnv)
+        - CI / CD Pipeline
+    validations:
+      required: true
+
+  - type: textarea
+    id: system-information
+    attributes:
+      label: System Information
+      description: Please Provide Your System Details
+      placeholder: |
+        - OS : [Example : Ubuntu 22.04, macOS 14.0, Windows 11]
+        - Docker Version : [Example : 24.0.6]
+        - Python Version : [Example : 3.13.0]
+        - NodeJS Version : [Example : 20.10.0]
+        - Browser (If Frontend) : [Example : Chrome 120, Firefox 121]
+    validations:
+      required: true
+
+  - type: textarea
+    id: version
+    attributes:
+      label: PEND Boilerplate Version
+      description: Which Version are You Using?
+      placeholder: |
+        - Branch : [Example : main, devEnv]
+        - Commit Hash : [Example : abc123def]
+        - Version Number : [Example : 1.0.1 (Infrastructure Optimized)]
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add Any Other Context about the Problem
+      placeholder: |
+        - Does this happen Consistently / Intermittently?
+        - Did this Work in a Previous Version?
+        - Any Recent Changes to Configuration?
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Possible Solution / Workaround
+      description: If You have Any Ideas on How to Fix this / A Temporary Workaround
+      placeholder: "Restarting the Docker Containers seems to Temporarily Resolve the Issue"
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-Submission Checklist
+      description: Please Confirm the Following Before Submitting the Issue
+      options:
+        - label: I have Provided All the Required Information Above
+          required: true
+        - label: I have Tested this on the Latest Version from the Main Branch
+          required: false
+        - label: I am Willing to Submit a Pull Request to Fix this Bug
+          required: false
