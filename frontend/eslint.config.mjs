@@ -1,29 +1,38 @@
-// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
-import storybook from "eslint-plugin-storybook";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
+import js from "@eslint/js";
+import tseslint from "typescript-eslint";
 
-/** @type {import('eslint').Linter.Config[]} */
-const eslintConfig = [
-  ...nextVitals,
-  ...nextTs,
+export default [
   {
-    // Replacement for globalIgnores
-    ignores: [".next/**", "out/**", "build/**", "next-env.d.ts"],
+    ignores: [
+      "node_modules/**",
+      ".next/**",
+      "dist/**",
+      "coverage/**",
+      "storybook-static/**",
+      ".storybook/**",
+      "cypress/**",
+      "*.config.js",
+    ],
   },
-  // Storybook Plugin
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
   {
-    files: ["**/*.stories.ts", "**/*.stories.tsx"],
-    ...storybook.configs["flat/recommended"],
-  },
-  // Disable ReactJS Rules for Storybook Configuration Files
-  {
-    files: [".storybook/**/*.ts", ".storybook/**/*.tsx"],
+    files: ["**/*.{js,jsx,ts,tsx}"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
+      parser: tseslint.parser,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+        project: "./tsconfig.json",
+      },
+    },
     rules: {
-      "react/display-name": "off",
-      "react/no-unescaped-entities": "off",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "warn",
+      "no-console": "warn",
     },
   },
 ];
-
-export default eslintConfig;
