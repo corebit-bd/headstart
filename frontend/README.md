@@ -20,7 +20,7 @@ As a **GOLD Approved Learning Partner**, the interface is optimized for long-for
 
 ### Infrastructure & Linting
 
-- **ESLint 9 (Flat Configuration)** : Migrated to the modern Flat Configuration System using `@eslint/js` & `typescript-eslint`.
+- **ESLint 10 (Flat Configuration)** : Migrated to the modern Flat Configuration System using `@eslint/js` & `typescript-eslint`.
 - **Quality Gates** : Integrated with **CodeCov** for Automated Coverage Tracking (99% Threshold).
 - **Registry** : Automated Container Builds pushed to **GHCR** (GitHub Container Registry).
 
@@ -75,7 +75,7 @@ The Frontend must enforce the following Project-Specific Constraints :
 The Frontend is protected by a High-Integrity Pipeline :
 
 - **Mandatory 99% Coverage** : Enforced via CodeCov.
-- **Flat Configuration Linting** : Every PR is validated against the **ESLint 9** Standards.
+- **Flat Configuration Linting** : Every PR is validated against the **ESLint 10** Standards.
 - **Storybook Audit** : Visual Regressions are checked during the CI Process.
 
 ---
