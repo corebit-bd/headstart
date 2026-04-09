@@ -58,6 +58,20 @@ All Backend Contributions must adhere to the following :
 
 3. **Audit Trails** : Every Financial Transaction & Grade Change must be logged in the `audit` Schema.
 
+4. **Vulnerability Shield** : Continuous Monitoring of Backend Dependencies. Security Patches are prioritized in the CI / CD Pipeline.
+
+---
+
+## ⚙️ CI / CD & Quality Gates
+
+The Backend is protected by a High-Integrity Pipeline to ensure Zero Regressions in a Public Repository Environment :
+
+- **Mandatory 99% Coverage** : Integrated with CodeCov. PRs will be blocked if Coverage drops below the Threshold.
+
+- **Automated Security Audits** : Every Push to `devEnv`, `stagingEnv` & `main` triggers specialized Logic & Security Scans.
+
+- **Registry Integration** : Automated Builds are pushed to GHCR (GitHub Container Registry) upon successful CI Completion.
+
 ---
 
 ## 🎨 Design System Compliance (Data-Layer)
@@ -84,7 +98,7 @@ python manage.py migrate
 python manage.py loaddata initial_system_config
 ```
 
-3. **Testing** : `pytest` (Mandatory 99%+ Coverage).
+3. **Testing** : `pytest` (Mandatory 99%+ Coverage enforced by CodeCov).
 
 ---
 

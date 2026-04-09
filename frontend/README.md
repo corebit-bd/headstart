@@ -18,6 +18,12 @@ As a **GOLD Approved Learning Partner**, the interface is optimized for long-for
 - **Storybook 10.3** - Component-Driven Development for the HeadStart UI Library.
 - **Vitest & Playwright** - Unit & E2E Testing for the **Gatekeeping (MCQ)** Logic.
 
+### Infrastructure & Linting
+
+- **ESLint 9 (Flat Configuration)** : Migrated to the modern Flat Configuration System using `@eslint/js` & `typescript-eslint`.
+- **Quality Gates** : Integrated with **CodeCov** for Automated Coverage Tracking (99% Threshold).
+- **Registry** : Automated Container Builds pushed to **GHCR** (GitHub Container Registry).
+
 ### Design System Implementation
 
 - **Typography** :
@@ -59,6 +65,18 @@ The Frontend must enforce the following Project-Specific Constraints :
 2. **Gatekeeping Logic** : Prevent Manual URL Navigation to lectures if the Prerequisite MCQ Status is not marked as `passed` in the Redux State.
 
 3. **Session Awareness** : Handle **Single Active Session Management (SASM)** by detecting Token Invalidation & redirecting to the Login Screen with a clear Notification.
+
+4. **Vulnerability Shield** : Active Monitoring of Frontend Dependencies (Example : `@standard-schema/spec` & ReactJS 19 Compatibility).
+
+---
+
+## ⚙️ CI / CD & Quality Gates
+
+The Frontend is protected by a High-Integrity Pipeline :
+
+- **Mandatory 99% Coverage** : Enforced via CodeCov.
+- **Flat Configuration Linting** : Every PR is validated against the **ESLint 9** Standards.
+- **Storybook Audit** : Visual Regressions are checked during the CI Process.
 
 ---
 
