@@ -7,7 +7,7 @@
 - **Project Name** : HeadStart
 - **Project Type** : EdTech & Digital Transformation (DX)
 - **Organization** : CoreBit
-- **Start Date** : April 08, 2026
+- **Start Date** : April 09, 2026
 - **Current Version** : 0.1.0
 - **Production URL** : [https://headstartbd.com](https://headstartbd.com)
 - **Repository** : [https://github.com/corebit-bd/headstart](https://github.com/corebit-bd/headstart)
@@ -104,9 +104,10 @@ HeadStart is a Professional-Grade E-Platform designed for a **GOLD Approved Lear
 - ✅ Mobile : React Native + Expo
 - ✅ Database : PostgreSQL 15
 - ✅ Cache : Redis 7
-- ✅ CI / CD : GitHub Actions
+- ✅ CI / CD : GitHub Actions (High-Integrity Pipeline)
 - ✅ Testing : Jest, Pytest, Cypress
 - ✅ Documentation : Storybook, Swagger
+- ✅ Infra-Structure : Docker
 
 ### Design System Specification
 
@@ -129,18 +130,30 @@ HeadStart is a Professional-Grade E-Platform designed for a **GOLD Approved Lear
 
 ## 🔐 Core Business Rules & Security
 
-1. **Gatekeeping Logic** : Students cannot access Lecture $N+1$ until the MCQ for Lecture $N$ is passed.
-2. **Profile Lock Mechanism** : Accounts transition to a `LOCKED` State after **exactly 2** Failed OTP / CAPTCHA Attempts.
-3. **Single Active Session Management (SASM)** : Users are restricted to one concurrent Login - Subsequent Logins invalidate previous Sessions.
-4. **Portal Siloing** : Advisory Wing Modules (ERP / CRM) are strictly hidden from Users with `Student` / `Teacher` Roles.
+### 1. High-Integrity CI / CD (The 7 Gates)
+
+- **Quality Gate** : PRs require 99% Code Coverage (Enforced via **CodeCov**).
+- **Registry** : Automated Builds pushed to **GHCR** using Scoped Registry Tokens.
+- **Security Scans** : Automated Vulnerability Audits on every Push to `devEnv`, `stagingEnv` & `main`.
+
+### 2. Authentication & Session Integrity
+
+- **Profile Lock** : Accounts are locked after **2 failed OTP / CAPTCHA Attempts** to prevent Brute Force.
+- **SASM (Single Active Session Management)** : Redis-Backed Protocol ensuring only one active Session per User.
+- **LMS Gatekeeping** : Users cannot access Lecture $N+1$ until the MCQ quiz for Lecture $N$ is passed.
+
+### 3. Vulnerability Shield
+
+- **Dependency Management** : Active Monitoring & immediate Patching of Core Libraries (Example : `node-forge v1.4.0` for Mobile Security).
+- **ESLint 9** : Modern **Flat Configuration** (`eslint.config.mjs`) for strict Code Quality.
 
 ---
 
 ## 🔄 Document Version History
 
-| Version | Date           | Changes                                   | Updated By          |
-| :------ | :------------- | :---------------------------------------- | :------------------ |
-| 0.1.0   | April 08, 2026 | Initial Scaffolding from PEND Boilerplate | Jeet Z. H. Khondker |
+| Version | Date           | Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Updated By          |
+| :------ | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ |
+| 0.1.0   | April 09, 2026 | - Initial Scaffolding from PEND Boilerplate<br /> - **Registry Resolution** : Fixed `403 Forbidden` Errors by implementing dedicated GHCR Tokens.<br /> - **Coverage Baseline**: Integrated CodeCov with mandatory 99% Threshold for Security Modules.<br /> - **Linting Migration** : Completed Transition to ESLint 9 Flat Confiuration across the Monorepo.<br /> - **Security Patch** : Resolved Critical Vulnerabilities in the Mobile Module (Patched `node-forge`). | Jeet Z. H. Khondker |
 
 ---
 
@@ -178,17 +191,20 @@ Type : EdTech & Advisory (DX)
 Tech Stack : PEND (PostgreSQL, Expo, NextJS, Django)
 Current Version : 0.1.0
 
-Key Context : 
+Key Constraint :
 
 - Dual-Wing Platform : Academic (LMS) & Advisory (ERP / CRM).
-- Security : Profile Lock after 2 Failed Attempts, SASM enabled.
+- Security : Profile Lock after 2 Failed Attempts, SASM enabled, Vulnerability Shield Active.
 - Design : Montserrat (Headers) / Inter (Body). Primary #790BBE, Secondary #FEE054.
 - Infrastructure : Uses Layered GitHub Actions Caching.
+- High-Integrity CI / CD : 99% CodeCov Threshold enforced.
+- Registry : Deployment via GHCR with Scoped Tokens.
+- Quality : ESLint 9 Flat Configuration, TypeScript 6.0.2.
 
 Question : [Your Actual Question Here]
 ```
 
 ---
 
-**Last Updated** : April 08, 2026  
-**Updated By** : Jeet Z. H. Khondker  
+**Last Updated** : April 09, 2026  
+**Updated By** : Jeet Z. H. Khondker

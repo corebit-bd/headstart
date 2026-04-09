@@ -60,7 +60,9 @@ The Core Utility for the CI / CD Pipeline & Local Release Testing.
 
 - **🧪 Gatekeeping Validation** : Runs Tests for the MCQ Logic & Profile Lock Mechanism.
 
-- **🏗️ Image Orchestration** : Builds Production-Optimized Docker Images for `corebit-bd/headstart`.
+- **📊 Coverage Enforcement** : Triggers Local `pytest` & `vitest` runs to ensure Compliance with the **99% CodeCov Threshold**.
+
+- **🏗️ Image Orchestration** : Builds Production-Optimized Docker Images for GHCR (`ghcr.io/corebit-bd/headstart`).
 
 - **🧹 Resource Management** : Includes a `--cleanup` Flag to manage the 10GB Docker Cache Limit.
 
@@ -75,11 +77,11 @@ docker-compose down -v
 ./scripts/setup.sh
 ```
 
-2. **Environment Promotion** : Always test Builds locally using `./scripts/build.sh --env staging` before pushing to GitHub.
+2. **Environment Promotion** : Always test Builds locally using `./scripts/build.sh --env staging` before pushing to GitHub to avoid Registry `403 Forbidden` Errors.
 
 3. **Execution Permissions** : Ensure all Scripts are executable : `chmod +x scripts/*.sh`.
 
-4. **Safety First** : Never bypass the `setup.sh` on a new machine; it configures the unique User Prefixes (Example : `HS-STD-`) required for Authentication Logic.
+4. **Vulnerability Shield** : Run Scripts regularly to ensure all Local Dependencies match the Patched Security Versions (Example : `node-forge v1.4.0`).
 
 ---
 
@@ -87,7 +89,7 @@ docker-compose down -v
 
 - **⚠️ Secrets** : These Scripts generate `.env` files. Ensure they are never committed to Version Control.
 
-- **✅ Backups** : Refer to [Maintenance Guide](/documentation/ci-cd/MAINTENANCE.md) before running Build Scripts on Dependency Update Branches.
+- **✅ Registry Safety** : Deployment Scripts are configured to use Scoped Tokens for GHCR to ensure Public Repository Safety.
 
 - **✅ Audit** : Build Failures in the Security Phase usually indicate a Regression in the **Profile Lock** / **SASM** Logic.
 

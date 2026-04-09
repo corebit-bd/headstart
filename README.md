@@ -19,6 +19,7 @@ HeadStart is a Professional, High-Security E-Platform designed for a **GOLD Appr
 - [Tech Stack](#tech-stack)
 - [Design System](#design-system)
 - [Security Gates](#security-gates)
+- [Infrastructure & CI / CD](#infrastructure--ci--cd)
 - [Quick Start](#quick-start)
 - [Documentation](#documentation)
 
@@ -49,7 +50,8 @@ HeadStart merges the prestige of a Top-Tier Accountancy firm with a modern, Data
 - **Backend** : Django 5.2 (REST & GraphQL), FastAPI (Edge Services), Celery (Asynchronous Tasks).
 - **Frontend** : NextJS 16 (App Router), TypeScript 6.0, Tailwind CSS v4.2.
 - **Mobile** : ReactJS Native with Expo (Cross-Platform Student Application).
-- **Infrastructure** : PostgreSQL 15, Redis 7, Docker Orchestration.
+- **Linting** : Strict ESLint 9 Flat Configuration ensuring Code Quality across the Monorepo.
+- **Infrastructure** : PostgreSQL 15, Redis 7, Docker Orchestration, GitHub Container Registry (GHCR).
 
 ---
 
@@ -73,6 +75,18 @@ HeadStart implements Enterprise-Grade Security Patterns :
 2. **SASM** : Single Active Session Management to prevent Account Sharing.
 3. **Portal Siloing** : Strict Role-Based Access Control (RBAC) ensuring Advisory Modules are invisible to Non-Admins.
 4. **Payment Integrity** : Secure **SSL Commerz** Integration with 100% Transaction Verification.
+5. **High-Integrity CI / CD** : 100% Test Coverage Requirement for Security-Critical Modules.
+6. **Vulnerability Shield** : Active Monitoring & Patching of Core Dependencies (Example : `node-forge`).
+
+---
+
+## Infrastructure & CI / CD
+
+The Repository utilizes a **High-Integrity Pipeline** designed for Public Repository Safety :
+
+- **Automated Audits** : Every Rush to `devEnv`, `stagingEnv` & `main` triggers a full Security & Logic Audit.
+- **Coverage Tracking** : Integrated with **CodeCov** to enforce a 99% Coverage Threshold.
+- **Containerization** : Automated Builds pushed to GHCR with Scoped Registry Tokens for Secure Deployment.
 
 ---
 
