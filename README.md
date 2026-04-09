@@ -50,7 +50,7 @@ HeadStart merges the prestige of a Top-Tier Accountancy firm with a modern, Data
 - **Backend** : Django 5.2 (REST & GraphQL), FastAPI (Edge Services), Celery (Asynchronous Tasks).
 - **Frontend** : NextJS 16 (App Router), TypeScript 6.0, Tailwind CSS v4.2.
 - **Mobile** : ReactJS Native with Expo (Cross-Platform Student Application).
-- **Linting** : Strict ESLint 9 Flat Configuration ensuring Code Quality across the Monorepo.
+- **Linting** : Strict ESLint 10 Flat Configuration ensuring Code Quality across the Monorepo.
 - **Infrastructure** : PostgreSQL 15, Redis 7, Docker Orchestration, GitHub Container Registry (GHCR).
 
 ---

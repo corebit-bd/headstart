@@ -22,7 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/0.1.0/),
 - **Contributing Guidelines** : Updated `CONTRIBUTING.md` with the mandatory Backup Branch Protocol & Tag Branching Strategy.
 - **Security Policy** : Revised `SECURITY.md` to reflect Production Reporting Channels & specialized Protection Features.
 - **CI / CD Strategy** : Transitioned from a "Cost-Optimized" (Limited) Testing Strategy to a "High-Integrity" Strategy suitable for Public Repositories.
-- **Linting Architecture** : Migrated Frontend Module to **ESLint 9 Flat Configuration**, integrating `typescript-eslint` & `@eslint/js`.
+- **Linting Architecture** : Migrated Frontend Module to **ESLint 10 Flat Configuration**, integrating `typescript-eslint` & `@eslint/js`.
 - **Dependency Management** : Optimized `package-lock.json` Resolution for `@standard-schema/spec` & ReactJS 19 Compatibility.
 
 ### 🛡️ Fixed
