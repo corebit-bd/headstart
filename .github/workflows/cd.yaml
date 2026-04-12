@@ -289,32 +289,65 @@ jobs:
     if: needs.setup.outputs.deploy == 'true'
     environment:
       name: ${{ needs.setup.outputs.environment }}
-      url: ${{ steps.deploy-info.outputs.url }}
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set Environment Variables
-        id: env-vars
-        run: |
-          case "${{ needs.setup.outputs.environment }}" in
-            development)
-              echo "app_url=https://dev.headstart.example.com" >> $GITHUB_OUTPUT
-              echo "api_url=https://api-dev.headstart.example.com" >> $GITHUB_OUTPUT
-              echo "deploy_method=docker-compose" >> $GITHUB_OUTPUT
-              ;;
-            staging)
-              echo "app_url=https://staging.headstart.example.com" >> $GITHUB_OUTPUT
-              echo "api_url=https://api-staging.headstart.example.com" >> $GITHUB_OUTPUT
-              echo "deploy_method=docker-compose" >> $GITHUB_OUTPUT
-              ;;
-            production)
-              echo "app_url=https://headstart.example.com" >> $GITHUB_OUTPUT
-              echo "api_url=https://api.headstart.example.com" >> $GITHUB_OUTPUT
-              echo "deploy_method=kubernetes" >> $GITHUB_OUTPUT
-              ;;
-          esac
+      - name: Execute Remote Deployment via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            # 1. Map Branch to VPS Directory & Port
+            case "${{ github.ref_name }}" in
+              "prodEnv")
+                DEST="/var/www/headstart/prod"
+                PORT=3000
+                NAME="headstart-prod"
+                URL="https://headstartbd.com"
+                ;;
+              "stagingEnv")
+                DEST="/var/www/headstart/staging"
+                PORT=3001
+                NAME="headstart-staging"
+                URL="https://staging.headstartbd.com"
+                ;;
+              "devEnv")
+                DEST="/var/www/headstart/dev"
+                PORT=3002
+                NAME="headstart-dev"
+                URL="https://dev.headstartbd.com"
+                ;;
+              *)
+                echo "❌ Unknown Branch : ${{ github.ref_name }}. Aborting."
+                exit 1
+                ;;
+            esac
+
+            echo "🚀 Deploying to $URL ($DEST)"
+
+            # 2. Sync Repository
+            mkdir -p $DEST
+            cd $DEST
+            if [ ! -d ".git" ]; then
+              git clone -b ${{ github.ref_name }} https://github.com/corebit-bd/headstart.git .
+            else
+              git fetch origin
+              git reset --hard origin/${{ github.ref_name }}
+            fi
+
+            # 3. Build Application
+            npm install
+            npm run build
+
+            # 4. Start / Restart with PM2 on the Designated Port
+            pm2 delete $NAME || true
+            pm2 start npm --name "$NAME" -- start -- -p $PORT
+
+            echo "✅ Deployment Successful to $URL"
 
       - name: Deploy with Docker Compose (Development / Staging)
         if: steps.env-vars.outputs.deploy_method == 'docker-compose'
