@@ -332,9 +332,14 @@ jobs:
             # 2. Sync Repository
             mkdir -p $DEST
             cd $DEST
+
             if [ ! -d ".git" ]; then
+              echo "📂 Directory is Empty / Not a Repository. Cleaning & Cloning ... .. ."
+              # Remove Everything except the .env File we manually created
+              find . -maxdepth 1 ! -name '.env' ! -name '.' -exec rm -rf {} +
               git clone -b ${{ github.ref_name }} https://github.com/corebit-bd/headstart.git .
             else
+              echo "🔄 Repository Exists. Pulling Latest Changes ... .. ."
               git fetch origin
               git reset --hard origin/${{ github.ref_name }}
             fi
