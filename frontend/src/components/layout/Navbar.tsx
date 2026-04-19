@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { Button } from "@/components/ui/Button";
+import { NavLink } from "@/components/ui/NavLink";
 
 const navLinks = [
   { name: "About Us", href: "/about" },
@@ -21,7 +23,7 @@ export default function Navbar() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-brand-grey-1000 bg-white/90 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 w-full border-b border-brand-grey-1000 bg-brand-grey-1000/90 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo Section */}
@@ -36,14 +38,11 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-8 font-heading text-sm font-medium">
+            <div className="flex items-center space-x-8 font-heading text-sm font-medium">
               {/* About Us */}
-              <Link
-                href="/about"
-                className="text-gray-700 hover:text-brand-purple-1000 transition-colors"
-              >
+              <NavLink href="/about" className="flex items-center gap-1">
                 About Us
-              </Link>
+              </NavLink>
 
               {/* Services Dropdown */}
               <div
@@ -51,7 +50,7 @@ export default function Navbar() {
                 onMouseEnter={() => setIsServicesOpen(true)}
                 onMouseLeave={() => setIsServicesOpen(false)}
               >
-                <button className="flex items-center gap-1 text-gray-700 group-hover:text-brand-purple-1000 transition-colors focus:outline-none">
+                <button className="flex items-center gap-1 text-black-1000 group-hover:text-brand-purple-1000 transition-colors focus:outline-none">
                   Services
                   <svg
                     className={`h-4 w-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`}
@@ -75,12 +74,12 @@ export default function Navbar() {
                       <Link
                         key={service.name}
                         href={service.href}
-                        className="block rounded-lg px-4 py-3 text-sm text-gray-700 hover:bg-brand-purple-50 hover:text-brand-purple-1000 transition-all"
+                        className="block rounded-lg px-4 py-3 text-sm text-black-700 hover:bg-brand-purple-50 hover:text-brand-purple-1000 transition-all"
                       >
                         <span className="block font-semibold">
                           {service.name}
                         </span>
-                        <span className="mt-1 block text-xs text-gray-500 font-normal">
+                        <span className="mt-1 block text-xs text-black-500 font-normal">
                           Explore our professional {service.name.split(" ")[0]}{" "}
                           wing.
                         </span>
@@ -94,24 +93,19 @@ export default function Navbar() {
               {navLinks
                 .filter((link) => link.name !== "About Us")
                 .map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className="text-gray-700 hover:text-brand-purple-1000 transition-colors"
-                  >
+                  <NavLink key={link.name} href={link.href}>
                     {link.name}
-                  </Link>
+                  </NavLink>
                 ))}
             </div>
           </div>
 
           {/* Enroll Now CTA - Gold Secondary Color */}
           <div className="flex items-center">
-            <Link
-              href="/enroll"
-              className="rounded-md bg-brand-gold-1000 px-6 py-2.5 font-heading text-sm font-bold text-gray-900 shadow-md hover:bg-brand-gold-900 hover:shadow-lg transition-all active:scale-95"
-            >
-              Enroll Now
+            <Link href="/enroll">
+              <Button variant="secondary" size="lg">
+                Enroll Now
+              </Button>
             </Link>
           </div>
         </div>
