@@ -10,14 +10,14 @@ describe("NavLink Component", () => {
     expect(link).toHaveAttribute("href", "/services");
   });
 
-  it("applies active styles (text-black-700) when isActive is true", () => {
+  it("applies active styles (text-black-1000) when isActive is true", () => {
     render(
       <NavLink href="/blog" isActive>
         Blog
       </NavLink>,
     );
     const link = screen.getByRole("link");
-    expect(link).toHaveClass("text-black-700");
+    expect(link).toHaveClass("text-black-1000");
   });
 
   it("applies hover brand color when isActive is false", () => {
