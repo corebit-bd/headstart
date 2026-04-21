@@ -4,7 +4,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-brand-grey-1000 bg-brand-grey-50">
+    <footer className="border-t border-brand-grey-1000 bg-linear-to-br from-brand-gold-200 to-brand-purple-50">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
           {/* Brand Column */}
@@ -15,7 +15,7 @@ export default function Footer() {
             >
               HeadStart
             </Link>
-            <p className="mt-4 font-body text-sm text-gray-500 max-w-xs">
+            <p className="mt-4 font-body text-sm text-black-500 max-w-xs">
               <b>A GOLD Approved Learning Partner, Approved Employer</b>& a
               Licensed CBE Centre of ACCA, is a professional Accountancy Service
               Provider.
@@ -24,14 +24,14 @@ export default function Footer() {
 
           {/* Academy Links */}
           <div>
-            <h3 className="font-heading text-sm font-bold text-gray-900 uppercase tracking-wider">
+            <h3 className="font-heading text-sm font-bold text-black-900 uppercase tracking-wider">
               Academy
             </h3>
             <ul className="mt-4 space-y-2">
               <li>
                 <Link
                   href="/services/acca"
-                  className="font-body text-sm text-gray-600 hover:text-brand-purple-1000"
+                  className="font-body text-sm text-black-600 hover:text-brand-purple-1000"
                 >
                   ACCA Courses
                 </Link>
@@ -39,7 +39,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/sdc"
-                  className="font-body text-sm text-gray-600 hover:text-brand-purple-1000"
+                  className="font-body text-sm text-black-600 hover:text-brand-purple-1000"
                 >
                   SDC
                 </Link>
@@ -47,7 +47,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/faculty"
-                  className="font-body text-sm text-gray-600 hover:text-brand-purple-1000"
+                  className="font-body text-sm text-black-600 hover:text-brand-purple-1000"
                 >
                   Faculty
                 </Link>
@@ -57,14 +57,14 @@ export default function Footer() {
 
           {/* Advisory Links */}
           <div>
-            <h3 className="font-heading text-sm font-bold text-gray-900 uppercase tracking-wider">
+            <h3 className="font-heading text-sm font-bold text-black-900 uppercase tracking-wider">
               Advisory
             </h3>
             <ul className="mt-4 space-y-2">
               <li>
                 <Link
                   href="/services/advisory"
-                  className="font-body text-sm text-gray-600 hover:text-brand-purple-1000"
+                  className="font-body text-sm text-black-600 hover:text-brand-purple-1000"
                 >
                   Professional Advisory
                 </Link>
@@ -72,7 +72,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/trainings"
-                  className="font-body text-sm text-gray-600 hover:text-brand-purple-1000"
+                  className="font-body text-sm text-black-600 hover:text-brand-purple-1000"
                 >
                   Corporate Training
                 </Link>
@@ -80,7 +80,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="font-body text-sm text-gray-600 hover:text-brand-purple-1000"
+                  className="font-body text-sm text-black-600 hover:text-brand-purple-1000"
                 >
                   Inquiry
                 </Link>
@@ -90,14 +90,14 @@ export default function Footer() {
 
           {/* Useful Links */}
           <div>
-            <h3 className="font-heading text-sm font-bold text-gray-900 uppercase tracking-wider">
+            <h3 className="font-heading text-sm font-bold text-black-900 uppercase tracking-wider">
               Resources
             </h3>
             <ul className="mt-4 space-y-2">
               <li>
                 <Link
                   href="/blog"
-                  className="font-body text-sm text-gray-600 hover:text-brand-purple-1000"
+                  className="font-body text-sm text-black-600 hover:text-brand-purple-1000"
                 >
                   Blog
                 </Link>
@@ -105,7 +105,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="font-body text-sm text-gray-600 hover:text-brand-purple-1000"
+                  className="font-body text-sm text-black-600 hover:text-brand-purple-1000"
                 >
                   About Us
                 </Link>
@@ -113,7 +113,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/privacy"
-                  className="font-body text-sm text-gray-600 hover:text-brand-purple-1000"
+                  className="font-body text-sm text-black-600 hover:text-brand-purple-1000"
                 >
                   Privacy Policy
                 </Link>
@@ -124,10 +124,10 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-12 border-t border-brand-grey-1000 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-body text-xs text-gray-500">
+          <p className="font-body text-xs text-black-500">
             © {currentYear} HeadStart. All rights reserved.
           </p>
-          <p className="font-body text-xs text-gray-400">
+          <p className="font-body text-xs text-black-400">
             Developed By{" "}
             <span className="font-semibold text-brand-purple-700">CoreBit</span>
           </p>
