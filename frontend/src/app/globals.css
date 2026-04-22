@@ -97,6 +97,19 @@
   --color-error-100: #f0e0e3;
   --color-error-50: #f1eaed;
 
+  /* --- Black Palette --- */
+  --color-black-1000: #000000;
+  --color-black-900: #191919;
+  --color-black-800: #333333;
+  --color-black-700: #4c4c4c;
+  --color-black-600: #666666;
+  --color-black-500: #7f7f7f;
+  --color-black-400: #989898;
+  --color-black-300: #b2b2b2;
+  --color-black-200: #cbcbcb;
+  --color-black-100: #e5e5e5;
+  --color-black-50: #f1f1f1;
+
   /* --- Typography System --- */
   --font-heading: "Montserrat", sans-serif; /* For High-Level Brand Messaging */
   --font-body: "Inter", sans-serif; /* For Course Materials & Data */
