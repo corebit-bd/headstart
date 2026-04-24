@@ -26,7 +26,6 @@ export default function ContactPage() {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length === 0) {
-      console.log("Inquiry Sent:", formData);
       setSubmitted(true);
       setErrors({});
     } else {
