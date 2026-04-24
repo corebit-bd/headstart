@@ -27,10 +27,10 @@ export default function FacultyList() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-20">
-          <h1 className="font-heading text-4xl font-bold text-gray-900 sm:text-5xl">
+          <h1 className="font-heading text-4xl font-bold text-black-900 sm:text-5xl">
             Meet Our <span className="text-brand-purple-1000">Faculty</span>
           </h1>
-          <p className="mt-4 font-body text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-4 font-body text-lg text-black-600 max-w-2xl mx-auto">
             Our experts bridge the gap between academic theory and professional
             excellence, ensuring a one stop service for every student.
           </p>
@@ -54,14 +54,14 @@ export default function FacultyList() {
               </div>
 
               {/* Identity Section */}
-              <h3 className="font-heading text-2xl font-bold text-gray-900 group-hover:text-brand-purple-1000 transition-colors">
+              <h3 className="font-heading text-2xl font-bold text-black-900 group-hover:text-brand-purple-1000 transition-colors">
                 {member.name}
               </h3>
               <p className="mt-1 font-body text-sm font-bold text-brand-purple-900 uppercase tracking-widest">
                 {member.role}
               </p>
               <div className="mt-4 h-1 w-12 bg-brand-gold-1000 mx-auto" />
-              <p className="mt-4 font-body text-sm text-gray-500 italic">
+              <p className="mt-4 font-body text-sm text-black-500 italic">
                 Specializing in {member.specialty}
               </p>
 
@@ -77,10 +77,10 @@ export default function FacultyList() {
 
         {/* Join the Faculty CTA */}
         <div className="mt-32 rounded-3xl bg-brand-grey-50 border border-brand-grey-1000 p-12 text-center">
-          <h2 className="font-heading text-2xl font-bold text-gray-900">
+          <h2 className="font-heading text-2xl font-bold text-black-900">
             Are you an expert in your field?
           </h2>
-          <p className="mt-2 font-body text-gray-600">
+          <p className="mt-2 font-body text-black-600">
             HeadStart is always looking for professional leaders to join our
             Academic and Advisory wings.
           </p>
