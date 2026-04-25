@@ -28,7 +28,7 @@ export default function NewJoiners() {
           <h1 className="font-heading text-4xl font-bold text-brand-purple-1000">
             New Joiners
           </h1>
-          <p className="mt-4 font-body text-lg text-gray-600 max-w-3xl">
+          <p className="mt-4 font-body text-lg text-black-600 max-w-3xl">
             Welcoming the newest members to our Dual-Wing platform. Our growing
             team is dedicated in working with different industries & are
             committed to provide reliable & competent services, catering to the
@@ -54,15 +54,15 @@ export default function NewJoiners() {
                 <span className="inline-block px-3 py-1 rounded-full bg-brand-purple-50 text-brand-purple-900 text-xs font-bold uppercase tracking-wider mb-3">
                   {person.wing} Wing
                 </span>
-                <h3 className="font-heading text-xl font-medium text-gray-900 group-hover:text-brand-purple-1000 transition-colors">
+                <h3 className="font-heading text-xl font-medium text-black-900 group-hover:text-brand-purple-1000 transition-colors">
                   {person.name}
                 </h3>
-                <p className="font-body text-sm text-gray-600 mt-1">
+                <p className="font-body text-sm text-black-600 mt-1">
                   {person.role}
                 </p>
 
                 <div className="mt-6 flex items-center justify-between border-t border-brand-grey-1000 pt-4">
-                  <span className="font-body text-xs text-gray-400 italic">
+                  <span className="font-body text-xs text-black-400 italic">
                     Joined {person.date}
                   </span>
                   <button className="text-brand-purple-1000 font-heading text-xs font-bold hover:underline">
@@ -84,7 +84,7 @@ export default function NewJoiners() {
             Explore our current openings and contribute to our mission of
             integrity.
           </p>
-          <button className="mt-8 rounded-md bg-brand-gold-1000 px-8 py-3 font-heading font-bold text-gray-900 hover:bg-brand-gold-900 transition-all">
+          <button className="mt-8 rounded-md bg-brand-gold-1000 px-8 py-3 font-heading font-bold text-black-900 hover:bg-brand-gold-900 transition-all">
             View Careers
           </button>
         </div>
