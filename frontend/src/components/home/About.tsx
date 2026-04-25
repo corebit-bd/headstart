@@ -4,10 +4,10 @@ export default function About() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="font-heading text-3xl font-bold text-gray-900 sm:text-4xl">
+            <h2 className="font-heading text-3xl font-bold text-black-900 sm:text-4xl">
               About <span className="text-brand-purple-1000">HeadStart</span>
             </h2>
-            <p className="mt-6 font-body text-lg text-gray-600">
+            <p className="mt-6 font-body text-lg text-black-600">
               HeadStart,{" "}
               <b>a GOLD Approved Learning Partner, Approved Employer</b> & a
               Licensed CBE Centre of ACCA, is a professional accountancy service
@@ -21,7 +21,7 @@ export default function About() {
                 <h3 className="font-heading text-xl font-medium text-brand-purple-1000">
                   Our Mission
                 </h3>
-                <p className="mt-2 font-body text-gray-600">
+                <p className="mt-2 font-body text-black-600">
                   Mission of HeadStart is to provide assurance of full
                   responsibility & dedication without compromising on the
                   quality of work. HeadStart pledges to build the next
@@ -30,10 +30,10 @@ export default function About() {
                 </p>
               </div>
               <div className="border-l-4 border-brand-gold-1000 pl-4">
-                <h3 className="font-heading text-xl font-medium text-gray-900">
+                <h3 className="font-heading text-xl font-medium text-black-900">
                   Our Vision
                 </h3>
-                <p className="mt-2 font-body text-gray-600">
+                <p className="mt-2 font-body text-black-600">
                   Vision of HeadStart is to be a Centre of Excellence & the
                   flagbearer in serving Competent Professional Accountants &
                   Professional Accountancy Services in both national &
