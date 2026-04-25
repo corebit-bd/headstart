@@ -38,10 +38,10 @@ export default function BlogHub() {
     <div className="bg-white min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="font-heading text-5xl font-bold text-gray-900">
+          <h1 className="font-heading text-5xl font-bold text-black-900">
             HeadStart <span className="text-brand-purple-1000">Journal</span>
           </h1>
-          <p className="mt-4 font-body text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-4 font-body text-lg text-black-600 max-w-2xl mx-auto">
             Explore insights, achievements, and updates from across our Academic
             and Advisory wings.
           </p>
@@ -59,10 +59,10 @@ export default function BlogHub() {
                 style={{ backgroundColor: category.color }}
               />
 
-              <h3 className="font-heading text-2xl font-bold text-gray-900 group-hover:text-brand-purple-1000 transition-colors">
+              <h3 className="font-heading text-2xl font-bold text-black-900 group-hover:text-brand-purple-1000 transition-colors">
                 {category.title}
               </h3>
-              <p className="mt-4 font-body text-gray-600 leading-relaxed">
+              <p className="mt-4 font-body text-black-600 leading-relaxed">
                 {category.description}
               </p>
 
