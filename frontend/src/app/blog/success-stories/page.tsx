@@ -2,7 +2,7 @@ export default function SuccessStories() {
   return (
     <div className="bg-brand-grey-50 min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="font-heading text-4xl font-bold text-gray-900">
+        <h1 className="font-heading text-4xl font-bold text-black-900">
           Success Stories
         </h1>
         <div className="mt-12 space-y-8">
@@ -20,10 +20,10 @@ export default function SuccessStories() {
                 <span className="text-success-1000 font-heading text-xs font-bold uppercase tracking-widest">
                   Career Milestone
                 </span>
-                <h3 className="mt-2 font-heading text-2xl font-medium text-gray-900">
+                <h3 className="mt-2 font-heading text-2xl font-medium text-black-900">
                   From Student to Senior Auditor
                 </h3>
-                <p className="mt-4 font-body text-gray-600 leading-relaxed">
+                <p className="mt-4 font-body text-black-600 leading-relaxed">
                   How the HeadStart transformed a professional career path.
                 </p>
                 <button className="mt-6 text-brand-purple-1000 font-heading font-bold text-sm">
