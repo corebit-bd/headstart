@@ -3,8 +3,7 @@ import { cn } from "@/lib/utils/helpers";
 import { Spinner } from "./Spinner";
 import { Icon } from "./Icon";
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "tertiary" | "outline" | "danger";
   size?: "sm" | "md" | "lg" | "xl" | "2xl";
   icon?: React.ReactNode;
@@ -30,34 +29,32 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       type = "button",
       ...props
     },
-    reference
+    reference,
   ) => {
-
     // Base Styles
     const baseStyles =
-      "m-1 p-1 inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60";
+      "inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60 active:scale-95";
 
     // Button Variants
     const variants = {
       primary:
-        "bg-(--color-blue-600) text-white hover:bg-(--color-blue-700) active:bg-(--color-blue-800) focus-visible:ring-(--color-blue-500)",
+        "bg-brand-purple-1000 text-brand-grey-50 hover:bg-brand-purple-900 shadow-sm",
       secondary:
-        "bg-(--color-purple-600) text-white hover:bg-(--color-purple-700) active:bg-(--color-purple-800) focus-visible:ring-(--color-purple-500)",
+        "bg-brand-gold-1000 text-black-900 font-bold font-heading hover:bg-brand-gold-900 shadow-md hover:shadow-lg",
       tertiary:
-        "bg-transparent text-(--color-gray-900) hover:bg-(--color-gray-100) active:bg-(--color-gray-200) focus-visible:ring-(--color-gray-400) dark:text-white dark:hover:bg-(--color-gray-800)",
+        "bg-brand-grey-1000 text-brand-purple-1000 hover:bg-brand-grey-900 shadow-sm",
       outline:
-        "border-2 border-(--color-gray-300) bg-transparent text-(--color-gray-900) hover:bg-(--color-gray-100) active:bg-(--color-gray-200) focus-visible:ring-(--color-gray-400) dark:text-white dark:border-(--color-gray-600) dark:hover:bg-(--color-gray-800)",
-      danger:
-        "bg-(--color-red-600) text-white hover:bg-(--color-red-700) active:bg-(--color-red-800) focus-visible:ring-(--color-red-500)",
+        "border-2 border-brand-purple-1000 text-brand-purple-1000 hover:bg-brand-purple-50",
+      danger: "bg-error-1000 text-brand-grey-50 hover:bg-error-900",
     };
 
     // Button Sizes
     const sizes = {
-      sm: "h-9 px-3 text-sm rounded-md gap-2",
-      md: "h-10 px-4 text-base rounded-md gap-2",
-      lg: "h-11 px-6 text-lg rounded-lg gap-2",
-      xl: "h-12 px-8 text-xl rounded-lg gap-3",
-      "2xl": "h-14 px-10 text-2xl rounded-xl gap-3",
+      sm: "h-9 px-3 py-1.5 text-sm rounded-md gap-2",
+      md: "h-10 px-4 py-2 text-base rounded-md gap-2",
+      lg: "h-11 px-6 py-3 text-lg rounded-lg gap-2",
+      xl: "h-12 px-8 py-4 text-xl rounded-lg gap-3",
+      "2xl": "h-14 px-10 py-5 text-2xl rounded-xl gap-3",
     };
 
     // Map Button Sizes to Icon / Spinner Sizes
@@ -105,7 +102,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           sizes[size],
           isIconOnly && iconOnlyPadding[size],
           fullWidth && "w-full",
-          className
+          className,
         )}
         disabled={isDisabled}
         aria-busy={isLoading}
@@ -149,7 +146,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {isLoading && loadingText && !isIconOnly && <span>{loadingText}</span>}
       </button>
     );
-  }
+  },
 );
 
 Button.displayName = "Button";
