@@ -5,7 +5,7 @@ export default function ACCAChamps() {
         <h1 className="font-heading text-4xl font-bold text-brand-purple-1000">
           ACCA Champs
         </h1>
-        <p className="mt-4 font-body text-gray-600">
+        <p className="mt-4 font-body text-black-600">
           Celebrating our world-class achievers and top scorers.
         </p>
 
@@ -20,13 +20,13 @@ export default function ACCAChamps() {
                   Champ Image
                 </span>
               </div>
-              <h3 className="font-heading text-xl font-medium text-gray-900">
+              <h3 className="font-heading text-xl font-medium text-black-900">
                 Champ Name {i}
               </h3>
               <p className="font-body text-sm text-brand-purple-900 font-semibold">
                 Global Rank: #1
               </p>
-              <p className="mt-2 font-body text-sm text-gray-500">
+              <p className="mt-2 font-body text-sm text-black-500">
                 Achieving excellence in Financial Reporting through integrity.
               </p>
             </div>
