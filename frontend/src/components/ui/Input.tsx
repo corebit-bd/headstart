@@ -1,8 +1,7 @@
 import * as React from "react";
 import { cn } from "@/lib/utils/helpers";
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   helperText?: string;
   error?: string;
@@ -26,11 +25,11 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       id,
       ...props
     },
-    reference
+    reference,
   ) => {
     // ALWAYS Call "useId" Unconditionally
     const generatedId = React.useId();
-    
+
     // Use the Provided ID / The Generated One
     const inputId = id || generatedId;
     const helperTextId = `${inputId}-helper-text`;
@@ -58,8 +57,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             className={cn(
               "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
               error
-                ? "text-(--color-red-700) dark:text-(--color-red-400)"
-                : "text-(--color-gray-700) dark:text-(--color-gray-300)"
+                ? "text-red-700 dark:text-red-400"
+                : "text-gray-700 dark:text-gray-300",
             )}
           >
             {label}
@@ -85,7 +84,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               stateStyles,
               startIcon && "pl-10",
               endIcon && "pr-10",
-              className
+              className,
             )}
             disabled={disabled}
             aria-invalid={error ? "true" : "false"}
@@ -107,7 +106,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {helperText && !error && (
           <p
             id={helperTextId}
-            className="text-sm text-(--color-gray-600) dark:text-(--color-gray-400)"
+            className="text-sm text-gray-600 dark:text-gray-400"
           >
             {helperText}
           </p>
@@ -117,7 +116,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {error && (
           <p
             id={errorId}
-            className="text-sm font-medium text-(--color-red-600) dark:text-(--color-red-400)"
+            className="text-sm font-medium text-red-600 dark:text-red-400"
             role="alert"
           >
             {error}
@@ -125,7 +124,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
       </div>
     );
-  }
+  },
 );
 
 Input.displayName = "Input";
