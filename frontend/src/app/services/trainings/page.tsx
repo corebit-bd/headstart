@@ -5,10 +5,10 @@ export default function TrainingsPage() {
         <h2 className="font-heading text-sm font-bold uppercase tracking-widest text-brand-purple-1000">
           Skill Development
         </h2>
-        <h1 className="mt-4 font-heading text-5xl font-bold text-gray-900">
+        <h1 className="mt-4 font-heading text-5xl font-bold text-black-900">
           Professional Trainings
         </h1>
-        <p className="mt-6 font-body text-lg text-gray-600">
+        <p className="mt-6 font-body text-lg text-black-600">
           Tailored workshops for corporate entities and individual
           professionals.
         </p>
@@ -20,7 +20,7 @@ export default function TrainingsPage() {
                 key={course}
                 className="flex items-center justify-between bg-white p-6 rounded-xl border border-brand-grey-1000 hover:shadow-md transition-shadow"
               >
-                <span className="font-heading text-xl font-medium text-gray-900">
+                <span className="font-heading text-xl font-medium text-black-900">
                   {course}
                 </span>
                 <button className="bg-brand-purple-1000 text-white px-6 py-2 rounded-lg font-heading font-bold text-sm">
