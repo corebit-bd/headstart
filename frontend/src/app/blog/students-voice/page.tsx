@@ -14,12 +14,12 @@ export default function StudentsVoice() {
               <span className="absolute -top-4 left-8 text-6xl text-brand-purple-200 font-serif">
                 “
               </span>
-              <p className="font-body text-gray-600 italic text-lg">
+              <p className="font-body text-black-600 italic text-lg">
                 "HeadStart's Dual-Wing approach is unlike any other learning
                 partner. The advisory focus made complex data feel simple."
               </p>
               <div className="mt-8">
-                <p className="font-heading text-sm font-bold text-gray-900">
+                <p className="font-heading text-sm font-bold text-black-900">
                   Aisha Rahaman
                 </p>
                 <p className="font-body text-xs text-brand-purple-600">
