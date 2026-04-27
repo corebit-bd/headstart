@@ -37,16 +37,16 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     // Base Styles
     const baseStyles =
-      "p-1 m-1 flex h-10 w-full rounded-md border-2 bg-white px-3 py-2 text-base transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[var(--color-gray-400)] focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-[var(--color-gray-900)]";
+      "p-1 m-1 flex h-10 w-full rounded-md border-2 bg-white px-3 py-2 text-base transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[var(--color-brand-grey-400)] focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-[var(--color-brand-grey-900)]";
 
     // Input States
     const stateStyles = error
-      ? "border-[var(--color-red-500)] text-[var(--color-red-900)] focus-visible:ring-2 focus-visible:ring-[var(--color-red-500)] dark:text-[var(--color-red-100)]"
-      : "border-[var(--color-gray-300)] text-[var(--color-gray-900)] focus-visible:border-[var(--color-blue-500)] focus-visible:ring-2 focus-visible:ring-[var(--color-blue-500)] dark:border-[var(--color-gray-600)] dark:text-white";
+      ? "border-[var(--color-error-500)] text-[var(--color-error-900)] focus-visible:ring-2 focus-visible:ring-[var(--color-error-500)] dark:text-[var(--color-error-100)]"
+      : "border-[var(--color-brand-grey-300)] text-[var(--color-black-900)] focus-visible:border-[var(--color-info-500)] focus-visible:ring-2 focus-visible:ring-[var(--color-info-500)] dark:border-[var(--color-brand-grey-600)] dark:text-white";
 
     // Icon Wrapper Styles
     const iconWrapperStyles =
-      "absolute top-1/2 -translate-y-1/2 flex items-center justify-center text-[var(--color-gray-500)] dark:text-[var(--color-gray-400)]";
+      "absolute top-1/2 -translate-y-1/2 flex items-center justify-center text-[var(--color-brand-grey-500)] dark:text-[var(--color-brand-grey-400)]";
 
     return (
       <div className={cn("flex flex-col gap-1.5", fullWidth && "w-full")}>
