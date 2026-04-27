@@ -58,7 +58,7 @@ describe("Input Component", () => {
       render(<Input error="Error message" data-testid="input" />);
       const input = screen.getByTestId("input");
       // Tailwind v4 uses CSS Variables
-      expect(input).toHaveClass("border-[var(--color-red-500)]");
+      expect(input).toHaveClass("border-[var(--color-error-500)]");
     });
 
     it("Shows Required Indicator in Label When Required", () => {
@@ -140,13 +140,13 @@ describe("Input Component", () => {
     it("Applies Error Border Color when Error Exists", () => {
       render(<Input error="Error" data-testid="input" />);
       const input = screen.getByTestId("input");
-      expect(input).toHaveClass("border-[var(--color-red-500)]");
+      expect(input).toHaveClass("border-[var(--color-error-500)]");
     });
 
     it("Applies Error Focus Ring when Error Exists", () => {
       render(<Input error="Error" data-testid="input" />);
       const input = screen.getByTestId("input");
-      expect(input).toHaveClass("focus-visible:ring-[var(--color-red-500)]");
+      expect(input).toHaveClass("focus-visible:ring-[var(--color-error-500)]");
     });
 
     it("Ensures Error Message has 'alert' Role", () => {

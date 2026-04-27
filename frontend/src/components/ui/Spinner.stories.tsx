@@ -90,7 +90,7 @@ export const WithColors: Story = {
       <Spinner className="text-red-600" />
       <Spinner className="text-yellow-600" />
       <Spinner className="text-purple-600" />
-      <Spinner className="text-gray-600" />
+      <Spinner className="text-black-600" />
     </div>
   ),
 };
@@ -123,19 +123,19 @@ export const LoadingStates: Story = {
     <div className="flex flex-col gap-6">
       <div className="flex items-center gap-3">
         <Spinner size="sm" />
-        <span className="text-sm text-gray-600">Loading Data ... .. .</span>
+        <span className="text-sm text-black-600">Loading Data ... .. .</span>
       </div>
       <div className="flex items-center gap-3">
         <Spinner size="sm" className="text-blue-600" />
-        <span className="text-sm text-gray-600">Syncing ... .. .</span>
+        <span className="text-sm text-black-600">Syncing ... .. .</span>
       </div>
       <div className="flex items-center gap-3">
         <Spinner size="sm" className="text-green-600" />
-        <span className="text-sm text-gray-600">Uploading Files ... .. .</span>
+        <span className="text-sm text-black-600">Uploading Files ... .. .</span>
       </div>
       <div className="flex items-center gap-3">
         <Spinner size="sm" className="text-red-600" />
-        <span className="text-sm text-gray-600">Processing ... .. .</span>
+        <span className="text-sm text-black-600">Processing ... .. .</span>
       </div>
     </div>
   ),
@@ -147,7 +147,7 @@ export const CenteredLoading: Story = {
     <div className="flex items-center justify-center h-64 w-96 bg-gray-50">
       <div className="flex flex-col items-center gap-3">
         <Spinner size="xl" className="text-blue-600" />
-        <p className="text-sm text-gray-600">Loading content...</p>
+        <p className="text-sm text-black-600">Loading content...</p>
       </div>
     </div>
   ),
@@ -160,8 +160,8 @@ export const FullPageLoading: Story = {
       <div className="flex flex-col items-center gap-4">
         <Spinner size="2xl" className="text-blue-600" />
         <div className="text-center">
-          <p className="text-lg font-medium text-gray-900">Loading ... .. .</p>
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-lg font-medium text-black-900">Loading ... .. .</p>
+          <p className="text-sm text-black-500 mt-1">
             Please Wait While We Fetch Your Data
           </p>
         </div>
@@ -178,7 +178,7 @@ export const CardLoading: Story = {
         <div className="flex items-center justify-center h-32">
           <Spinner size="lg" />
         </div>
-        <p className="text-center text-sm text-gray-500 mt-4">
+        <p className="text-center text-sm text-black-500 mt-4">
           Loading Card Data ... .. .
         </p>
       </div>
@@ -186,7 +186,7 @@ export const CardLoading: Story = {
         <div className="flex items-center justify-center h-32">
           <Spinner size="lg" className="text-green-600" />
         </div>
-        <p className="text-center text-sm text-gray-500 mt-4">
+        <p className="text-center text-sm text-black-500 mt-4">
           Processing Payment ... .. .
         </p>
       </div>
@@ -253,9 +253,9 @@ export const DataFetching: Story = {
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold">Recent Activity</h3>
         &emsp;
-        <Spinner size="sm" className="text-gray-400" />
+        <Spinner size="sm" className="text-black-400" />
       </div>
-      <div className="space-y-2 text-gray-400">
+      <div className="space-y-2 text-black-400">
         <div className="h-4 bg-gray-200 rounded animate-pulse" />
         <div className="h-4 bg-gray-200 rounded animate-pulse w-5/6" />
         <div className="h-4 bg-gray-200 rounded animate-pulse w-4/6" />

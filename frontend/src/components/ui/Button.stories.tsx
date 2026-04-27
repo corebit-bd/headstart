@@ -16,7 +16,7 @@ const meta = {
     },
     size: {
       control: "select",
-      options: ["sm", "md", "lg"],
+      options: ["sm", "md", "lg", "xl", "2xl"],
       description: "Button Size",
     },
     isLoading: {
@@ -41,35 +41,35 @@ type Story = StoryObj<typeof meta>;
 // Default Story
 export const Primary: Story = {
   args: {
-    children: "Button",
+    children: "Primary Button",
     variant: "primary",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    children: "Button",
+    children: "Secondary Button",
     variant: "secondary",
   },
 };
 
 export const Outline: Story = {
   args: {
-    children: "Button",
+    children: "Outline Button",
     variant: "outline",
   },
 };
 
 export const Tertiary: Story = {
   args: {
-    children: "Button",
+    children: "Tertiary Button",
     variant: "tertiary",
   },
 };
 
 export const Danger: Story = {
   args: {
-    children: "Delete",
+    children: "Danger Button",
     variant: "danger",
   },
 };
@@ -93,6 +93,20 @@ export const Large: Story = {
   args: {
     children: "Large Button",
     size: "lg",
+  },
+};
+
+export const ExtraLarge: Story = {
+  args: {
+    children: "Extra Large Button",
+    size: "xl",
+  },
+};
+
+export const TwoExtraLarge: Story = {
+  args: {
+    children: "2 Extra Large Button",
+    size: "2xl",
   },
 };
 
@@ -143,19 +157,19 @@ export const AllVariants: Story = {
       </div>
       <div className="flex gap-4">
         <Button variant="primary" disabled>
-          Disabled
+          Primary Disabled
         </Button>
         <Button variant="secondary" disabled>
-          Disabled
+          Secondary Disabled
         </Button>
         <Button variant="outline" disabled>
-          Disabled
+          Outline Disabled
         </Button>
         <Button variant="tertiary" disabled>
-          Disabled
+          Tertiary Disabled
         </Button>
         <Button variant="danger" disabled>
-          Disabled
+          Danger Disabled
         </Button>
       </div>
     </div>

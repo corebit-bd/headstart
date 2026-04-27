@@ -27,15 +27,15 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
     // Badge Variants
     const variants = {
       standard:
-        "bg-[var(--color-gray-100)] text-[var(--color-gray-800)] dark:bg-[var(--color-gray-800)] dark:text-[var(--color-gray-100)]",
+        "bg-[var(--color-brand-grey-100)] text-[var(--color-black-800)] dark:bg-[var(--color-brand-grey-800)] dark:text-[var(--color-brand-grey-100)]",
       success:
-        "bg-[var(--color-green-100)] text-[var(--color-green-800)] dark:bg-[var(--color-green-900)] dark:text-[var(--color-green-100)]",
+        "bg-[var(--color-success-100)] text-[var(--color-success-800)] dark:bg-[var(--color-success-900)] dark:text-[var(--color-success-100)]",
       error:
-        "bg-[var(--color-red-100)] text-[var(--color-red-800)] dark:bg-[var(--color-red-900)] dark:text-[var(--color-red-100)]",
+        "bg-[var(--color-error-100)] text-[var(--color-error-800)] dark:bg-[var(--color-error-900)] dark:text-[var(--color-error-100)]",
       warning:
-        "bg-[var(--color-yellow-100)] text-[var(--color-yellow-800)] dark:bg-[var(--color-yellow-900)] dark:text-[var(--color-yellow-100)]",
+        "bg-[var(--color-warning-100)] text-[var(--color-warning-800)] dark:bg-[var(--color-warning-900)] dark:text-[var(--color-warning-100)]",
       information:
-        "bg-[var(--color-blue-100)] text-[var(--color-blue-800)] dark:bg-[var(--color-blue-900)] dark:text-[var(--color-blue-100)]",
+        "bg-[var(--color-info-100)] text-[var(--color-info-800)] dark:bg-[var(--color-info-900)] dark:text-[var(--color-info-100)]",
     };
 
     // Badge Sizes
