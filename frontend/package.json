@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.1.2",
+    "@eslint/js": "^10.0.1",
     "@storybook/addon-a11y": "^10.3.1",
     "@storybook/addon-docs": "^10.2.15",
     "@storybook/addon-onboarding": "^10.3.4",
@@ -45,8 +46,7 @@
     "@types/react-dom": "^19",
     "@vitest/browser-playwright": "^4.1.5",
     "@vitest/coverage-v8": "^4.1.4",
-    "cypress": "^15.6.0",
-    "@eslint/js": "^10.0.1",
+    "cypress": "^15.14.2",
     "eslint": "10.2.0",
     "eslint-config-next": "^16.2.2",
     "eslint-plugin-storybook": "^10.3.4",
@@ -58,5 +58,9 @@
     "typescript": "^6",
     "typescript-eslint": "^8.58.2",
     "vitest": "^4.1.2"
+  },
+  "overrides": {
+    "postcss": "^8.5.10",
+    "uuid": "^14.0.0"
   }
 }
