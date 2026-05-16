@@ -1,710 +1,156 @@
 @import "tailwindcss";
 
 /* ============================================ */
-/* PEND Design System - Tailwind v4 Variables */
-/* Exported from PEND Figma Design System */
+/* HeadStart High-Integrity Design System */
+/* Based on 05_BASIC DESIGN_SPECIFICATION.md */
+/* ============================================ */
+
+@theme inline {
+  /* --- Primary / Brand (Royal Purple) --- */
+  --color-brand-purple-1000: #790bbe; /* Base */
+  --color-brand-purple-900: #8522c4;
+  --color-brand-purple-800: #913ac9;
+  --color-brand-purple-700: #9e51cf;
+  --color-brand-purple-600: #aa68d5;
+  --color-brand-purple-500: #b67fda; /* Neutral */
+  --color-brand-purple-400: #c297e0;
+  --color-brand-purple-300: #ceaee6;
+  --color-brand-purple-200: #dbc5ec;
+  --color-brand-purple-100: #e7ddf1;
+  --color-brand-purple-50: #ede8f4;
+
+  /* --- Secondary (HeadStart Gold) --- */
+  --color-brand-gold-1000: #fee054; /* Base */
+  --color-brand-gold-900: #fde264;
+  --color-brand-gold-800: #fce475;
+  --color-brand-gold-700: #fbe685;
+  --color-brand-gold-600: #fae895;
+  --color-brand-gold-500: #f8eaa5; /* Neutral */
+  --color-brand-gold-400: #f7ecb6;
+  --color-brand-gold-300: #f6eec6;
+  --color-brand-gold-200: #f5f0d6;
+  --color-brand-gold-100: #f4f2e7;
+  --color-brand-gold-50: #f4f3ef;
+
+  /* --- Tertiary / Neutral (Cloud Grey) --- */
+  --color-brand-grey-1000: #f3f4f7; /* Base */
+  --color-brand-grey-900: #f4f5f8;
+  --color-brand-grey-800: #f5f6f9;
+  --color-brand-grey-700: #f7f7f9;
+  --color-brand-grey-600: #f8f8fa;
+  --color-brand-grey-500: #f9f9fb; /* Neutral */
+  --color-brand-grey-400: #fafbfc;
+  --color-brand-grey-300: #fbfcfd;
+  --color-brand-grey-200: #fdfdfd;
+  --color-brand-grey-100: #fefefe;
+  --color-brand-grey-50: #fefeff;
+
+  /* --- Alerts : Information (Cobalt) --- */
+  --color-info-1000: #3f51b5; /* Base */
+  --color-info-900: #5161bc;
+  --color-info-800: #6372c2;
+  --color-info-700: #7582c9;
+  --color-info-600: #8792cf;
+  --color-info-500: #99a2d6;
+  --color-info-400: #abb3dd;
+  --color-info-300: #bdc3e3;
+  --color-info-200: #cfd3ea;
+  --color-info-100: #e1e4f0;
+  --color-info-50: #eaecf4;
+
+  /* --- Alerts: Success (Emerald) --- */
+  --color-success-1000: #2d8a5b; /* Base */
+  --color-success-900: #41956b;
+  --color-success-800: #559f7a;
+  --color-success-700: #68aa8a;
+  --color-success-600: #7cb499;
+  --color-success-500: #90bfa9;
+  --color-success-400: #a4cab9;
+  --color-success-300: #b8d4c8;
+  --color-success-200: #cbdfd8;
+  --color-success-100: #dfe9e7;
+  --color-success-50: #e9efef;
+
+  /* --- Alerts : Warning (Amber) --- */
+  --color-warning-1000: #f9a825; /* Base */
+  --color-warning-900: #f8b03a;
+  --color-warning-800: #f8b74f;
+  --color-warning-700: #f7bf64;
+  --color-warning-600: #f7c679;
+  --color-warning-500: #f6ce8e;
+  --color-warning-400: #f5d6a3;
+  --color-warning-300: #f5ddb8;
+  --color-warning-200: #f4e5cd;
+  --color-warning-100: #f4ece2;
+  --color-warning-50: #f3f0ec;
+
+  /* --- Alerts : Error (Crimson) --- */
+  --color-error-1000: #d32f2f; /* Base */
+  --color-error-900: #d64343;
+  --color-error-800: #d95657;
+  --color-error-700: #dd6a6b;
+  --color-error-600: #e07e7f;
+  --color-error-500: #e39193;
+  --color-error-400: #e6a5a7;
+  --color-error-300: #e9b9bb;
+  --color-error-200: #edcdcf;
+  --color-error-100: #f0e0e3;
+  --color-error-50: #f1eaed;
+
+  /* --- Black Palette --- */
+  --color-black-1000: #000000;
+  --color-black-900: #191919;
+  --color-black-800: #333333;
+  --color-black-700: #4c4c4c;
+  --color-black-600: #666666;
+  --color-black-500: #7f7f7f;
+  --color-black-400: #989898;
+  --color-black-300: #b2b2b2;
+  --color-black-200: #cbcbcb;
+  --color-black-100: #e5e5e5;
+  --color-black-50: #f1f1f1;
+
+  /* --- Typography System --- */
+  --font-heading: "Montserrat", sans-serif; /* For High-Level Brand Messaging */
+  --font-body: "Inter", sans-serif; /* For Course Materials & Data */
+}
+
+/* ============================================ */
+/* Global High-Integrity Styles */
 /* ============================================ */
 
 :root {
-  /* Light Theme Base Colors */
-  --background: #fefefe;
+  --background: var(--color-brand-grey-50);
   --foreground: #0d0d0d;
 }
 
-@theme inline {
-  /* ============================================ */
-  /* Base Theme Colors */
-  /* ============================================ */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-
-  /* ============================================ */
-  /* Spacing System (4px Base Unit) */
-  /* ============================================ */
-  --spacing-0: 0px;
-  --spacing-100: 4px;
-  --spacing-200: 8px;
-  --spacing-300: 12px;
-  --spacing-400: 16px;
-  --spacing-500: 20px;
-  --spacing-600: 24px;
-  --spacing-700: 28px;
-  --spacing-800: 32px;
-  --spacing-900: 36px;
-  --spacing-1000: 40px;
-  --spacing-1100: 44px;
-  --spacing-1200: 48px;
-
-  /* ============================================ */
-  /* Border Radius System */
-  /* ============================================ */
-  --radius-xs: 4px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
-  --radius-2xl: 24px;
-
-  /* ============================================ */
-  /* Typography System */
-  /* ============================================ */
-
-  /* Font Sizes */
-  --font-size-xs: 12px;
-  --font-size-sm: 14px;
-  --font-size-md: 16px;
-  --font-size-lg: 18px;
-  --font-size-xl: 20px;
-  --font-size-2xl: 24px;
-  --font-size-3xl: 30px;
-  --font-size-4xl: 36px;
-  --font-size-5xl: 48px;
-  --font-size-6xl: 60px;
-  --font-size-7xl: 72px;
-
-  /* Line Heights */
-  --line-height-xs: 18px;
-  --line-height-sm: 20px;
-  --line-height-md: 24px;
-  --line-height-lg: 28px;
-  --line-height-xl: 30px;
-  --line-height-2xl: 32px;
-  --line-height-3xl: 38px;
-  --line-height-4xl: 44px;
-  --line-height-5xl: 60px;
-  --line-height-6xl: 72px;
-  --line-height-7xl: 90px;
-
-  /* Font Weights (Open Sans Google Font) */
-  /* Note: Open Sans (Google Font) only supports weights 300-800
-     - Thin (100) and Extra Light (200) will fallback to Light (300)
-     - Black (900) will fallback to Extra Bold (800) */
-  --font-weight-thin: 300; /* Fallback: Open Sans doesn't have 100 */
-  --font-weight-extra-light: 300; /* Fallback: Open Sans doesn't have 200 */
-  --font-weight-light: 300;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semi-bold: 600;
-  --font-weight-bold: 700;
-  --font-weight-extra-bold: 800;
-  --font-weight-black: 800; /* Fallback: Open Sans doesn't have 900 */
-
-  /* Font Weights (Alternative) - Only for Google Fonts that support 100-900 */
-  /* --font-weight-thin: 100;
-  --font-weight-extra-light: 200;
-  --font-weight-light: 300;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semi-bold: 600;
-  --font-weight-bold: 700;
-  --font-weight-extra-bold: 800;
-  --font-weight-black: 900; */
-
-  /* ============================================ */
-  /* Icon Sizes */
-  /* ============================================ */
-  --icon-xs: 24px;
-  --icon-sm: 32px;
-  --icon-md: 40px;
-  --icon-lg: 48px;
-  --icon-xl: 56px;
-  --icon-2xl: 64px;
-
-  /* ============================================ */
-  /* Status / Semantic Colors (Alias) */
-  /* ============================================ */
-
-  /* Error Colors */
-  --color-error-50: #fee5e5;
-  --color-error-100: #fecbcb;
-  --color-error-200: #fe9898;
-  --color-error-300: #ff6666;
-  --color-error-400: #ff3333;
-  --color-error-500: #ff0000;
-  --color-error-600: #cc0000;
-  --color-error-700: #990000;
-  --color-error-800: #670101;
-  --color-error-900: #340101;
-  --color-error-950: #1a0101;
-
-  /* Success Colors */
-  --color-success-50: #e5f8e5;
-  --color-success-100: #cbf1cb;
-  --color-success-200: #98e598;
-  --color-success-300: #66d866;
-  --color-success-400: #33cc33;
-  --color-success-500: #00bf00;
-  --color-success-600: #009900;
-  --color-success-700: #007300;
-  --color-success-800: #014d01;
-  --color-success-900: #012701;
-  --color-success-950: #011401;
-
-  /* Warning Colors */
-  --color-warning-50: #fefee5;
-  --color-warning-100: #fefecb;
-  --color-warning-200: #fefe98;
-  --color-warning-300: #ffff66;
-  --color-warning-400: #ffff33;
-  --color-warning-500: #ffff00;
-  --color-warning-600: #cccc00;
-  --color-warning-700: #999900;
-  --color-warning-800: #676701;
-  --color-warning-900: #343401;
-  --color-warning-950: #1a1a01;
-
-  /* Information Colors */
-  --color-info-50: #e5e5fe;
-  --color-info-100: #cbcbfe;
-  --color-info-200: #9898fe;
-  --color-info-300: #6666ff;
-  --color-info-400: #3333ff;
-  --color-info-500: #0000ff;
-  --color-info-600: #0000cc;
-  --color-info-700: #000099;
-  --color-info-800: #010167;
-  --color-info-900: #010134;
-  --color-info-950: #01011a;
-
-  /* ============================================ */
-  /* Pure Color System Palette */
-  /* ============================================ */
-
-  /* Violet */
-  --color-violet-50: #f4e5fe;
-  --color-violet-100: #e9cbfe;
-  --color-violet-200: #d498fe;
-  --color-violet-300: #bf66ff;
-  --color-violet-400: #aa33ff;
-  --color-violet-500: #9500ff;
-  --color-violet-600: #7700cc;
-  --color-violet-700: #5a0099;
-  --color-violet-800: #3c0167;
-  --color-violet-900: #1f0134;
-  --color-violet-950: #10011a;
-
-  /* Purple */
-  --color-purple-50: #f4e6f9;
-  --color-purple-100: #e8ccf2;
-  --color-purple-200: #d199e5;
-  --color-purple-300: #ba66d9;
-  --color-purple-400: #a333cc;
-  --color-purple-500: #8c00bf;
-  --color-purple-600: #700099;
-  --color-purple-700: #540073;
-  --color-purple-800: #39014d;
-  --color-purple-900: #1d0127;
-  --color-purple-950: #0f0114;
-
-  /* Indigo */
-  --color-indigo-50: #ece5f2;
-  --color-indigo-100: #dacbe5;
-  --color-indigo-200: #b698cc;
-  --color-indigo-300: #9366b4;
-  --color-indigo-400: #6f339b;
-  --color-indigo-500: #4b0082;
-  --color-indigo-600: #3c0068;
-  --color-indigo-700: #2d004e;
-  --color-indigo-800: #1f0135;
-  --color-indigo-900: #10011b;
-  --color-indigo-950: #08010e;
-
-  /* Pink */
-  --color-pink-50: #fef1fe;
-  --color-pink-100: #fee5fe;
-  --color-pink-200: #feccfe;
-  --color-pink-300: #ffb2ff;
-  --color-pink-400: #ff99ff;
-  --color-pink-500: #ff80ff;
-  --color-pink-600: #cc67cc;
-  --color-pink-700: #994d99;
-  --color-pink-800: #673467;
-  --color-pink-900: #341a34;
-  --color-pink-950: #1a0e1a;
-
-  /* Magenta */
-  --color-magenta-50: #fce5f3;
-  --color-magenta-100: #facbe7;
-  --color-magenta-200: #f798d0;
-  --color-magenta-300: #f366ba;
-  --color-magenta-400: #f033a3;
-  --color-magenta-500: #ec008c;
-  --color-magenta-600: #bd0070;
-  --color-magenta-700: #8e0054;
-  --color-magenta-800: #5f0139;
-  --color-magenta-900: #30011d;
-  --color-magenta-950: #18010f;
-
-  /* Red */
-  --color-red-50: #fee5e5;
-  --color-red-100: #fecbcb;
-  --color-red-200: #fe9898;
-  --color-red-300: #ff6666;
-  --color-red-400: #ff3333;
-  --color-red-500: #ff0000;
-  --color-red-600: #cc0000;
-  --color-red-700: #990000;
-  --color-red-800: #670101;
-  --color-red-900: #340101;
-  --color-red-950: #1a0101;
-
-  /* Orange */
-  --color-orange-50: #fef1e5;
-  --color-orange-100: #fee5cb;
-  --color-orange-200: #fecc98;
-  --color-orange-300: #ffb266;
-  --color-orange-400: #ff9933;
-  --color-orange-500: #ff8000;
-  --color-orange-600: #cc6700;
-  --color-orange-700: #994d00;
-  --color-orange-800: #673401;
-  --color-orange-900: #341a01;
-  --color-orange-950: #1a0e01;
-
-  /* Gold */
-  --color-gold-50: #fefae5;
-  --color-gold-100: #fef6cb;
-  --color-gold-200: #feee98;
-  --color-gold-300: #ffe766;
-  --color-gold-400: #ffdf33;
-  --color-gold-500: #ffd700;
-  --color-gold-600: #ccac00;
-  --color-gold-700: #998100;
-  --color-gold-800: #675701;
-  --color-gold-900: #342c01;
-  --color-gold-950: #1a1601;
-
-  /* Yellow */
-  --color-yellow-50: #fefee5;
-  --color-yellow-100: #fefecb;
-  --color-yellow-200: #fefe98;
-  --color-yellow-300: #ffff66;
-  --color-yellow-400: #ffff33;
-  --color-yellow-500: #ffff00;
-  --color-yellow-600: #cccc00;
-  --color-yellow-700: #999900;
-  --color-yellow-800: #676701;
-  --color-yellow-900: #343401;
-  --color-yellow-950: #1a1a01;
-
-  /* Lime */
-  --color-lime-50: #f2fee5;
-  --color-lime-100: #e6fecb;
-  --color-lime-200: #cefe98;
-  --color-lime-300: #b5ff66;
-  --color-lime-400: #9dff33;
-  --color-lime-500: #85ff00;
-  --color-lime-600: #6bcc00;
-  --color-lime-700: #509900;
-  --color-lime-800: #366701;
-  --color-lime-900: #1b3401;
-  --color-lime-950: #0e1a01;
-
-  /* Green */
-  --color-green-50: #e5f8e5;
-  --color-green-100: #cbf1cb;
-  --color-green-200: #98e598;
-  --color-green-300: #66d866;
-  --color-green-400: #33cc33;
-  --color-green-500: #00bf00;
-  --color-green-600: #009900;
-  --color-green-700: #007300;
-  --color-green-800: #014d01;
-  --color-green-900: #012701;
-  --color-green-950: #011401;
-
-  /* Teal */
-  --color-teal-50: #e5f1f1;
-  --color-teal-100: #cbe5e5;
-  --color-teal-200: #98cccc;
-  --color-teal-300: #66b2b2;
-  --color-teal-400: #339999;
-  --color-teal-500: #008080;
-  --color-teal-600: #006767;
-  --color-teal-700: #004d4d;
-  --color-teal-800: #013434;
-  --color-teal-900: #011a1a;
-  --color-teal-950: #010e0e;
-
-  /* Aqua */
-  --color-aqua-50: #e5fefd;
-  --color-aqua-100: #cbfefb;
-  --color-aqua-200: #98fef8;
-  --color-aqua-300: #66fff6;
-  --color-aqua-400: #33fff3;
-  --color-aqua-500: #00fff0;
-  --color-aqua-600: #00ccc0;
-  --color-aqua-700: #009990;
-  --color-aqua-800: #016761;
-  --color-aqua-900: #013431;
-  --color-aqua-950: #011a19;
-
-  /* Blue */
-  --color-blue-50: #e5e5fe;
-  --color-blue-100: #cbcbfe;
-  --color-blue-200: #9898fe;
-  --color-blue-300: #6666ff;
-  --color-blue-400: #3333ff;
-  --color-blue-500: #0000ff;
-  --color-blue-600: #0000cc;
-  --color-blue-700: #000099;
-  --color-blue-800: #010167;
-  --color-blue-900: #010134;
-  --color-blue-950: #01011a;
-
-  /* Brown */
-  --color-brown-50: #f4ece5;
-  --color-brown-100: #e9dacb;
-  --color-brown-200: #d4b698;
-  --color-brown-300: #c09366;
-  --color-brown-400: #ab6f33;
-  --color-brown-500: #964b00;
-  --color-brown-600: #783c00;
-  --color-brown-700: #5a2d00;
-  --color-brown-800: #3d1f01;
-  --color-brown-900: #1f1001;
-  --color-brown-950: #100801;
-
-  /* Gray */
-  --color-gray-50: #f1f1f1;
-  --color-gray-100: #e5e5e5;
-  --color-gray-200: #cccccc;
-  --color-gray-300: #b2b2b2;
-  --color-gray-400: #999999;
-  --color-gray-500: #808080;
-  --color-gray-600: #676767;
-  --color-gray-700: #4d4d4d;
-  --color-gray-800: #343434;
-  --color-gray-900: #1a1a1a;
-  --color-gray-950: #0e0e0e;
-
-  /* Slate */
-  --color-slate-50: #f0f2f4;
-  --color-slate-100: #e1e5e9;
-  --color-slate-200: #c4ccd4;
-  --color-slate-300: #a7b3c0;
-  --color-slate-400: #8a9aab;
-  --color-slate-500: #6d8196;
-  --color-slate-600: #576778;
-  --color-slate-700: #424e5a;
-  --color-slate-800: #2c343d;
-  --color-slate-900: #171b1f;
-  --color-slate-950: #0c0e10;
-
-  /* Black */
-  --color-black-50: #f1f1f1;
-  --color-black-100: #e5e5e5;
-  --color-black-200: #cbcbcb;
-  --color-black-300: #b2b2b2;
-  --color-black-400: #989898;
-  --color-black-500: #7f7f7f;
-  --color-black-600: #666666;
-  --color-black-700: #4c4c4c;
-  --color-black-800: #333333;
-  --color-black-900: #191919;
-  --color-black-950: #000000;
-
-  /* White */
-  --color-white-50: #0e0e0e;
-  --color-white-100: #1a1a1a;
-  --color-white-200: #343434;
-  --color-white-300: #4d4d4d;
-  --color-white-400: #676767;
-  --color-white-500: #808080;
-  --color-white-600: #999999;
-  --color-white-700: #b3b3b3;
-  --color-white-800: #cccccc;
-  --color-white-900: #e6e6e6;
-  --color-white-950: #ffffff;
-
-  /* ============================================ */
-  /* Theme-Specific Colors */
-  /* ============================================ */
-
-  /* Light Mode : Off-White (60%) */
-  --color-lightmode-offwhite60-50: #0d0d0d;
-  --color-lightmode-offwhite60-100: #191919;
-  --color-lightmode-offwhite60-200: #333333;
-  --color-lightmode-offwhite60-300: #4c4c4c;
-  --color-lightmode-offwhite60-400: #666666;
-  --color-lightmode-offwhite60-500: #7f7f7f;
-  --color-lightmode-offwhite60-600: #989898;
-  --color-lightmode-offwhite60-700: #b2b2b2;
-  --color-lightmode-offwhite60-800: #cbcbcb;
-  --color-lightmode-offwhite60-900: #e4e4e4;
-  --color-lightmode-offwhite60-950: #fefefe;
-
-  /* Light Mode : Bright Gray (30%) */
-  --color-lightmode-brightgray30-50: #0c0c0c;
-  --color-lightmode-brightgray30-100: #181818;
-  --color-lightmode-brightgray30-200: #303030;
-  --color-lightmode-brightgray30-300: #484848;
-  --color-lightmode-brightgray30-400: #606060;
-  --color-lightmode-brightgray30-500: #777777;
-  --color-lightmode-brightgray30-600: #8f8f8f;
-  --color-lightmode-brightgray30-700: #a7a7a7;
-  --color-lightmode-brightgray30-800: #bfbfbf;
-  --color-lightmode-brightgray30-900: #d7d7d7;
-  --color-lightmode-brightgray30-950: #efefef;
-
-  /* Dark Mode : Dark Gray (60%) */
-  --color-darkmode-darkgray60-50: #f2f2f2;
-  --color-darkmode-darkgray60-100: #e6e6e6;
-  --color-darkmode-darkgray60-200: #cccccc;
-  --color-darkmode-darkgray60-300: #b3b3b3;
-  --color-darkmode-darkgray60-400: #999999;
-  --color-darkmode-darkgray60-500: #808080;
-  --color-darkmode-darkgray60-600: #676767;
-  --color-darkmode-darkgray60-700: #4d4d4d;
-  --color-darkmode-darkgray60-800: #343434;
-  --color-darkmode-darkgray60-900: #1a1a1a;
-  --color-darkmode-darkgray60-950: #010101;
-
-  /* Dark Mode : Grayish Blue (30%) */
-  --color-darkmode-grayishblue30-50: #f4f4f4;
-  --color-darkmode-grayishblue30-100: #e9e9ea;
-  --color-darkmode-grayishblue30-200: #d3d4d5;
-  --color-darkmode-grayishblue30-300: #bcbec0;
-  --color-darkmode-grayishblue30-400: #a6a8ab;
-  --color-darkmode-grayishblue30-500: #909295;
-  --color-darkmode-grayishblue30-600: #7a7d80;
-  --color-darkmode-grayishblue30-700: #64676b;
-  --color-darkmode-grayishblue30-800: #4d5156;
-  --color-darkmode-grayishblue30-900: #373c41;
-  --color-darkmode-grayishblue30-950: #21262c;
-
-  /* ============================================ */
-  /* Gradient Colors (500-900 for Smooth Gradients) */
-  /* ============================================ */
-
-  /* Black Gradients */
-  --gradient-black-500: #7f7f7f;
-  --gradient-black-600: #666666;
-  --gradient-black-700: #4c4c4c;
-  --gradient-black-800: #333333;
-  --gradient-black-900: #191919;
-
-  /* White Gradients */
-  --gradient-white-500: #808080;
-  --gradient-white-600: #999999;
-  --gradient-white-700: #b3b3b3;
-  --gradient-white-800: #cccccc;
-  --gradient-white-900: #e6e6e6;
-
-  /* Gray Gradients */
-  --gradient-gray-500: #808080;
-  --gradient-gray-600: #676767;
-  --gradient-gray-700: #4d4d4d;
-  --gradient-gray-800: #343434;
-  --gradient-gray-900: #1a1a1a;
-
-  /* Slate Gradients */
-  --gradient-slate-500: #6d8196;
-  --gradient-slate-600: #576778;
-  --gradient-slate-700: #424e5a;
-  --gradient-slate-800: #2c343d;
-  --gradient-slate-900: #171b1f;
-
-  /* Indigo Gradients */
-  --gradient-indigo-500: #4b0082;
-  --gradient-indigo-600: #3c0068;
-  --gradient-indigo-700: #2d004e;
-  --gradient-indigo-800: #1f0135;
-  --gradient-indigo-900: #10011b;
-
-  /* Purple Gradients */
-  --gradient-purple-500: #8c00bf;
-  --gradient-purple-600: #700099;
-  --gradient-purple-700: #540073;
-  --gradient-purple-800: #39014d;
-  --gradient-purple-900: #1d0127;
-
-  /* Violet Gradients */
-  --gradient-violet-500: #9500ff;
-  --gradient-violet-600: #7700cc;
-  --gradient-violet-700: #5a0099;
-  --gradient-violet-800: #3c0167;
-  --gradient-violet-900: #1f0134;
-
-  /* Pink Gradients */
-  --gradient-pink-500: #ff80ff;
-  --gradient-pink-600: #cc67cc;
-  --gradient-pink-700: #994d99;
-  --gradient-pink-800: #673467;
-  --gradient-pink-900: #341a34;
-
-  /* Magenta Gradients */
-  --gradient-magenta-500: #ec008c;
-  --gradient-magenta-600: #bd0070;
-  --gradient-magenta-700: #8e0054;
-  --gradient-magenta-800: #5f0139;
-  --gradient-magenta-900: #30011d;
-
-  /* Red Gradients */
-  --gradient-red-500: #ff0000;
-  --gradient-red-600: #cc0000;
-  --gradient-red-700: #990000;
-  --gradient-red-800: #670101;
-  --gradient-red-900: #340101;
-
-  /* Orange Gradients */
-  --gradient-orange-500: #ff8000;
-  --gradient-orange-600: #cc6700;
-  --gradient-orange-700: #994d00;
-  --gradient-orange-800: #673401;
-  --gradient-orange-900: #341a01;
-
-  /* Gold Gradients */
-  --gradient-gold-500: #ffd700;
-  --gradient-gold-600: #ccac00;
-  --gradient-gold-700: #998100;
-  --gradient-gold-800: #675701;
-  --gradient-gold-900: #342c01;
-
-  /* Yellow Gradients */
-  --gradient-yellow-500: #ffff00;
-  --gradient-yellow-600: #cccc00;
-  --gradient-yellow-700: #999900;
-  --gradient-yellow-800: #676701;
-  --gradient-yellow-900: #343401;
-
-  /* Lime Gradients */
-  --gradient-lime-500: #85ff00;
-  --gradient-lime-600: #6bcc00;
-  --gradient-lime-700: #509900;
-  --gradient-lime-800: #366701;
-  --gradient-lime-900: #1b3401;
-
-  /* Green Gradients */
-  --gradient-green-500: #00bf00;
-  --gradient-green-600: #009900;
-  --gradient-green-700: #007300;
-  --gradient-green-800: #014d01;
-  --gradient-green-900: #012701;
-
-  /* Teal Gradients */
-  --gradient-teal-500: #008080;
-  --gradient-teal-600: #006767;
-  --gradient-teal-700: #004d4d;
-  --gradient-teal-800: #013434;
-  --gradient-teal-900: #011a1a;
-
-  /* Aqua Gradients */
-  --gradient-aqua-500: #00fff0;
-  --gradient-aqua-600: #00ccc0;
-  --gradient-aqua-700: #009990;
-  --gradient-aqua-800: #016761;
-  --gradient-aqua-900: #013431;
-
-  /* Blue Gradients */
-  --gradient-blue-500: #0000ff;
-  --gradient-blue-600: #0000cc;
-  --gradient-blue-700: #000099;
-  --gradient-blue-800: #010167;
-  --gradient-blue-900: #010134;
-
-  /* Brown Gradients */
-  --gradient-brown-500: #964b00;
-  --gradient-brown-600: #783c00;
-  --gradient-brown-700: #5a2d00;
-  --gradient-brown-800: #3d1f01;
-  --gradient-brown-900: #1f1001;
-
-  /* Fonts */
-  --font-sans: var(--font-open-sans), system-ui, -apple-system, sans-serif;
-  --font-mono: var(--font-geist-mono), "Courier New", monospace;
-}
-
-/* ============================================ */
-/* Default : Dark Mode Theme */
-/* ============================================ */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #010101;
-    --foreground: #f2f2f2;
-  }
-}
-
-/* ============================================ */
-/* Global Styles */
-/* ============================================ */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
-  font-size: var(--font-size-md);
-  line-height: var(--line-height-md);
-  font-weight: var(--font-weight-regular);
+  font-family: var(--font-body);
+  font-weight: 400; /* Inter Regular */
 }
 
-/* ============================================ */
-/* Typography Utilities */
-/* ============================================ */
-
-/* Headings */
-h1 {
-  font-size: var(--font-size-5xl);
-  line-height: var(--line-height-5xl);
-  font-weight: var(--font-weight-bold);
-}
-
+/* Headings : Strict Montserrat Weight Mapping */
+h1,
 h2 {
-  font-size: var(--font-size-4xl);
-  line-height: var(--line-height-4xl);
-  font-weight: var(--font-weight-semi-bold);
+  font-family: var(--font-heading);
+  font-weight: 700; /* Montserrat Bold */
 }
 
-h3 {
-  font-size: var(--font-size-3xl);
-  line-height: var(--line-height-3xl);
-  font-weight: var(--font-weight-semi-bold);
-}
-
+h3,
 h4 {
-  font-size: var(--font-size-2xl);
-  line-height: var(--line-height-2xl);
-  font-weight: var(--font-weight-medium);
+  font-family: var(--font-heading);
+  font-weight: 500; /* Montserrat Medium */
 }
 
-h5 {
-  font-size: var(--font-size-xl);
-  line-height: var(--line-height-xl);
-  font-weight: var(--font-weight-medium);
+/* Data & Paragraph Defaults */
+p {
+  font-family: var(--font-body);
+  font-weight: 400; /* Inter Regular */
 }
 
-h6 {
-  font-size: var(--font-size-lg);
-  line-height: var(--line-height-lg);
-  font-weight: var(--font-weight-medium);
-}
-
-/* Text Size Classes (for <p>, <span>, etc.) */
-.text-extra-large {
-  font-size: var(--font-size-xl);
-  line-height: var(--line-height-xl);
-  font-weight: var(--font-weight-regular);
-}
-
-.text-large {
-  font-size: var(--font-size-lg);
-  line-height: var(--line-height-lg);
-  font-weight: var(--font-weight-regular);
-}
-
-.text-medium {
-  font-size: var(--font-size-md);
-  line-height: var(--line-height-md);
-  font-weight: var(--font-weight-regular);
-}
-
-.text-small {
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-sm);
-  font-weight: var(--font-weight-regular);
-}
-
-.text-extra-small {
-  font-size: var(--font-size-xs);
-  line-height: var(--line-height-xs);
-  font-weight: var(--font-weight-regular);
+.data-value {
+  font-family: var(--font-body);
+  font-weight: 600; /* Inter Semi-Bold */
 }
