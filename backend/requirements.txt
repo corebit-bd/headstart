@@ -3,7 +3,7 @@
 # ============================================
 
 # Core Django - LTS Version
-Django>=5.2,<6.1
+Django>=6.0.5,<6.1
 
 # Django REST Framework
 djangorestframework>=3.17.1,<4.0
@@ -22,13 +22,13 @@ drf-yasg>=1.21.11,<2.0
 
 # Authentication & Security
 djangorestframework-simplejwt>=5.5.1,<6.0
-django-filter>=24.0,<26.0
+django-filter>=25.2,<26.0
 
 # GraphQL (Optional)
 graphene-django>=3.2.3,<4.0
 
 # FastAPI Integration (Optional)
-fastapi>=0.119.0,<1.0
+fastapi>=0.136.1,<1.0
 uvicorn>=0.46.0,<1.0
 pydantic>=2.12.2,<3.0
 
