@@ -28,7 +28,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@types/react": "~19.2.14",
+    "@types/react": "~19.2.15",
     "typescript": "~6.0.3"
   },
   "overrides": {
