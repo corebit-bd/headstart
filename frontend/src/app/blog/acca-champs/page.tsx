@@ -1,11 +1,11 @@
 export default function ACCAChamps() {
   return (
-    <div className="bg-white min-h-screen py-20">
+    <div className="min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="font-heading text-4xl font-bold text-brand-purple-1000">
+        <h1 className="font-heading text-4xl text-center font-bold text-brand-purple-1000">
           ACCA Champs
         </h1>
-        <p className="mt-4 font-body text-black-600">
+        <p className="mt-4 font-body text-black-800 text-center">
           Celebrating our world-class achievers and top scorers.
         </p>
 
@@ -13,7 +13,7 @@ export default function ACCAChamps() {
           {[1, 2, 3].map((i) => (
             <div
               key={i}
-              className="group relative rounded-2xl border border-brand-grey-1000 p-6 hover:shadow-xl transition-all"
+              className="group relative rounded-2xl border border-brand-purple-300 p-6 hover:shadow-xl transition-all hover:border-brand-purple-1000"
             >
               <div className="aspect-square rounded-xl bg-brand-gold-50 mb-6 overflow-hidden flex items-center justify-center">
                 <span className="font-heading text-brand-gold-1000 font-bold text-lg">

@@ -23,7 +23,7 @@ const facultyMembers = [
 
 export default function FacultyList() {
   return (
-    <div className="bg-white min-h-screen py-20">
+    <div className="min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-20">
@@ -76,7 +76,7 @@ export default function FacultyList() {
         </div>
 
         {/* Join the Faculty CTA */}
-        <div className="mt-32 rounded-3xl bg-brand-grey-50 border border-brand-grey-1000 p-12 text-center">
+        <div className="mt-32 rounded-3xl bg-brand-gold-1000 border border-brand-grey-1000 p-12 text-center">
           <h2 className="font-heading text-2xl font-bold text-black-900">
             Are you an expert in your field?
           </h2>

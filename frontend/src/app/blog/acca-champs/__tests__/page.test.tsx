@@ -16,9 +16,9 @@ describe("ACCAChamps Component", () => {
       "text-brand-purple-1000"
     );
 
-    // Check Background Wrapper
+    // Check Background Wrapper (Updated to match component classes exactly)
     const wrapper = heading.closest("div")?.parentElement;
-    expect(wrapper).toHaveClass("bg-white", "min-h-screen");
+    expect(wrapper).toHaveClass("min-h-screen", "py-20");
   });
 
   it("renders the correct number of Champ Cards", () => {

@@ -1,74 +1,77 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import AboutPage from "../page";
 
 describe("AboutPage Component", () => {
   it("renders the Hero Section with correct Branding & Heading", () => {
     render(<AboutPage />);
 
-    // Check main heading
-    const heading = screen.getByRole("heading", { name: /Our Story/i });
+    // Check main heading matching your page's text exactly
+    const heading = screen.getByRole("heading", { name: /About HeadStart/i });
     expect(heading).toBeInTheDocument();
-    expect(heading).toHaveClass("font-heading", "text-5xl");
+    expect(heading).toHaveClass("font-heading", "text-5xl", "font-bold");
 
     // Check Hero Container Branding
     const heroSection = heading.closest("section");
-    expect(heroSection).toHaveClass("bg-brand-purple-1000");
+    expect(heroSection).toHaveClass("bg-brand-purple-1000", "py-24");
   });
 
-  it("renders the Mission & Vision Section with correct Labels", () => {
+  it("renders all Tab trigger buttons in the container", () => {
     render(<AboutPage />);
 
-    // Check for the Rounded-Full Badge Labels
-    expect(screen.getByText(/Our Mission/i)).toBeInTheDocument();
-    expect(screen.getByText(/Our Vision/i)).toBeInTheDocument();
+    // Check for the tab headers matching the implemented aboutTabs array
+    expect(screen.getByRole("button", { name: /Introduction/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Mission & Vision/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Our Faculty/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /National Prize-Winners/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Our Alumni/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Accreditations/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Our Partnerships/i })).toBeInTheDocument();
+  });
 
-    // Check for specific Sub-Headings
+  it("contains the correct Foundational Text about HeadStart's History inside the default tab", () => {
+    render(<AboutPage />);
+
+    // Verify initial layout content snippets that are visible by default
     expect(
-      screen.getByText(/Empowering Future Finance Leaders/i),
+      screen.getByText(/founded in 2020 by renowned FCCA/i)
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/Excellence in Professional Accountancy/i),
+      screen.getByText(/a GOLD Approved Learning Partner, Approved Employer/i)
     ).toBeInTheDocument();
   });
 
-  it("renders both Academic & Advisory Wings in the Dual-Wing Section", () => {
+  it("switches content to display the Mission & Vision Section when its tab is clicked", () => {
     render(<AboutPage />);
 
-    // Verify Wing Titles
-    expect(
-      screen.getByRole("heading", { name: /^Academic$/i, level: 3 }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("heading", { name: /^Advisory$/i, level: 3 }),
-    ).toBeInTheDocument();
+    // Click the Mission & Vision Tab button to mount the contents
+    const tabButton = screen.getByRole("button", { name: /Mission & Vision/i });
+    fireEvent.click(tabButton);
 
-    // Verify Index Indicators (01 & 02)
-    expect(screen.getByText("01")).toBeInTheDocument();
-    expect(screen.getByText("02")).toBeInTheDocument();
+    // Verify structural headings inside the active content view block
+    expect(screen.getByRole("heading", { name: /Our Mission/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /Our Vision/i, level: 3 })).toBeInTheDocument();
+
+    // Verify content assertions matching text exactly
+    expect(
+      screen.getByText(/build the next generation of finance enthusiasts as competent/i)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Centre of Excellence & the flagbearer in serving Competent Professional Accountants/i)
+    ).toBeInTheDocument();
   });
 
-  it("applies the correct Background Colors to the Dual-Wing Icons", () => {
+  it("verifies formatting border accent accents are present inside the Mission & Vision pane", () => {
     render(<AboutPage />);
 
-    const academicIcon = screen.getByText("01").parentElement;
-    const advisoryIcon = screen.getByText("02").parentElement;
+    // Activate the Tab view pane
+    fireEvent.click(screen.getByRole("button", { name: /Mission & Vision/i }));
 
-    // Validate Branding Colors based on Code
-    expect(academicIcon).toHaveClass("bg-brand-purple-1000");
-    expect(advisoryIcon).toHaveClass("bg-brand-gold-1000");
-  });
+    const missionHeading = screen.getByRole("heading", { name: /Our Mission/i });
+    const visionHeading = screen.getByRole("heading", { name: /Our Vision/i });
 
-  it("contains the correct Foundational Text about HeadStart's History", () => {
-    render(<AboutPage />);
-
-    // Verify specific Content Snippets
-    expect(
-      screen.getByText(/founded in 2020 by renowned FCCA/i),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText(/Business Process Optimization \(BPO\)/i),
-    ).toBeInTheDocument();
-    expect(screen.getByText(/OBU RAP Mentorship/i)).toBeInTheDocument();
+    // Validate your custom left accents match implementation tokens exactly
+    expect(missionHeading.parentElement).toHaveClass("border-l-4", "border-brand-purple-1000");
+    expect(visionHeading.parentElement).toHaveClass("border-l-4", "border-brand-gold-500");
   });
 });
