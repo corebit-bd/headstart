@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import { NavLink } from "../NavLink";
+import { NavLink } from "../NavLink"; // Adjusted path assuming it's in the same directory relative to your setup
 
 describe("NavLink Component", () => {
   it("renders with correct text and href attribute", () => {
@@ -10,20 +10,20 @@ describe("NavLink Component", () => {
     expect(link).toHaveAttribute("href", "/services");
   });
 
-  it("applies active styles (text-black-1000) when isActive is true", () => {
+  it("applies active styles (text-brand-purple-50) when isActive is true", () => {
     render(
       <NavLink href="/blog" isActive>
         Blog
       </NavLink>,
     );
     const link = screen.getByRole("link");
-    expect(link).toHaveClass("text-black-1000");
+    expect(link).toHaveClass("text-brand-purple-50");
   });
 
-  it("applies hover brand color when isActive is false", () => {
+  it("applies hover brand color (hover:text-brand-gold-1000) when isActive is false", () => {
     render(<NavLink href="/faculty">Faculty</NavLink>);
     const link = screen.getByRole("link");
-    expect(link).toHaveClass("hover:text-brand-purple-1000");
+    expect(link).toHaveClass("hover:text-brand-gold-1000");
   });
 
   it("merges custom className with base styles", () => {

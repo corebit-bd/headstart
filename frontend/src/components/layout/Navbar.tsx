@@ -23,14 +23,14 @@ export default function Navbar() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-brand-grey-1000 bg-brand-grey-1000/90 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 w-full border-b border-brand-purple-700 bg-brand-purple-1000 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo Section */}
           <div className="flex shrink-0 items-center">
             <Link
               href="/"
-              className="font-heading text-2xl font-bold text-brand-purple-1000 tracking-tight"
+              className="font-heading text-2xl font-bold text-brand-purple-50 tracking-tight"
             >
               HeadStart
             </Link>
@@ -40,7 +40,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <div className="flex items-center space-x-8 font-heading text-sm font-medium">
               {/* About Us */}
-              <NavLink href="/about" className="flex items-center gap-1">
+              <NavLink href="/about" className="flex items-center gap-1 text-brand-purple-50">
                 About Us
               </NavLink>
 
@@ -50,7 +50,7 @@ export default function Navbar() {
                 onMouseEnter={() => setIsServicesOpen(true)}
                 onMouseLeave={() => setIsServicesOpen(false)}
               >
-                <button className="flex items-center gap-1 text-black-1000 group-hover:text-brand-purple-1000 transition-colors focus:outline-none">
+                <button className="flex items-center gap-1 text-brand-purple-50 group-hover:text-brand-gold-1000 transition-colors focus:outline-none">
                   Services
                   <svg
                     className={`h-4 w-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`}
@@ -104,7 +104,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link href="/enroll">
               <Button variant="secondary" size="lg">
-                Enroll Now
+                Apply Now
               </Button>
             </Link>
           </div>

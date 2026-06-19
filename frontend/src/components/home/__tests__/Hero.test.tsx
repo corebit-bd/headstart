@@ -10,64 +10,59 @@ jest.mock("next/link", () => {
 });
 
 describe("Hero Component", () => {
-  it("renders the primary tagline badge", () => {
-    render(<Hero />);
-    const tagline = screen.getByText(/Professional Accountacy Services/i);
-    expect(tagline).toBeInTheDocument();
-    expect(tagline).toHaveClass("bg-brand-purple-50");
-  });
-
   it("renders the main heading and highlighted text", () => {
     render(<Hero />);
-    expect(screen.getByText(/Empowering Future/i)).toBeInTheDocument();
-    expect(screen.getByText(/ACCA Leaders/i)).toBeInTheDocument();
-    expect(screen.getByText(/ACCA Leaders/i)).toHaveClass(
-      "text-brand-purple-1000",
-    );
+    
+    // Check for main heading structure
+    expect(screen.getByText(/The Future of/i)).toBeInTheDocument();
+    
+    const accaText = screen.getByText("ACCA");
+    expect(accaText).toBeInTheDocument();
+    expect(accaText).toHaveClass("text-error-1000");
+
+    const subHeading = screen.getByText(/In Bangladesh Starts Here/i);
+    expect(subHeading).toBeInTheDocument();
+    expect(subHeading).toHaveClass("text-brand-purple-1000");
   });
 
   it("renders the descriptive text containing partner statuses", () => {
     render(<Hero />);
-    const description = screen.getByText(/ACCA Approved Learning Partner/i);
+    const description = screen.getByText(/HeadStart is an ACCA Approved Learning Partner/i);
     expect(description).toBeInTheDocument();
   });
 
   it("renders the call-to-action buttons with correct links", () => {
     render(<Hero />);
 
-    const enrollLink = screen.getByRole("link", {
-      name: /Start Your Journey/i,
-    });
-    const servicesLink = screen.getByRole("link", {
-      name: /Explore Services/i,
-    });
+    // Query elements by their precise accessible names
+    const applyLink = screen.getByRole("link", { name: /Apply Now/i });
+    const consultLink = screen.getByRole("link", { name: /Book Free Consultation/i });
+    const whatsappLink = screen.getByRole("link", { name: /Chat on WhatsApp/i });
 
-    expect(enrollLink).toBeInTheDocument();
-    expect(enrollLink).toHaveAttribute("href", "/enroll");
+    expect(applyLink).toBeInTheDocument();
+    expect(applyLink).toHaveAttribute("href", "/enroll");
 
-    expect(servicesLink).toBeInTheDocument();
-    expect(servicesLink).toHaveAttribute("href", "/services");
+    expect(consultLink).toBeInTheDocument();
+    expect(consultLink).toHaveAttribute("href", "/services");
+
+    expect(whatsappLink).toBeInTheDocument();
+    expect(whatsappLink).toHaveAttribute("href", "/services");
   });
 
   it("renders the quick stats indicators", () => {
     render(<Hero />);
 
-    // Fix: Using getAllByText and checking the one with the specific styling
-    // or targeting the specific stat group.
-    const learningPartnerStats = screen.getAllByText(/Learning Partner/i);
+    // Verify stats figures are present
+    expect(screen.getByText("94%")).toBeInTheDocument();
+    expect(screen.getByText("120+")).toBeInTheDocument();
+    expect(screen.getByText("3500+")).toBeInTheDocument();
+    expect(screen.getByText("12+")).toBeInTheDocument();
 
-    // The stat label is the one with the uppercase/tracking classes
-    const statLabel = learningPartnerStats.find((el) =>
-      el.className.includes("uppercase"),
-    );
-
-    expect(screen.getByText("GOLD")).toBeInTheDocument();
-    expect(statLabel).toBeInTheDocument();
-    expect(statLabel).toHaveTextContent(/Learning Partner/i);
-
-    // Check for Integrity Score stat
-    expect(screen.getByText("99%")).toBeInTheDocument();
-    expect(screen.getByText(/Integrity Score/i)).toBeInTheDocument();
+    // Verify stats labels are present
+    expect(screen.getByText(/Exam pass rate/i)).toBeInTheDocument();
+    expect(screen.getByText(/ACCA qualified mentors/i)).toBeInTheDocument();
+    expect(screen.getByText(/Students enrolled/i)).toBeInTheDocument();
+    expect(screen.getByText(/Years of excellence/i)).toBeInTheDocument();
   });
 
   it("renders the visual placeholder element", () => {

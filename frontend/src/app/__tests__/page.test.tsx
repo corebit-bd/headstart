@@ -2,20 +2,20 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import HomePage from "../page";
 
-// 1. Mocking Default Exports (Hero, About, Services, Blog)
+// 1. Mocking Default Exports
 jest.mock("@/components/home/Hero", () => ({
   __esModule: true,
   default: () => <section data-testid="hero">Hero</section>,
 }));
 
-jest.mock("@/components/home/About", () => ({
+jest.mock("@/components/home/WhyHeadStart", () => ({
   __esModule: true,
-  default: () => <section data-testid="about">About</section>,
+  default: () => <section data-testid="why-headstart">Why HeadStart</section>,
 }));
 
-jest.mock("@/components/home/Services", () => ({
+jest.mock("@/components/home/ACCAQualificationOverview", () => ({
   __esModule: true,
-  default: () => <section data-testid="services">Services</section>,
+  default: () => <section data-testid="acca-overview">ACCA Overview</section>,
 }));
 
 jest.mock("@/components/home/Blog", () => ({
@@ -23,8 +23,7 @@ jest.mock("@/components/home/Blog", () => ({
   default: () => <section data-testid="blog">Blog</section>,
 }));
 
-// 2. Mocking Named Exports (Faculty, Contact)
-// Note : We provide the Exact Name used in the Curly Braces
+// 2. Mocking Named Exports
 jest.mock("@/components/home/Faculty", () => ({
   __esModule: true,
   Faculty: () => <section data-testid="faculty">Faculty</section>,
@@ -40,8 +39,8 @@ describe("HomePage Component", () => {
     render(<HomePage />);
 
     expect(screen.getByTestId("hero")).toBeInTheDocument();
-    expect(screen.getByTestId("about")).toBeInTheDocument();
-    expect(screen.getByTestId("services")).toBeInTheDocument();
+    expect(screen.getByTestId("why-headstart")).toBeInTheDocument();
+    expect(screen.getByTestId("acca-overview")).toBeInTheDocument();
     expect(screen.getByTestId("blog")).toBeInTheDocument();
     expect(screen.getByTestId("faculty")).toBeInTheDocument();
     expect(screen.getByTestId("contact")).toBeInTheDocument();

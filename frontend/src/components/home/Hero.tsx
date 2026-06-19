@@ -8,54 +8,68 @@ export default function Hero() {
         <div className="lg:grid lg:grid-cols-12 lg:gap-8">
           {/* Text Content */}
           <div className="sm:text-center lg:col-span-7 lg:text-left">
-            {/* Tagline using Purple Variant 900 for high-integrity contrast */}
-            <div className="mb-6 inline-flex items-center rounded-full bg-brand-purple-50 px-3 py-1 text-sm font-medium text-brand-purple-1000 ring-1 ring-inset ring-brand-purple-200">
-              Professional Accountacy Services
-            </div>
-
-            <h1 className="font-heading text-4xl font-bold tracking-tight text-black-900 sm:text-5xl md:text-6xl">
-              <span className="block">Empowering Future</span>
-              <span className="block text-brand-purple-1000">ACCA Leaders</span>
+            <h1 className="font-heading text-6xl font-bold tracking-tight text-black-900 sm:text-5xl md:text-6xl">
+              <span className="block">The Future of <span className="text-error-1000">ACCA</span></span>
+              <span className="block text-5xl text-brand-purple-1000">In Bangladesh Starts Here</span>
             </h1>
 
-            <p className="mt-6 font-body text-lg leading-8 text-black-600 sm:mx-auto sm:max-w-2xl lg:mx-0">
-              We are ACCA Approved Learning Partner, Approved Employer, Licensed
-              CBE Centre & Registered Learning Partner. HeadStart merges{" "}
-              <b>Gold-Standard Academic Learning</b> with Top-Tier Professional
-              Advisory.
+            <p className="mt-6 font-body text-lg leading-8 text-black-600 sm:max-w-12xl lg:mx-0">
+              HeadStart is an ACCA Approved Learning Partner dedicated to developing future professionals through academic excellence, structured learning and real-world mentorship.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
               <Link
                 href="/enroll"
-                className="rounded-md bg-brand-gold-1000 px-8 py-4 font-heading text-base font-bold text-black-900 shadow-lg hover:bg-brand-gold-900 hover:scale-105 transition-all"
+                className="rounded-md bg-brand-gold-1000 px-8 py-4 font-heading text-base text-center font-bold text-black-900 shadow-lg hover:bg-brand-gold-900 hover:scale-105 transition-all"
               >
-                Start Your Journey
+                Apply Now
               </Link>
               <Link
                 href="/services"
-                className="rounded-md border-2 border-brand-purple-1000 px-8 py-4 font-heading text-base font-bold text-brand-purple-1000 hover:bg-brand-purple-1000 hover:text-brand-gold-50 transition-all"
+                className="rounded-md border-2 border-brand-purple-1000 px-8 py-4 font-heading text-base text-center font-bold text-brand-purple-1000 hover:bg-brand-purple-1000 hover:text-brand-gold-50 transition-all"
               >
-                Explore Services
+                Book Free Consultation
+              </Link>
+              <Link
+                href="/services"
+                className="rounded-md border-2 border-[#25D366] bg-[#25D366] px-8 py-4 font-heading text-base text-center font-bold text-black-1000 transition-all"
+              >
+                Chat on WhatsApp
               </Link>
             </div>
 
             {/* Quick Stats / Trust Indicators */}
-            <div className="mt-12 grid grid-cols-2 gap-4 border-t border-brand-grey-1000 pt-8 sm:grid-cols-3">
+            <div className="mt-12 flex flex-row gap-4 justify-between border border-black-200 bg-brand-grey-1000/50 p-8 rounded-lg">
               <div>
                 <p className="font-body text-2xl font-semibold text-brand-purple-1000">
-                  GOLD
+                  94%
                 </p>
-                <p className="font-heading text-xs font-medium uppercase tracking-wider text-black-500">
-                  Learning Partner
+                <p className="font-heading text-xs font-medium uppercase tracking-wider text-black-900">
+                  Exam pass rate
                 </p>
               </div>
               <div>
                 <p className="font-body text-2xl font-semibold text-brand-purple-1000">
-                  99%
+                  120+
                 </p>
-                <p className="font-heading text-xs font-medium uppercase tracking-wider text-black-500">
-                  Integrity Score
+                <p className="font-heading text-xs font-medium uppercase tracking-wider text-black-900">
+                  ACCA qualified mentors
+                </p>
+              </div>
+              <div>
+                <p className="font-body text-2xl font-semibold text-brand-purple-1000">
+                  3500+
+                </p>
+                <p className="font-heading text-xs font-medium uppercase tracking-wider text-black-900">
+                  Students enrolled
+                </p>
+              </div>
+              <div>
+                <p className="font-body text-2xl font-semibold text-brand-purple-1000">
+                  12+
+                </p>
+                <p className="font-heading text-xs font-medium uppercase tracking-wider text-black-900">
+                  Years of excellence
                 </p>
               </div>
             </div>
@@ -65,7 +79,7 @@ export default function Hero() {
           <div className="relative mt-12 sm:mx-auto sm:max-w-lg lg:col-span-5 lg:mx-0 lg:mt-0 lg:flex lg:items-center">
             <div className="aspect-square w-full rounded-3xl bg-white/40 backdrop-blur-sm flex items-center justify-center border border-white/60 shadow-2xl">
               <div className="h-4/5 w-4/5 rounded-2xl bg-linear-to-br from-brand-purple-100 to-brand-gold-100 flex items-center justify-center">
-                <span className="font-heading text-brand-purple-800 font-bold text-xl opacity-50">
+                <span className="font-heading text-center text-brand-purple-800 font-bold text-xl opacity-50">
                   HeadStart Placeholder Image
                 </span>
               </div>

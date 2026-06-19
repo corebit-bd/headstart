@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Services from "./Services";
+import ACCAQualificationOverview from "./ACCAQualificationOverview";
 
 const meta = {
-  title: "Home/Services",
-  component: Services,
+  title: "Home/ACCAQualificationOverview",
+  component: ACCAQualificationOverview,
   parameters: {
     layout: "fullscreen",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof Services>;
+} satisfies Meta<typeof ACCAQualificationOverview>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

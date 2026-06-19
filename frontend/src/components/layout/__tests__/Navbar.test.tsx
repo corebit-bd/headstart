@@ -22,25 +22,32 @@ describe("Navbar Component", () => {
     expect(screen.getByText("Contact Us")).toBeInTheDocument();
   });
 
-  it("renders the 'Enroll Now' CTA button", () => {
+  it("renders the 'Apply Now' CTA button", () => {
     render(<Navbar />);
-    const enrollBtn = screen.getByRole("button", { name: /enroll now/i });
-    expect(enrollBtn).toBeInTheDocument();
+    // Corrected to match the actual component button text "Apply Now"
+    const applyBtn = screen.getByRole("button", { name: /apply now/i });
+    expect(applyBtn).toBeInTheDocument();
   });
 
   it("toggles the Services dropdown on hover", () => {
     render(<Navbar />);
-    const servicesLink = screen.getByText("Services");
+    const servicesButton = screen.getByRole("button", { name: /services/i });
+    // Finds the parent div element that holds the mouse event listeners
+    const dropdownContainer = servicesButton.closest("div");
 
     // Dropdown should not be visible initially
     expect(screen.queryByText("ACCA Courses")).not.toBeInTheDocument();
 
     // Trigger hover (mouseenter)
-    fireEvent.mouseEnter(servicesLink.parentElement!);
+    if (dropdownContainer) {
+      fireEvent.mouseEnter(dropdownContainer);
+    }
     expect(screen.getByText("ACCA Courses")).toBeInTheDocument();
 
     // Trigger mouseleave
-    fireEvent.mouseLeave(servicesLink.parentElement!);
+    if (dropdownContainer) {
+      fireEvent.mouseLeave(dropdownContainer);
+    }
     expect(screen.queryByText("ACCA Courses")).not.toBeInTheDocument();
   });
 });
