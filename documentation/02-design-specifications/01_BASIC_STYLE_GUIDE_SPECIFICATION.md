@@ -1,4 +1,4 @@
-# Basic Design Specification
+# Basic Style Guide Specification
 
 ## Table of Contents
 
