@@ -247,6 +247,7 @@ jobs:
           cache-to: type=gha,mode=max
           build-args: |
             PYTHON_VERSION=${{ env.PYTHON_VERSION }}
+          no-cache: true
 
       - name: Extract Metadata for Frontend
         id: meta-frontend
@@ -273,6 +274,7 @@ jobs:
           cache-to: type=gha,mode=max
           build-args: |
             NODE_VERSION=${{ env.NODE_VERSION }}
+          no-cache: true
 
       - name: Image Build Summary
         run: |
