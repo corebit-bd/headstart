@@ -39,6 +39,11 @@ env:
   PYTHON_VERSION: 3.13
   NODE_VERSION: 24
 
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+
 jobs:
   # Determine Deployment Environment
   setup:
@@ -213,9 +218,9 @@ jobs:
       - name: Log In to GitHub Container Registry
         uses: docker/login-action@v3
         with:
-          registry: ${{ env.REGISTRY }}
+          registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.REGISTRY_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Extract Metadata for Backend
         id: meta-backend
