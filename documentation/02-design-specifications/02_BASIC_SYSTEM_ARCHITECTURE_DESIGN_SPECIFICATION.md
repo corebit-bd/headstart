@@ -16,15 +16,15 @@ The ecosystem employs a decoupled, Monolithic API backend with a Multi-Frontend 
 
 ## 2. Cross-Phase Domain Boundaries & Database Layout
 
-To prevent monolithic coupling while maintaining a single source of truth across the three distinct implementation phases, the database relies on strict logical domain boundaries.
+To prevent monolithic coupling while maintaining a single source of truth across the distinct implementation phases, the database relies on strict logical domain boundaries.
 
 | Domain Namespace           | Underlying Entities / Models                                  | Target Lifecycle Phase     | Coupling & Dependencies                                                          |
 |----------------------------|---------------------------------------------------------------|----------------------------|----------------------------------------------------------------------------------|
-| Identity & Access (IAM)    | User, Role, Permission, Session, AuditLog                     | Phase 1 (Core Foundations) | Zero external dependencies; required by all subsequent modules. Enforces single active sessions.                  |
-| Content & Public Relations | Page, Faculty, Alumni, PrizeWinner, Partner, ContactRequest   | Phase 1 (Public Website)   | Dependent solely on IAM for administrative management and CMS modifications.                           |
-| Learning Management (LMS)  | Course, Module, Lecture, MCQGate, Enrollment, ProgressTracking | Phase 2 (LMS Platform)     | Deeply coupled with IAM (Students / Teachers) and Core Billing Module.                    |
-| Billing & Finance          | Transaction, Invoice, SSLCommerzLog, LedgerAccount            | Phase 2 & Phase 3          | Bridges LMS (Enrollments) to Phase 3 ERP Financial Reporting. Logs local Gateways (SSLCommerz, bKash).                     |
-| Enterprise Resource (ERP)  | StaffProfile, Expense, Asset, ProcurementOrder, CRMLead                | Phase 3 (ERP / CRM / SCM Suite)  | Extends IAM; ingests aggregated Billing / Finance data for operational visibility and Staff Workflows. |
+| Identity & Access (Administrator)    | User, Role, Permission, Session, AuditLog                     | Phase 1.1 (CMS Foundations) | **Administrative Backbone** : Provides secure authentication, session management and 4W audit tracking for staff members modifying public content. Enforces single active sessions.                  |
+| Content & Public Relations | Page, Faculty, Alumni, PrizeWinner, Partner, ContactRequest   | Phase 1.1 (CMS of Public Website)   | **Public Website Engine** : Backs all dynamic elements of the public-facing platform managed via the **Phase 1.1 CMS**. Dependent solely on IAM for administrative management.                           |
+| Learning Management (LMS)  | Course, Module, Lecture, MCQGate, Enrollment, ProgressTracking | Phase 2 (LMS Platform)     | **Student LMS** : Extends the `iam_*` system to manage student portal access, sequential curriculum progression and gate states. Deeply coupled with Core Billing Module.                    |
+| Billing & Finance          | Transaction, Invoice, SSLCommerzLog, LedgerAccount            | Phase 2 & Phase 3          | **Payment Ingestion** : Maps course registrations directly to transactional ledgers prior to financial processing. Logs local Gateways (SSLCommerz, bKash).                     |
+| Enterprise Resource (ERP)  | StaffProfile, Expense, Asset, ProcurementOrder, CRMLead                | Phase 3 (ERP / CRM / SCM Suite)  | **Internal ERP / CRM / SCM** : Drives the corporate dashboard, tracking institutional overhead, procurement pipelines and prospective leads. Extends IAM. |
 
 ---
 
