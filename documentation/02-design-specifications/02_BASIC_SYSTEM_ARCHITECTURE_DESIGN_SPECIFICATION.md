@@ -85,9 +85,9 @@ Enforced via custom Django REST Framework permission classes analyzing JWT sessi
 |----------------|--------------------------------------------------------------------------------------------------------------------------|--------------------------------|--------------------------------------|
 | Public Visitor | Read public content, view outlines, submit contact forms, view Alumni / Prize Winners, register.                           | None (Anonymous Session)       | NextJS Public Web Application               |
 | Student        | Read enrolled modules, attempt MCQ Gates, view invoices, access Job Placement Support, engage with 24h Forum / AI Support. | JWT + Secure HttpOnly Cookie   | NextJS Student Portal / Expo Mobile |
-| Teacher        | Grade assignments, update course syllabi, view student progress analytics.                                               | JWT + Secure HttpOnly Cookie   | NextJS Teacher Portal               |
-| Staff Member   | Review CRM leads, manage full student lifecycle states, process procurement, log administrative expenses.                | JWT + Multi-Factor Authentication (MFA) | NextJS Staff Dashboard              |
-| Administrator  | Manage platform state, override system configurations, export financial ledgers (PDF / Excel), inspect audit logs.                | JWT + Hardware MFA             | NextJS Admin Suite                  |
+| Teacher        | Grade assignments, update course syllabi, view student progress analytics.                                               | JWT + Secure HttpOnly Cookie   | NextJS Teacher Portal / Expo Mobile               |
+| Staff Member   | Review CRM leads, manage full student lifecycle states, process procurement, log administrative expenses.                | JWT + Multi-Factor Authentication (MFA) | NextJS Staff Dashboard / Expo Mobile              |
+| Administrator  | Manage platform state, override system configurations, export financial ledgers (PDF / Excel), inspect audit logs.                | JWT + Hardware MFA             | NextJS Admin Suite / Expo Mobile                  |
 
 
 ---
