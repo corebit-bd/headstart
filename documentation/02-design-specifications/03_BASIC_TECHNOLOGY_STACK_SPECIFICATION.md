@@ -117,4 +117,8 @@ The UI implementation must reflect the typography rules, spacing standards and d
 
 - **Strict 4W Audit Logging** : Every transaction that mutates data within the Django API backend must pass through a logging middleware. This service records data matching the 4W structure (**Who** initiated the operation, **When** the transaction took place, **Where** the request originated via IP / User-Agent and **What** specific resource route was touched). These entries are written to an isolated partition in the `iam_audit_log` table.
 
-- **Automated Account Lockout Rules** : 
+- **Automated Account Lockout Rules** : If an individual inputs 5 incorrect authentication payloads within a rolling time window, the system updates the target user profile state to locked. The backend then issues a cryptographically signed, expiration-capped account recovery link via a Celery mail worker thread.
+
+- **Cross-Origin Resource Sharing (CORS)** : NextJS frontend deployments utilize production origin domain locks within the Django settings environment. Wildcard configurations (`*`) are disallowed across all production routes.
+
+- **Database Protection Boundaries** : Development practices enforce strict parametrization across all data ingestion flows. Raw text concatenation for queries is blocked across all service modules, eliminating potential SQL injection vectors. All storage drives use AES-256 block-level encryption when writing cold data records to disks at rest.
