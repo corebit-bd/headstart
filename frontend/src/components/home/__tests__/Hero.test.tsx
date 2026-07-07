@@ -37,7 +37,7 @@ describe("Hero Component", () => {
     // Query elements by their precise accessible names
     const applyLink = screen.getByRole("link", { name: /Apply Now/i });
     const consultLink = screen.getByRole("link", { name: /Book Free Consultation/i });
-    const whatsappLink = screen.getByRole("link", { name: /Chat on WhatsApp/i });
+    // const whatsappLink = screen.getByRole("link", { name: /Chat on WhatsApp/i });
 
     expect(applyLink).toBeInTheDocument();
     expect(applyLink).toHaveAttribute("href", "/enroll");
@@ -45,8 +45,8 @@ describe("Hero Component", () => {
     expect(consultLink).toBeInTheDocument();
     expect(consultLink).toHaveAttribute("href", "/services");
 
-    expect(whatsappLink).toBeInTheDocument();
-    expect(whatsappLink).toHaveAttribute("href", "/services");
+    // expect(whatsappLink).toBeInTheDocument();
+    // expect(whatsappLink).toHaveAttribute("href", "/services");
   });
 
   it("renders the quick stats indicators", () => {

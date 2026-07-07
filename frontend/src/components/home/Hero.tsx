@@ -30,12 +30,12 @@ export default function Hero() {
               >
                 Book Free Consultation
               </Link>
-              <Link
+              {/* <Link
                 href="/services"
                 className="rounded-md border-2 border-[#25D366] bg-[#25D366] px-8 py-4 font-heading text-base text-center font-bold text-black-1000 transition-all"
               >
                 Chat on WhatsApp
-              </Link>
+              </Link> */}
             </div>
 
             {/* Quick Stats / Trust Indicators */}
