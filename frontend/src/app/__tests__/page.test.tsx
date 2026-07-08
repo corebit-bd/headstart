@@ -22,6 +22,11 @@ jest.mock("@/components/home/FacultyPreview", () => ({
   default: () => <section data-testid="faculty-preview">Faculty Preview</section>,
 }));
 
+jest.mock("@/components/home/StudentSuccess", () => ({
+  __esModule: true,
+  default: () => <section data-testid="student-success">Student Success</section>,
+}));
+
 jest.mock("@/components/home/Contact", () => ({
   __esModule: true,
   Contact: () => <section data-testid="contact">Contact</section>,
@@ -35,6 +40,7 @@ describe("HomePage Component", () => {
     expect(screen.getByTestId("why-headstart")).toBeInTheDocument();
     expect(screen.getByTestId("acca-overview")).toBeInTheDocument();
     expect(screen.getByTestId("faculty-preview")).toBeInTheDocument();
+    expect(screen.getByTestId("student-success")).toBeInTheDocument();
     expect(screen.getByTestId("contact")).toBeInTheDocument();
   });
 });
