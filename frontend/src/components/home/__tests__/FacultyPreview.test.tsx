@@ -57,7 +57,7 @@ describe("FacultyPreview Component", () => {
     const section = container.querySelector("section");
 
     expect(section).toBeInTheDocument();
-    expect(section).toHaveClass("py-24", "bg-white");
+    expect(section).toHaveClass("py-24", "bg-brand-grey-50");
   });
 
   it("renders all 3 faculty members", () => {
