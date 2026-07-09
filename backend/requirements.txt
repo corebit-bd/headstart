@@ -3,7 +3,7 @@
 # ============================================
 
 # Core Django - LTS Version
-Django>=6.0.6,<6.1
+Django>=6.0.7,<6.1
 
 # Django REST Framework
 djangorestframework>=3.17.1,<4.0
@@ -28,8 +28,8 @@ django-filter>=25.2,<26.0
 graphene-django>=3.2.3,<4.0
 
 # FastAPI Integration (Optional)
-fastapi>=0.138.2,<1.0
-uvicorn>=0.49.0,<1.0
+fastapi>=0.139.0,<1.0
+uvicorn>=0.51.0,<1.0
 pydantic>=2.13.4,<3.0
 
 # Task Queue
