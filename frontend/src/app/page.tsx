@@ -5,6 +5,7 @@ import Hero from "@/components/home/Hero";
 import ACCAQualificationOverview from "@/components/home/ACCAQualificationOverview";
 import StudentSuccess from "@/components/home/StudentSuccess";
 import LifeAtHeadStart from "@/components/home/LifeAtHeadStart";
+import StudentSupport from "@/components/home/StudentSupport";
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
       <FacultyPreview />
       <StudentSuccess />
       <LifeAtHeadStart />
+      <StudentSupport />
       <Contact />
     </>
   );
