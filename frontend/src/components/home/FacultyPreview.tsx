@@ -2,7 +2,7 @@ import FacultyList from "@/app/faculty/page";
 
 export default function FacultyPreview() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-brand-grey-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="font-heading text-3xl font-bold text-black-900">
             Learn from the Best

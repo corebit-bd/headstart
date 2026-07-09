@@ -4,6 +4,7 @@ import { Contact } from "@/components/home/Contact";
 import Hero from "@/components/home/Hero";
 import ACCAQualificationOverview from "@/components/home/ACCAQualificationOverview";
 import StudentSuccess from "@/components/home/StudentSuccess";
+import LifeAtHeadStart from "@/components/home/LifeAtHeadStart";
 
 export default function HomePage() {
   return (
@@ -13,6 +14,7 @@ export default function HomePage() {
       <ACCAQualificationOverview />
       <FacultyPreview />
       <StudentSuccess />
+      <LifeAtHeadStart />
       <Contact />
     </>
   );
