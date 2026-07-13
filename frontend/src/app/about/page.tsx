@@ -11,13 +11,17 @@ export default function AboutUsPage() {
       id: "introduction",
       label: "Introduction",
       content: (
-        <div className="space-y-4">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-4">
           <p className="text-lg text-black-700 leading-relaxed">
-            HeadStart, <b className="text-brand-purple-1000">a GOLD Approved Learning Partner, Approved Employer</b> & a Licensed CBE Centre of ACCA, is a professional accountancy service provider. 
+            HeadStart is an ACCA Approved Learning Partner in Bangladesh, founded in 2020 with a clear vision—to bridge the gap between academic learning and professional success.
+            <br /><br />
+            Established with the unique idea of combining academic training with practical professional exposure, HeadStart offers students a learning environment that supports both exam success and career development.
           </p>
-          <p className="text-black-700 leading-relaxed">
-            Founded in 2020 by renowned FCCA, ACCA & ACCA Affiliates, HeadStart was built with the unique idea of having an Academic & Advisory Wing together in one comprehensive & complementary Platform.
-          </p>
+          <div className="h-full w-full rounded-2xl bg-linear-to-br from-brand-purple-100 to-brand-gold-100 flex items-center justify-center">
+            <span className="font-heading text-center text-brand-purple-1000 font-bold text-xl opacity-50">
+              HeadStart Entrance Image
+            </span>
+          </div>
         </div>
       ),
     },
@@ -94,11 +98,11 @@ export default function AboutUsPage() {
   return (
     <main className="min-h-screen bg-brand-grey-50">
       {/* Hero Banner */}
-      <section className="bg-brand-purple-1000 py-24 text-brand-grey-50">
+      <section className="bg-brand-gold-1000 py-24 text-black-1000">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="font-heading text-5xl font-bold">About HeadStart</h1>
-          <p className="mt-6 font-body text-xl text-brand-purple-100 max-w-3xl mx-auto italic">
-            "A Professional Accountancy Service Provider"
+          <h1 className="font-heading text-5xl font-bold">About <span className="text-brand-purple-1000">HeadStart</span></h1>
+          <p className="mt-6 font-body text-xl text-black-800 max-w-3xl mx-auto">
+            Shaping the next generation of ACCA professionals through academic excellence, mentorship, and real-world insight.
           </p>
         </div>
       </section>

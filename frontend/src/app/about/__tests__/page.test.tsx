@@ -2,6 +2,7 @@ import "@testing-library/jest-dom";
 import { render, screen, fireEvent, within } from "@testing-library/react";
 import AboutPage from "../page";
 
+// Mock Next.js Link component
 jest.mock("next/link", () => {
   return ({
     children,
@@ -20,6 +21,31 @@ jest.mock("next/link", () => {
   };
 });
 
+// Mocking the FacultyList component using the correct path from inside __tests__/
+jest.mock("../../faculty/page", () => {
+  return function MockFacultyList() {
+    return (
+      <div data-testid="faculty-list">
+        <div>Dr. Ariful Haque</div>
+        <div>Sarah J. Miller</div>
+        <div>Tanvir Rahman</div>
+      </div>
+    );
+  };
+});
+
+// Mocking the ACCAChamps component using the correct path from inside __tests__/
+jest.mock("../../blog/acca-champs/page", () => {
+  return function MockACCAChamps() {
+    return (
+      <div data-testid="acca-champs">
+        <h1>ACCA Champs</h1>
+        <p>Celebrating our world-class achievers and top scorers</p>
+      </div>
+    );
+  };
+});
+
 describe("AboutPage Component", () => {
   it("renders the Hero Section with correct Branding & Heading", () => {
     render(<AboutPage />);
@@ -29,7 +55,7 @@ describe("AboutPage Component", () => {
     expect(heading).toHaveClass("font-heading", "text-5xl", "font-bold");
 
     const heroSection = heading.closest("section");
-    expect(heroSection).toHaveClass("bg-brand-purple-1000", "py-24");
+    expect(heroSection).toHaveClass("bg-brand-gold-1000", "py-24");
   });
 
   it("renders all Tab trigger buttons in the container", () => {
@@ -48,10 +74,10 @@ describe("AboutPage Component", () => {
     render(<AboutPage />);
 
     expect(
-      screen.getByText(/founded in 2020 by renowned FCCA/i)
+      screen.getByText(/founded in 2020 with a clear vision/i)
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/a GOLD Approved Learning Partner, Approved Employer/i)
+      screen.getByText(/HeadStart offers students a learning environment/i)
     ).toBeInTheDocument();
   });
 
