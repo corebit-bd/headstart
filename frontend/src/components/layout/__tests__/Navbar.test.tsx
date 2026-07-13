@@ -1,3 +1,4 @@
+import React from "react";
 import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Navbar from "../Navbar";
@@ -7,10 +8,30 @@ jest.mock("next/navigation", () => ({
   usePathname: () => "/",
 }));
 
+// Mock Next.js Link component
+jest.mock("next/link", () => {
+  return ({
+    children,
+    href,
+    className,
+  }: {
+    children: React.ReactNode;
+    href: string;
+    className?: string;
+  }) => {
+    return (
+      <a href={href} className={className}>
+        {children}
+      </a>
+    );
+  };
+});
+
 describe("Navbar Component", () => {
   it("renders the logo 'HeadStart'", () => {
     render(<Navbar />);
-    const logo = screen.getByText(/HeadStart/i);
+    // Fixed: querying by the image's alt text since the logo is an <img> tag
+    const logo = screen.getByAltText(/HeadStart Logo/i);
     expect(logo).toBeInTheDocument();
   });
 
@@ -24,7 +45,6 @@ describe("Navbar Component", () => {
 
   it("renders the 'Apply Now' CTA button", () => {
     render(<Navbar />);
-    // Corrected to match the actual component button text "Apply Now"
     const applyBtn = screen.getByRole("button", { name: /apply now/i });
     expect(applyBtn).toBeInTheDocument();
   });

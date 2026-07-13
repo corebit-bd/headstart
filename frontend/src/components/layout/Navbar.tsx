@@ -1,9 +1,11 @@
 "use client";
 
+import Image from 'next/image';
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { NavLink } from "@/components/ui/NavLink";
+import logoImage from "@/app/logo.png";
 
 const navLinks = [
   { name: "About Us", href: "/about" },
@@ -28,11 +30,13 @@ export default function Navbar() {
         <div className="flex h-20 items-center justify-between">
           {/* Logo Section */}
           <div className="flex shrink-0 items-center">
-            <Link
-              href="/"
-              className="font-heading text-2xl font-bold text-brand-purple-50 tracking-tight"
-            >
-              HeadStart
+            <Link href="/" className="font-heading text-2xl font-bold text-brand-purple-50 tracking-tight">
+              <Image
+                src={logoImage}
+                alt="HeadStart Logo"
+                width={50}
+                height={50}
+              />
             </Link>
           </div>
 
