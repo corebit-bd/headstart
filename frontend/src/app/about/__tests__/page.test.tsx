@@ -91,10 +91,10 @@ describe("AboutPage Component", () => {
     expect(screen.getByRole("heading", { name: /Our Vision/i, level: 3 })).toBeInTheDocument();
 
     expect(
-      screen.getByText(/build the next generation of finance enthusiasts as competent/i)
+      screen.getByText(/deliver a high-quality ACCA learning experience/i)
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/Centre of Excellence & the flagbearer in serving Competent Professional Accountants/i)
+      screen.getByText(/To be recognized as one of the most trusted and forward-thinking ACCA learning partners in Bangladesh/i)
     ).toBeInTheDocument();
   });
 
@@ -107,7 +107,7 @@ describe("AboutPage Component", () => {
     const visionHeading = screen.getByRole("heading", { name: /Our Vision/i });
 
     expect(missionHeading.parentElement).toHaveClass("border-l-4", "border-brand-purple-1000");
-    expect(visionHeading.parentElement).toHaveClass("border-l-4", "border-brand-gold-500");
+    expect(visionHeading.parentElement).toHaveClass("border-l-4", "border-brand-gold-1000");
   });
 
   it("switches content to display the Our Faculty section when its tab is clicked", () => {

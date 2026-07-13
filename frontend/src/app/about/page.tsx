@@ -33,13 +33,13 @@ export default function AboutUsPage() {
           <div className="border-l-4 border-brand-purple-1000 pl-6 py-2">
             <h3 className="text-xl font-extrabold text-brand-purple-1000 mb-4">Our Mission</h3>
             <p className="text-black-700">
-              To provide assurance of full responsibility & dedication without compromising on the quality of work. We pledge to build the next generation of finance enthusiasts as competent & qualified business partners.
+            To deliver a high-quality ACCA learning experience that equips students with the knowledge, skills, and confidence required to excel in professional examinations and careers.
             </p>
           </div>
-          <div className="border-l-4 border-brand-gold-500 pl-6 py-2">
+          <div className="border-l-4 border-brand-gold-1000 pl-6 py-2">
             <h3 className="text-xl font-extrabold text-brand-purple-1000 mb-4">Our Vision</h3>
             <p className="text-black-700">
-              To be a Centre of Excellence & the flagbearer in serving Competent Professional Accountants & Professional Accountancy Services in both national & international markets.
+              To be recognized as one of the most trusted and forward-thinking ACCA learning partners in Bangladesh, developing globally competent finance professionals.
             </p>
           </div>
         </div>
