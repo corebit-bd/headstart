@@ -139,7 +139,7 @@ describe("AboutUsPage Component Suite", () => {
 
     it("renders text nodes for accreditations and corporate partnerships safely", () => {
       expect(screen.getByTestId("tab-content-accreditations")).toHaveTextContent(
-        "ACCA Gold Status"
+        "ACCA Approved Learning Partner"
       );
       expect(screen.getByTestId("tab-content-partnerships")).toHaveTextContent(
         "Collaborating with top-tier organizations"

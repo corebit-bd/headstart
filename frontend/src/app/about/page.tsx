@@ -318,7 +318,16 @@ export default function AboutUsPage() {
       id: "accreditations",
       label: "Accreditations",
       content: (
-        <p className="text-black-700">HeadStart is recognized and accredited by leading international bodies including ACCA Gold Status.</p>
+        <section className="py-20 px-6 md:px-12 lg:px-24 overflow-hidden">
+          <p className="text-black-700">
+            HeadStart is proudly recognized as:
+            <ul className="list-disc list-inside">
+              <li>ACCA Approved Learning Partner</li>
+              <li>Approved Employer</li>
+              <li>Licensed CBE Centre</li>
+            </ul>
+          </p>
+        </section>
       ),
     },
     {
