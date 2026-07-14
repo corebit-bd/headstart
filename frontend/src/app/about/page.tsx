@@ -325,7 +325,9 @@ export default function AboutUsPage() {
       id: "partnerships",
       label: "Our Partnerships",
       content: (
-        <p className="text-black-700">Collaborating with top-tier organizations to provide internship and job opportunities.</p>
+        <p className="text-black-700">
+          HeadStart collaborates with academic, professional, and corporate bodies to create opportunities, awareness, and community engagement for students.
+        </p>
       ),
     },
   ];

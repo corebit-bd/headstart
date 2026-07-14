@@ -142,7 +142,7 @@ describe("AboutUsPage Component Suite", () => {
         "ACCA Approved Learning Partner"
       );
       expect(screen.getByTestId("tab-content-partnerships")).toHaveTextContent(
-        "Collaborating with top-tier organizations"
+        "HeadStart collaborates with academic, professional, and corporate bodies"
       );
     });
   });
