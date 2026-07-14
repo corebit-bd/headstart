@@ -5,6 +5,7 @@ import { Tab } from "@/types/nav";
 import FacultyList from "../faculty/page";
 import { DifferentiatorItem } from "@/types/key-differentiator";
 import { CareerIcon, FacultyIcon, IntegrationIcon, MentorshipIcon, ResultIcon, SupportIcon } from "@/components/ui/KeyDifferentiatorsIcons";
+import { CheckIcon, DeloitteLogo, EYLogo, KPMGLogo, LogoCard, PwCLogo, QuoteIcon, TrackWrapper, TrendUpIcon } from "@/components/ui/AlumniIcons";
 
 export default function AboutUsPage() {
 
@@ -38,6 +39,38 @@ export default function AboutUsPage() {
       title: "Strong Student Support System",
       description: "Comprehensive accountability, logistics, and resource frameworks accessible whenever you need them.",
       icon: <SupportIcon />,
+    },
+  ];
+
+  const stats = [
+    { value: "94%", label: "Employment within 6 Months" },
+    { value: "Top 4", label: "Accounting Firms Placement" },
+    { value: "$22k+", label: "Average Salary Increase" },
+  ];
+
+  const companies = [
+    "Deloitte",
+    "EY",
+    "PwC",
+    "KPMG",
+    "Goldman Sachs",
+    "J.P. Morgan",
+  ];
+
+  const testimonials = [
+    {
+      quote:
+        "The curriculum was directly applicable to my technical interviews. I secured an offer at a Big Four firm within weeks of completing the program.",
+      name: "Sarah Jenkins",
+      role: "Senior Assurance Associate",
+      company: "PwC",
+    },
+    {
+      quote:
+        "HeadStart closed the gap between my academic knowledge and the real-world financial analytics skills corporate teams actually look for.",
+      name: "David Chen",
+      role: "Financial Analyst",
+      company: "J.P. Morgan",
     },
   ];
 
@@ -187,7 +220,98 @@ export default function AboutUsPage() {
       id: "alumni",
       label: "Our Alumni",
       content: (
-        <p className="text-black-700">Our graduates are now leading professionals in top firms across the globe.</p>
+        <section className="py-20 px-6 md:px-12 lg:px-24 overflow-hidden">
+          <div className="max-w-7xl mx-auto space-y-20">
+            
+            {/* --- Header Elements --- */}
+            <div className="max-w-3xl space-y-4">
+              <h2 className="text-4xl text-black-900 tracking-tight">Our Alumni</h2>
+              <p className="text-lg text-black-700 leading-relaxed">
+                Our alumni represent the strength of the HeadStart journey—progressing 
+                into high-impact careers across accounting firms, multinationals, and 
+                global financial institutions.
+              </p>
+            </div>
+
+            {/* --- Career Outcomes --- */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {stats.map((stat, idx) => (
+                <div key={idx} className="bg-brand-grey-100 border border-black-100 rounded-xl p-8 flex items-start space-x-4 shadow-xs">
+                  <div className="bg-success-50 p-2 rounded-lg">
+                    <TrendUpIcon />
+                  </div>
+                  <div>
+                    <div className="data-value text-3xl text-black-1000 mb-1">{stat.value}</div>
+                    <h4 className="text-black-600 text-sm tracking-wide uppercase">{stat.label}</h4>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* --- Alumni Testimonials --- */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {testimonials.map((t, idx) => (
+                <div key={idx} className="bg-brand-grey-100 border border-brand-purple-100 rounded-2xl p-8 relative flex flex-col justify-between shadow-xs hover:border-brand-purple-300 transition-colors duration-200">
+                  <div className="absolute top-6 right-8">
+                    <QuoteIcon />
+                  </div>
+                  <p className="text-black-800 text-base leading-relaxed italic mb-8 relative z-10">
+                    "{t.quote}"
+                  </p>
+                  <div className="border-t border-black-100 pt-4 flex items-center justify-between">
+                    <div>
+                      <h3 className="text-black-900 text-lg">{t.name}</h3>
+                      <p className="text-sm text-black-600">{t.role}</p>
+                    </div>
+                    <span className="bg-brand-purple-50 text-brand-purple-1000 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                      {t.company}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* --- Infinite Logo Marquee --- */}
+            <div className="pt-8 border-t border-black-100 space-y-6">
+              <div className="flex items-center space-x-2">
+                <CheckIcon />
+                <p className="text-sm font-semibold uppercase tracking-wider text-black-600">
+                  Where Our Alumni Work
+                </p>
+              </div>
+
+              {/* Marquee viewport container with absolute mask overlays */}
+              <div className="relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-20 before:bg-gradient-to-r before:from-brand-grey-50 before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-20 after:bg-gradient-to-l after:from-brand-grey-50 after:to-transparent">
+                <div className="animate-marquee gap-8 py-2">
+                  {/* Track A */}
+                  <TrackWrapper>
+                    <LogoCard><DeloitteLogo /></LogoCard>
+                    <LogoCard><PwCLogo /></LogoCard>
+                    <LogoCard><EYLogo /></LogoCard>
+                    <LogoCard><KPMGLogo /></LogoCard>
+                    <LogoCard><DeloitteLogo /></LogoCard>
+                    <LogoCard><PwCLogo /></LogoCard>
+                    <LogoCard><EYLogo /></LogoCard>
+                    <LogoCard><KPMGLogo /></LogoCard>
+                  </TrackWrapper>
+                  
+                  {/* Track B (Identical clone for perfect continuous seamless looping) */}
+                  <TrackWrapper>
+                    <LogoCard><DeloitteLogo /></LogoCard>
+                    <LogoCard><PwCLogo /></LogoCard>
+                    <LogoCard><EYLogo /></LogoCard>
+                    <LogoCard><KPMGLogo /></LogoCard>
+                    <LogoCard><DeloitteLogo /></LogoCard>
+                    <LogoCard><PwCLogo /></LogoCard>
+                    <LogoCard><EYLogo /></LogoCard>
+                    <LogoCard><KPMGLogo /></LogoCard>
+                  </TrackWrapper>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
       ),
     },
     {
