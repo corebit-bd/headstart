@@ -21,28 +21,34 @@ jest.mock("next/link", () => {
   };
 });
 
-// Mocking the FacultyList component using the correct path from inside __tests__/
+// Mocking the FacultyList component using the correct default export structure
 jest.mock("../../faculty/page", () => {
-  return function MockFacultyList() {
-    return (
-      <div data-testid="faculty-list">
-        <div>Dr. Ariful Haque</div>
-        <div>Sarah J. Miller</div>
-        <div>Tanvir Rahman</div>
-      </div>
-    );
+  return {
+    __esModule: true,
+    default: function MockFacultyList() {
+      return (
+        <div data-testid="faculty-list">
+          <div>Dr. Ariful Haque</div>
+          <div>Sarah J. Miller</div>
+          <div>Tanvir Rahman</div>
+        </div>
+      );
+    },
   };
 });
 
-// Mocking the ACCAChamps component using the correct path from inside __tests__/
+// Mocking the ACCAChamps component using the correct default export structure
 jest.mock("../../blog/acca-champs/page", () => {
-  return function MockACCAChamps() {
-    return (
-      <div data-testid="acca-champs">
-        <h1>ACCA Champs</h1>
-        <p>Celebrating our world-class achievers and top scorers</p>
-      </div>
-    );
+  return {
+    __esModule: true,
+    default: function MockACCAChamps() {
+      return (
+        <div data-testid="acca-champs">
+          <h1>ACCA Champs</h1>
+          <p>Celebrating our world-class achievers and top scorers</p>
+        </div>
+      );
+    },
   };
 });
 
@@ -63,6 +69,7 @@ describe("AboutPage Component", () => {
 
     expect(screen.getByRole("button", { name: /Introduction/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Mission & Vision/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Key Differentiators/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Our Faculty/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /National Prize-Winners/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Our Alumni/i })).toBeInTheDocument();
@@ -108,6 +115,18 @@ describe("AboutPage Component", () => {
 
     expect(missionHeading.parentElement).toHaveClass("border-l-4", "border-brand-purple-1000");
     expect(visionHeading.parentElement).toHaveClass("border-l-4", "border-brand-gold-1000");
+  });
+
+  it("switches content to display the Key Differentiators section when its tab is clicked", () => {
+    render(<AboutPage />);
+
+    fireEvent.click(screen.getByRole("button", { name: /Key Differentiators/i }));
+
+    expect(
+      screen.getByRole("heading", { level: 2, name: /What Makes HeadStart Different\?/i })
+    ).toBeInTheDocument();
+    expect(screen.getByText("Academic + Advisory Integration")).toBeInTheDocument();
+    expect(screen.getByText("Result-Driven Approach")).toBeInTheDocument();
   });
 
   it("switches content to display the Our Faculty section when its tab is clicked", () => {

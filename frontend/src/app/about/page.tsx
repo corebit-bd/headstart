@@ -4,8 +4,44 @@ import { Tabs } from "@/components/ui/Tabs";
 import { Tab } from "@/types/nav";
 import FacultyList from "../faculty/page";
 import ACCAChamps from "../blog/acca-champs/page";
+import { DifferentiatorItem } from "@/types/key-differentiator";
+import { CareerIcon, FacultyIcon, IntegrationIcon, MentorshipIcon, ResultIcon, SupportIcon } from "@/components/ui/KeyDifferentiatorsIcons";
 
 export default function AboutUsPage() {
+
+  const differentiators: DifferentiatorItem[] = [
+    {
+      title: "Academic + Advisory Integration",
+      description: "Bridging foundational academic excellence directly with strategic, real-world advisory practices.",
+      icon: <IntegrationIcon />,
+    },
+    {
+      title: "Result-Driven Approach",
+      description: "Focused closely on measurable progression milestones, target metrics, and tangible success metrics.",
+      icon: <ResultIcon />,
+    },
+    {
+      title: "Expert Faculty",
+      description: "Learn under the structural guidance of domain authorities and accomplished industry leaders.",
+      icon: <FacultyIcon />,
+    },
+    {
+      title: "Personalized Mentorship",
+      description: "Custom strategies mapped specifically around your unique professional pace and distinct trajectory.",
+      icon: <MentorshipIcon />,
+    },
+    {
+      title: "Career-Oriented Development",
+      description: "Skills architecture purpose-built to transition effectively into enterprise and industry applications.",
+      icon: <CareerIcon />,
+    },
+    {
+      title: "Strong Student Support System",
+      description: "Comprehensive accountability, logistics, and resource frameworks accessible whenever you need them.",
+      icon: <SupportIcon />,
+    },
+  ];
+
   const aboutTabs: Tab[] = [
     {
       id: "introduction",
@@ -43,6 +79,48 @@ export default function AboutUsPage() {
             </p>
           </div>
         </div>
+      ),
+    },
+    {
+      id: "key-differentiators",
+      label: "Key Differentiators",
+      content: (
+        <section className="py-20 px-6 sm:px-12 lg:px-24">
+          <div className="max-w-7xl mx-auto">
+            {/* Section Header */}
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl text-black-900 tracking-tight font-bold font-heading">
+                What Makes <span className="text-brand-purple-1000">HeadStart</span> Different?
+              </h2>
+              <div className="w-16 h-1 bg-brand-gold-1000 mx-auto mt-4 rounded-full" />
+            </div>
+
+            {/* Differentiators Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {differentiators.map((item, index) => (
+                <div 
+                  key={index} 
+                  className="bg-brand-grey-200 border border-black-100 rounded-xl p-8 shadow-sm hover:shadow-md hover:border-brand-purple-300 transition-all duration-300 flex flex-col items-start group"
+                >
+                  {/* Icon Container with Gold accent border */}
+                  <div className="p-3 bg-brand-purple-50 border border-brand-purple-200 rounded-lg mb-6 group-hover:bg-brand-gold-600 group-hover:border-brand-gold-900 transition-colors duration-300">
+                    {item.icon}
+                  </div>
+                  
+                  {/* Card Title */}
+                  <h3 className="text-xl font-medium text-black-900 mb-3 font-heading">
+                    {item.title}
+                  </h3>
+                  
+                  {/* Card Description */}
+                  <p className="text-black-600 font-body leading-relaxed text-sm">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       ),
     },
     {
