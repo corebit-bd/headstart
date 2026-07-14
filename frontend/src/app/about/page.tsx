@@ -132,9 +132,9 @@ export default function AboutUsPage() {
             <h1 className="font-heading text-4xl font-bold text-black-900 sm:text-5xl">
               Meet Our <span className="text-brand-purple-1000">Faculty</span>
             </h1>
+            <div className="w-16 h-1 bg-brand-gold-1000 mx-auto mt-4 rounded-full" />
             <p className="mt-4 font-body text-lg text-black-600 max-w-2xl mx-auto">
-              Our experts bridge the gap between academic theory and professional
-              excellence, ensuring a one stop service for every student.
+              Our faculty includes highly qualified ACCA professionals, industry practitioners, and experienced educators who bring both academic excellence and real-world insight to every class.
             </p>
             <FacultyList />
           </div>

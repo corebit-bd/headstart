@@ -152,7 +152,7 @@ describe("AboutPage Component", () => {
 
     expect(
       screen.getByText(
-        /Our experts bridge the gap between academic theory and professional excellence/i,
+        /Our faculty includes highly qualified ACCA professionals/i,
       ),
     ).toBeInTheDocument();
 
