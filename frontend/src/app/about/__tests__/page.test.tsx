@@ -37,21 +37,6 @@ jest.mock("../../faculty/page", () => {
   };
 });
 
-// Mocking the ACCAChamps component using the correct default export structure
-jest.mock("../../blog/acca-champs/page", () => {
-  return {
-    __esModule: true,
-    default: function MockACCAChamps() {
-      return (
-        <div data-testid="acca-champs">
-          <h1>ACCA Champs</h1>
-          <p>Celebrating our world-class achievers and top scorers</p>
-        </div>
-      );
-    },
-  };
-});
-
 describe("AboutPage Component", () => {
   it("renders the Hero Section with correct Branding & Heading", () => {
     render(<AboutPage />);
@@ -170,7 +155,7 @@ describe("AboutPage Component", () => {
       screen.getByRole("heading", { level: 1, name: /ACCA Champs/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/Celebrating our world-class achievers and top scorers/i),
+      screen.getByText(/HeadStart takes pride in nurturing students/i),
     ).toBeInTheDocument();
   });
 });

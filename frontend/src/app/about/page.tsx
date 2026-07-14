@@ -3,7 +3,6 @@
 import { Tabs } from "@/components/ui/Tabs";
 import { Tab } from "@/types/nav";
 import FacultyList from "../faculty/page";
-import ACCAChamps from "../blog/acca-champs/page";
 import { DifferentiatorItem } from "@/types/key-differentiator";
 import { CareerIcon, FacultyIcon, IntegrationIcon, MentorshipIcon, ResultIcon, SupportIcon } from "@/components/ui/KeyDifferentiatorsIcons";
 
@@ -146,7 +145,41 @@ export default function AboutUsPage() {
       label: "National Prize-Winners",
       content: (
         <div className="space-y-8">
-          <ACCAChamps />
+          <div className="min-h-screen py-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h1 className="font-heading text-4xl text-center font-bold text-brand-purple-1000">
+                ACCA Champs
+              </h1>
+              <div className="w-16 h-1 bg-brand-gold-1000 mx-auto mt-4 rounded-full" />
+              <p className="mt-4 font-body text-black-800 text-center">
+                HeadStart takes pride in nurturing students who consistently achieve high marks and academic excellence in ACCA examinations.
+              </p>
+
+              <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[1, 2, 3].map((i) => (
+                  <div
+                    key={i}
+                    className="group relative rounded-2xl border border-brand-purple-300 p-6 hover:shadow-xl transition-all hover:border-brand-purple-1000"
+                  >
+                    <div className="aspect-square rounded-xl bg-brand-gold-50 mb-6 overflow-hidden flex items-center justify-center">
+                      <span className="font-heading text-brand-gold-1000 font-bold text-lg">
+                        Champ Image
+                      </span>
+                    </div>
+                    <h3 className="font-heading text-xl font-medium text-black-900">
+                      Champ Name {i}
+                    </h3>
+                    <p className="font-body text-sm text-brand-purple-900 font-semibold">
+                      Global Rank: #1
+                    </p>
+                    <p className="mt-2 font-body text-sm text-black-500">
+                      Achieving excellence in Financial Reporting through integrity.
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       ),
     },
