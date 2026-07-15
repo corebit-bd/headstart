@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         
         {/* Action CTA Banner Section */}
-        <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6 rounded-2xl bg-white p-6 shadow-md md:p-8">
+        <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6 rounded-2xl bg-brand-grey-50 p-6 shadow-md md:p-8">
           <div>
             <h3 className="font-heading text-lg font-bold text-black-900">
               Ready to accelerate your accounting career?
@@ -23,7 +23,7 @@ export default function Footer() {
               href="https://wa.me/8801886091323"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-success-1000 px-6 py-3 font-body text-sm font-bold text-white transition duration-200 hover:bg-success-900 shadow-sm"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-success-1000 px-6 py-3 font-body text-sm font-bold text-brand-grey-50 transition duration-200 hover:bg-success-900 shadow-sm"
             >
               <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
                 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.498 1.45 5.435 1.451 5.543 0 10.059-4.513 10.062-10.058.002-2.686-1.043-5.212-2.943-7.115C17.243 1.53 14.72 .483 12.03.482c-5.54 0-10.056 4.513-10.059 10.058-.001 1.922.501 3.8 1.456 5.41l-.999 3.646 3.729-.977zm13.102-6.275c-.33-.165-1.951-.963-2.251-1.074-.3-.11-.518-.165-.736.165-.218.33-.844 1.073-1.036 1.293-.192.22-.384.242-.714.077-.33-.165-1.393-.513-2.653-1.637-.98-.874-1.643-1.953-1.835-2.283-.192-.33-.021-.508.144-.672.148-.148.33-.385.495-.578.165-.192.22-.33.33-.55.11-.22.055-.413-.028-.578-.083-.166-.736-1.773-1.009-2.43-.266-.643-.538-.553-.736-.563-.19-.01-.407-.012-.623-.012-.217 0-.569.082-.867.409-.297.327-1.136 1.111-1.136 2.71 0 1.598 1.162 3.142 1.324 3.358.162.217 2.287 3.493 5.54 4.896.774.333 1.38.533 1.852.683.778.248 1.488.213 2.048.129.625-.093 1.952-.798 2.227-1.567.276-.769.276-1.43.193-1.567-.083-.138-.297-.22-.626-.385z" />
@@ -32,7 +32,7 @@ export default function Footer() {
             </Link>
             <Link
               href="/enroll"
-              className="inline-flex items-center justify-center rounded-xl bg-brand-purple-1000 px-6 py-3 font-body text-sm font-bold text-white transition duration-200 hover:bg-brand-purple-900 shadow-sm"
+              className="inline-flex items-center justify-center rounded-xl bg-brand-purple-1000 px-6 py-3 font-body text-sm font-bold text-brand-grey-50 transition duration-200 hover:bg-brand-purple-900 shadow-sm"
             >
               Apply Now
             </Link>
