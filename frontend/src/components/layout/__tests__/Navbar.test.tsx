@@ -99,7 +99,7 @@ describe("Navbar Component Suite", () => {
     expect(studentSupportLink).toHaveTextContent("Student Support");
 
     // Contact Us Link
-    const contactUsLink = screen.getByTestId("nav-link-student-support");
+    const contactUsLink = screen.getByTestId("nav-link-contact-us");
     expect(contactUsLink).toBeInTheDocument();
     expect(contactUsLink).toHaveAttribute("href", "/contact-us");
     expect(contactUsLink).toHaveTextContent("Contact Us");
