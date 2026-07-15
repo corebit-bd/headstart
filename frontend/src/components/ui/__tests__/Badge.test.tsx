@@ -21,44 +21,44 @@ describe("Badge Component", () => {
       render(<Badge>Default</Badge>);
       const badge = screen.getByText("Default");
       // Tailwind v4 Uses CSS Variables With "var()" Syntax
-      expect(badge).toHaveClass("bg-[var(--color-gray-100)]");
-      expect(badge).toHaveClass("text-[var(--color-gray-800)]");
+      expect(badge).toHaveClass("bg-[var(--color-brand-grey-100)]");
+      expect(badge).toHaveClass("text-[var(--color-black-800)]");
     });
 
     it("Renders Standard Variant Correctly", () => {
       render(<Badge variant="standard">Standard</Badge>);
       const badge = screen.getByText("Standard");
-      // Standard Variant Still Uses Gray (Default Behavior)
-      expect(badge).toHaveClass("bg-[var(--color-gray-100)]");
+      // Standard Variant Uses Brand Grey Tokens
+      expect(badge).toHaveClass("bg-[var(--color-brand-grey-100)]");
     });
 
     it("Renders Success Variant Correctly", () => {
       render(<Badge variant="success">Success</Badge>);
       const badge = screen.getByText("Success");
-      expect(badge).toHaveClass("bg-[var(--color-green-100)]");
-      expect(badge).toHaveClass("text-[var(--color-green-800)]");
+      expect(badge).toHaveClass("bg-[var(--color-success-100)]");
+      expect(badge).toHaveClass("text-[var(--color-success-800)]");
     });
 
     it("Renders Warning Variant Correctly", () => {
       render(<Badge variant="warning">Warning</Badge>);
       const badge = screen.getByText("Warning");
-      expect(badge).toHaveClass("bg-[var(--color-yellow-100)]");
-      expect(badge).toHaveClass("text-[var(--color-yellow-800)]");
+      expect(badge).toHaveClass("bg-[var(--color-warning-100)]");
+      expect(badge).toHaveClass("text-[var(--color-warning-800)]");
     });
 
     it("Renders Error Variant Correctly", () => {
       render(<Badge variant="error">Error</Badge>);
       const badge = screen.getByText("Error");
-      expect(badge).toHaveClass("bg-[var(--color-red-100)]");
-      expect(badge).toHaveClass("text-[var(--color-red-800)]");
+      expect(badge).toHaveClass("bg-[var(--color-error-100)]");
+      expect(badge).toHaveClass("text-[var(--color-error-800)]");
     });
 
     it("Renders Information Variant Correctly", () => {
       render(<Badge variant="information">Information</Badge>);
       const badge = screen.getByText("Information");
-      // Information Uses Blue Color
-      expect(badge).toHaveClass("bg-[var(--color-blue-100)]");
-      expect(badge).toHaveClass("text-[var(--color-blue-800)]");
+      // Information Uses Info Color Scale
+      expect(badge).toHaveClass("bg-[var(--color-info-100)]");
+      expect(badge).toHaveClass("text-[var(--color-info-800)]");
     });
   });
 
@@ -106,7 +106,7 @@ describe("Badge Component", () => {
         </Badge>
       );
       const badge = screen.getByText("Success");
-      expect(badge).toHaveClass("bg-[var(--color-green-100)]");
+      expect(badge).toHaveClass("bg-[var(--color-success-100)]");
     });
   });
 
@@ -189,7 +189,7 @@ describe("Badge Component", () => {
         </Badge>
       );
       const badge = screen.getByText("Large Standard");
-      expect(badge).toHaveClass("bg-[var(--color-gray-100)]");
+      expect(badge).toHaveClass("bg-[var(--color-brand-grey-100)]");
       expect(badge).toHaveClass("px-3", "py-1", "text-base");
     });
 
@@ -200,8 +200,8 @@ describe("Badge Component", () => {
         </Badge>
       );
       const badge = screen.getByText("Small Success");
-      expect(badge).toHaveClass("bg-[var(--color-green-100)]");
-      expect(badge).toHaveClass("text-[var(--color-green-800)]");
+      expect(badge).toHaveClass("bg-[var(--color-success-100)]");
+      expect(badge).toHaveClass("text-[var(--color-success-800)]");
       expect(badge).toHaveClass("px-2", "py-0.5", "text-xs");
     });
   });
