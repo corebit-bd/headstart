@@ -1,4 +1,3 @@
-// frontend/src/app/courses/page.tsx
 "use client";
 
 import { Tabs } from "@/components/ui/Tabs";
@@ -212,20 +211,52 @@ export default function CoursesPage() {
 
   return (
     <main className="min-h-screen bg-brand-grey-50">
-      {/* Hero Banner */}
-      <section className="bg-brand-purple-50 py-24 text-brand-purple-1000">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="font-heading text-5xl font-bold">Our Courses</h1>
-          <p className="mt-6 font-body text-xl text-black-700 max-w-3xl mx-auto">
-            Comprehensive programs designed to guide students from foundational accounting knowledge to professional excellence.
-          </p>
+      {/* Modernized Hero Section */}
+      <section className="relative overflow-hidden bg-linear-to-br from-brand-purple-50 via-brand-purple-100 to-brand-grey-50 py-24 text-brand-purple-1000">
+        
+        <div className="absolute inset-0 pointer-events-none opacity-20" aria-hidden="true">
+          {/* Tech/Grid Dot Pattern */}
+          <svg className="absolute top-0 left-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="hero-dot-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1" fill="currentColor" className="text-black-1000" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#hero-dot-pattern)" />
+          </svg>
+          
+          {/* Abstract Geometric Shapes */}
+          <div className="absolute -top-16 -right-16 w-96 h-96 rounded-full border-4 border-brand-purple-1000/30 blur-sm" />
+          <div className="absolute bottom-10 right-1/4 w-64 h-64 border border-brand-purple-1000/20 transform rotate-45" />
+          <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-3xl bg-brand-purple-1000/5 transform -rotate-12" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+            {/* Left Column (Heading & Subheading) */}
+            <div className="lg:col-span-7 space-y-6">
+              <h1 className="font-heading text-5xl md:text-6xl font-bold tracking-tight">
+                Our Courses
+              </h1>
+              <p className="font-body text-xl md:text-2xl text-brand-purple-800 font-medium leading-normal">
+                Comprehensive programs designed to guide students from foundational accounting knowledge to professional excellence.
+              </p>
+            </div>
+
+            {/* Right Column (Body Description) */}
+            <div className="lg:col-span-5 lg:border-l lg:border-brand-purple-1000/10 lg:pl-12">
+              <p className="font-body text-lg text-black-600 leading-relaxed">
+                At HeadStart, our educational syllabus balances rigorous core theory with high-impact, practical skill application, offering clear acceleration frameworks built directly for modern financial landscape tracks.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Tabs Container */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-brand-grey-1000 rounded-2xl shadow-sm border border-black-50 p-2 sm:p-8">
+            <div className="bg-brand-grey-1000 rounded-2xl shadow-sm border border-brand-grey-1000 p-6 sm:p-8">
                 <Tabs tabs={coursesTabs} fullWidth /> 
             </div>
         </div>
