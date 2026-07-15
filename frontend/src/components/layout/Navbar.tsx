@@ -1,7 +1,6 @@
 "use client";
 
 import Image from 'next/image';
-import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { NavLink } from "@/components/ui/NavLink";
@@ -13,15 +12,7 @@ const navLinks = [
   { name: "Contact Us", href: "/contact" },
 ];
 
-const serviceLinks = [
-  { name: "ACCA Courses", href: "/services/acca" },
-  { name: "Advisory", href: "/services/advisory" },
-  { name: "Trainings", href: "/services/trainings" },
-  { name: "Students Development Center (SDC)", href: "/services/sdc" },
-];
-
 export default function Navbar() {
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-brand-purple-700 bg-brand-purple-1000 backdrop-blur-md">
@@ -47,50 +38,9 @@ export default function Navbar() {
                 About Us
               </NavLink>
 
-              {/* Services Dropdown */}
-              <div
-                className="relative group py-2"
-                onMouseEnter={() => setIsServicesOpen(true)}
-                onMouseLeave={() => setIsServicesOpen(false)}
-              >
-                <button className="flex items-center gap-1 text-brand-purple-50 group-hover:text-brand-gold-1000 transition-colors focus:outline-none">
-                  Services
-                  <svg
-                    className={`h-4 w-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-
-                {/* Dropdown Menu - Glassmorphism Aesthetic */}
-                {isServicesOpen && (
-                  <div className="absolute left-0 mt-2 w-72 rounded-xl border border-brand-grey-1000 bg-white p-2 shadow-2xl ring-1 ring-black/5 animate-in fade-in zoom-in duration-200">
-                    {serviceLinks.map((service) => (
-                      <Link
-                        key={service.name}
-                        href={service.href}
-                        className="block rounded-lg px-4 py-3 text-sm text-black-700 hover:bg-brand-purple-50 hover:text-brand-purple-1000 transition-all"
-                      >
-                        <span className="block font-semibold">
-                          {service.name}
-                        </span>
-                        <span className="mt-1 block text-xs text-black-500 font-normal">
-                          Explore our professional {service.name.split(" ")[0]}{" "}
-                          wing.
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
+              <NavLink href="/courses" className="flex items-center gap-1 text-brand-purple-50">
+                Courses
+              </NavLink>
 
               {/* Remaining Nav Links */}
               {navLinks
