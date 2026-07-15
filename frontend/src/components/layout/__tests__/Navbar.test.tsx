@@ -97,6 +97,12 @@ describe("Navbar Component Suite", () => {
     expect(studentSupportLink).toBeInTheDocument();
     expect(studentSupportLink).toHaveAttribute("href", "/student-support");
     expect(studentSupportLink).toHaveTextContent("Student Support");
+
+    // Contact Us Link
+    const contactUsLink = screen.getByTestId("nav-link-student-support");
+    expect(contactUsLink).toBeInTheDocument();
+    expect(contactUsLink).toHaveAttribute("href", "/contact-us");
+    expect(contactUsLink).toHaveTextContent("Contact Us");
   });
 
   it("renders the primary action button to enroll with appropriate variations and routes", () => {

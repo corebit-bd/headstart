@@ -42,6 +42,10 @@ export default function Navbar() {
               <NavLink href="/student-support" className="flex items-center gap-1 text-brand-purple-50">
                 Student Support
               </NavLink>
+
+              <NavLink href="/contact-us" className="flex items-center gap-1 text-brand-purple-50">
+                Contact Us
+              </NavLink>
             </div>
           </div>
 
