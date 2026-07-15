@@ -52,7 +52,7 @@ export const Default: Story = {
         tabs: sampleTabs,
     },
     render: (args) => (
-        <div className="w-[600px] border border-brand-grey-1000 p-6 rounded-2xl bg-white shadow-sm">
+        <div className="w-[600px] border border-brand-grey-1000 p-6 rounded-2xl bg- shadow-sm">
             <Tabs {...args} />
         </div>
     ),
@@ -64,7 +64,7 @@ export const CustomDefaultValue: Story = {
         defaultValue: "faculty",
     },
     render: (args) => (
-        <div className="w-[600px] border border-brand-grey-1000 p-6 rounded-2xl bg-white shadow-sm">
+        <div className="w-[600px] border border-brand-grey-1000 p-6 rounded-2xl bg-brand-grey-50 shadow-sm">
             <Tabs {...args} />
         </div>
     ),
