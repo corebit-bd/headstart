@@ -1,5 +1,6 @@
 // frontend/src/components/ui/__tests__/Tabs.test.tsx
 import { render, screen, fireEvent } from "@testing-library/react";
+import "@testing-library/jest-dom"; // Ensures .toBeInTheDocument() and .toHaveClass() matchers work
 import { Tabs } from "../Tabs";
 import { Tab } from "@/types/nav";
 
@@ -14,9 +15,9 @@ describe("Tabs Component", () => {
     render(<Tabs tabs={mockTabs} />);
 
     // Check headers are present
-    expect(screen.getByText("Tab 1")).toBeInTheDocument();
-    expect(screen.getByText("Tab 2")).toBeInTheDocument();
-    expect(screen.getByText("Tab 3")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Tab 1" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Tab 2" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Tab 3" })).toBeInTheDocument();
 
     // First tab content should be visible by default
     expect(screen.getByTestId("content-1")).toBeInTheDocument();
@@ -38,7 +39,7 @@ describe("Tabs Component", () => {
     expect(screen.getByTestId("content-1")).toBeInTheDocument();
 
     // Click tab 3
-    fireEvent.click(screen.getByText("Tab 3"));
+    fireEvent.click(screen.getByRole("button", { name: "Tab 3" }));
 
     // UI state change check
     expect(screen.getByTestId("content-3")).toBeInTheDocument();
@@ -48,11 +49,14 @@ describe("Tabs Component", () => {
   it("applies correct active styling classes to the active tab trigger", () => {
     render(<Tabs tabs={mockTabs} />);
 
-    const firstTabButton = screen.getByText("Tab 1");
-    const secondTabButton = screen.getByText("Tab 2");
+    const firstTabButton = screen.getByRole("button", { name: "Tab 1" });
+    const secondTabButton = screen.getByRole("button", { name: "Tab 2" });
 
     // Check explicit active vs inactive classes
-    expect(firstTabButton).toHaveClass("border-brand-purple-1000", "text-brand-purple-1000");
-    expect(secondTabButton).toHaveClass("border-transparent", "text-black-500");
+    expect(firstTabButton).toHaveClass("border-brand-purple-1000");
+    expect(firstTabButton).toHaveClass("text-brand-purple-1000");
+    
+    expect(secondTabButton).toHaveClass("border-transparent");
+    expect(secondTabButton).toHaveClass("text-black-500");
   });
 });

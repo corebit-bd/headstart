@@ -9,4 +9,5 @@ export interface Tab {
 export interface TabsProps {
     tabs: Tab[];
     defaultValue?: string;
+    fullWidth?: boolean;
 }
