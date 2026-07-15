@@ -335,12 +335,41 @@ export default function AboutUsPage() {
   return (
     <main className="min-h-screen bg-brand-grey-50">
       {/* Hero Banner */}
-      <section className="bg-brand-gold-1000 py-24 text-black-1000">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="font-heading text-5xl font-bold">About <span className="text-brand-purple-1000">HeadStart</span></h1>
-          <p className="mt-6 font-body text-xl text-black-800 max-w-3xl mx-auto">
-            Shaping the next generation of ACCA professionals through academic excellence, mentorship, and real-world insight.
-          </p>
+      <section className="relative overflow-hidden bg-linear-to-br from-brand-gold-50 via-brand-gold-500 to-brand-grey-50 py-24 text-brand-purple-1000">
+
+      <div className="absolute inset-0 pointer-events-none opacity-20" aria-hidden="true">
+        {/* Tech/Grid Dot Pattern */}
+        <svg className="absolute top-0 left-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="hero-dot-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1" fill="currentColor" className="text-black-1000" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#hero-dot-pattern)" />
+        </svg>
+        
+        {/* Abstract Geometric Shapes */}
+        <div className="absolute -top-16 -right-16 w-96 h-96 rounded-full border-4 border-brand-purple-1000/30 blur-sm" />
+        <div className="absolute bottom-10 right-1/4 w-64 h-64 border border-brand-purple-1000/20 transform rotate-45" />
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-3xl bg-brand-purple-1000/5 transform -rotate-12" />
+      </div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+            <div className="lg:col-span-7 space-y-6">
+              <h1 className="font-heading text-5xl md:text-6xl font-bold tracking-tight">
+                About <span className="text-brand-purple-1000">HeadStart</span>
+              </h1>
+              <p className="font-body text-xl md:text-2xl text-brand-purple-800 font-medium leading-normal">
+                Shaping the next generation of ACCA professionals through academic excellence, mentorship, and real-world insight.
+              </p>
+            </div>
+            <div className="lg:col-span-5 lg:border-l lg:border-brand-purple-1000/10 lg:pl-12">
+              <p className="font-body text-lg text-black-600 leading-relaxed">
+                Our ecosystem provides students with a balanced foundation, pairing structured accounting syllabi with professional growth strategies to ensure long-term transition viability.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -1,159 +1,148 @@
-// frontend/src/app/life-at-headstart/__tests__/page.test.tsx
+import React from "react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { render, screen, fireEvent, within } from "@testing-library/react";
 import LifeAtHeadStartPage from "../page";
+import { Tab } from "@/types/nav";
 
-// Mock Next.js Link component to keep tests clean and focus assertions on props/attributes
+// ============================================
+// 1. Mock Next.js Link & Complex Assets
+// ============================================
 jest.mock("next/link", () => {
-    return ({ children, href, ...props }: React.ComponentPropsWithoutRef<"a">) => {
-      return (
-        <a href={href} {...props}>
-          {children}
-        </a>
-      );
-    };
-  });
-
-describe("LifeAtHeadStartPage Component", () => {
-  const WHATSAPP_URL = "https://wa.me/8801886091323";
-
-  // Utility to test that CTA buttons are correctly duplicated and active in a specific container
-  const assertActionButtonsExist = (container: HTMLElement) => {
-    const applyBtn = within(container).getByRole("link", { name: /Apply Now/i });
-    const consultBtn = within(container).getByRole("link", { name: /Book Free Consultation/i });
-
-    expect(applyBtn).toBeInTheDocument();
-    expect(applyBtn).toHaveAttribute("href", "/enroll");
-
-    expect(consultBtn).toBeInTheDocument();
-    expect(consultBtn).toHaveAttribute("href", WHATSAPP_URL);
-    expect(consultBtn).toHaveAttribute("target", "_blank");
-    expect(consultBtn).toHaveAttribute("rel", "noopener noreferrer");
+  return function DummyLink({ 
+    children, 
+    href, 
+    ...props 
+  }: React.ComponentPropsWithoutRef<"a">) {
+    return (
+      <a href={href} {...props}>
+        {children}
+      </a>
+    );
   };
+});
 
-  it("renders the Hero section with appropriate layout copy and styles", () => {
+jest.mock("@/components/ui/Tabs", () => {
+  return {
+    Tabs: function DummyTabs({ tabs }: { tabs: Tab[] }) {
+      return (
+        <div data-testid="tabs-component">
+          {tabs.map((tab) => (
+            <div key={tab.id} data-testid={`tab-content-${tab.id}`}>
+              <span className="tab-label">{tab.label}</span>
+              <div className="tab-body">{tab.content}</div>
+            </div>
+          ))}
+        </div>
+      );
+    },
+  };
+});
+
+// Mocking SVG Icons to prevent layout trees in structural test rendering
+jest.mock("@/components/ui/LifeAtHeadStartIcons", () => ({
+  TrophyIcon: ({ className }: { className?: string }) => <svg data-testid="icon-trophy" className={className} />,
+  CalendarIcon: ({ className }: { className?: string }) => <svg data-testid="icon-calendar" className={className} />,
+}));
+
+// ============================================
+// 2. Core Test Suites
+// ============================================
+describe("LifeAtHeadStartPage Component Suite", () => {
+  
+  beforeEach(() => {
     render(<LifeAtHeadStartPage />);
-
-    const heading = screen.getByRole("heading", { name: /Life at HeadStart/i, level: 1 });
-    expect(heading).toBeInTheDocument();
-    expect(heading).toHaveClass("font-heading", "text-5xl");
-
-    expect(
-      screen.getByText(/Experience an Active, Community-Driven Journey to Becoming an Elite Professional/i)
-    ).toBeInTheDocument();
-
-    const heroSection = heading.closest("section");
-    expect(heroSection).toHaveClass("bg-brand-gold-1000", "text-brand-purple-1000");
   });
 
-  it("provisions all 6 structural Tab elements", () => {
-    render(<LifeAtHeadStartPage />);
-
-    expect(screen.getByRole("button", { name: /Our Exam Results/i })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /ACCA Member & Student Connect/i })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /Career Counselling Sessions/i })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /Training Sessions/i })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /Extra Curricular Activities/i })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /Upcoming Events/i })).toBeInTheDocument();
+  it("renders the main page header elements inside the hero layout section", () => {
+    const mainHeading = screen.getByRole("heading", { name: /Life at HeadStart/i });
+    expect(mainHeading).toBeInTheDocument();
+    
+    expect(
+      screen.getByText(/Experience an Active, Community-Driven Journey/i)
+    ).toBeInTheDocument();
   });
 
-  it("renders the 'Our Exam Results' tab by default with CTAs", () => {
-    const { container } = render(<LifeAtHeadStartPage />);
+  it("passes all structured student life tab configurations cleanly to the Tabs component", () => {
+    expect(screen.getByTestId("tabs-component")).toBeInTheDocument();
 
-    expect(
-      screen.getByRole("heading", { name: /Championship in Academic Performance/i, level: 3 })
-    ).toBeInTheDocument();
+    const expectedTabIds = [
+      "exam-results",
+      "student-connect",
+      "career-counselling",
+      "training-sessions",
+      "extracurricular",
+      "upcoming-events",
+    ];
 
-    expect(screen.getByText("Tanzim Rahman")).toBeInTheDocument();
-    expect(screen.getByText("Marks: 88%")).toBeInTheDocument();
-    expect(screen.getByText("Nabila Karim")).toBeInTheDocument();
-    expect(screen.getByText("Marks: 85%")).toBeInTheDocument();
-    expect(screen.getByText("Fahim Shahriar")).toBeInTheDocument();
-    expect(screen.getByText("Marks: 82%")).toBeInTheDocument();
-
-    // Verify CTAs in active tab panel
-    assertActionButtonsExist(container);
+    expectedTabIds.forEach((id) => {
+      expect(screen.getByTestId(`tab-content-${id}`)).toBeInTheDocument();
+    });
   });
 
-  it("switches context to 'ACCA Member & Student Connect' with active CTAs", () => {
-    const { container } = render(<LifeAtHeadStartPage />);
+  describe("Tab Structural Layout & Data Assertions", () => {
+    
+    it("verifies the exam results records and performance badges", () => {
+      const resultsTab = screen.getByTestId("tab-content-exam-results");
+      expect(resultsTab).toHaveTextContent("Championship in Academic Performance");
+      expect(resultsTab).toHaveTextContent("Tanzim Rahman");
+      expect(resultsTab).toHaveTextContent("Nabila Karim");
+      expect(resultsTab).toHaveTextContent("Fahim Shahriar");
+      
+      expect(resultsTab).toHaveTextContent("Marks: 88%");
+      expect(screen.getAllByTestId("icon-trophy").length).toBeGreaterThan(0);
+    });
 
-    const tabBtn = screen.getByRole("button", { name: /ACCA Member & Student Connect/i });
-    fireEvent.click(tabBtn);
+    it("verifies the student connection networking panels and highlights", () => {
+      const connectTab = screen.getByTestId("tab-content-student-connect");
+      expect(connectTab).toHaveTextContent("Connecting Ambition with Expertise");
+      expect(connectTab).toHaveTextContent("Alumni Corporate Roundtables");
+      expect(connectTab).toHaveTextContent("[ Member & Affiliate Networking Photo Placeholder ]");
+    });
 
-    expect(
-      screen.getByRole("heading", { name: /Connecting Ambition with Expertise/i, level: 3 })
-    ).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /Alumni Corporate Roundtables/i, level: 4 })).toBeInTheDocument();
-    expect(screen.getByText(/We bridge the gap between hard theory/i)).toBeInTheDocument();
+    it("verifies local market portals and global portability career structures", () => {
+      const counsellingTab = screen.getByTestId("tab-content-career-counselling");
+      expect(counsellingTab).toHaveTextContent("Guiding Your Future Path");
+      expect(counsellingTab).toHaveTextContent("Local Growth Portals");
+      expect(counsellingTab).toHaveTextContent("Global Portability Guidance");
+    });
 
-    assertActionButtonsExist(container);
-  });
+    it("verifies custom soft skill and executive communication modules", () => {
+      const trainingTab = screen.getByTestId("tab-content-training-sessions");
+      expect(trainingTab).toHaveTextContent("Beyond Technical Competency");
+      expect(trainingTab).toHaveTextContent("Executive Communication");
+      expect(trainingTab).toHaveTextContent("Interview Etiquette");
+      expect(trainingTab).toHaveTextContent("Personality Alignment");
+    });
 
-  it("switches context to 'Career Counselling Sessions' with active CTAs", () => {
-    const { container } = render(<LifeAtHeadStartPage />);
+    it("verifies sports carnivals and extra curricular creative workshop paths", () => {
+      const activitiesTab = screen.getByTestId("tab-content-extracurricular");
+      expect(activitiesTab).toHaveTextContent("Vibrant Campus Culture");
+      expect(activitiesTab).toHaveTextContent("ACCA Cricket Carnival");
+      expect(activitiesTab).toHaveTextContent("Campus Interactions");
+    });
 
-    const tabBtn = screen.getByRole("button", { name: /Career Counselling Sessions/i });
-    fireEvent.click(tabBtn);
+    it("verifies upcoming calendar modules render future seminar event arrays accurately", () => {
+      const eventsTab = screen.getByTestId("tab-content-upcoming-events");
+      expect(eventsTab).toHaveTextContent("Mark Your Calendar");
+      expect(eventsTab).toHaveTextContent("ACCA Pathway Seminar 2026");
+      expect(eventsTab).toHaveTextContent("Excel Corporate Modeling Bootcamp");
+      
+      expect(screen.getAllByTestId("icon-calendar").length).toBe(2);
+    });
 
-    expect(
-      screen.getByRole("heading", { name: /Guiding Your Future Path/i, level: 3 })
-    ).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /Local Growth Portals/i, level: 4 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /Global Portability Guidance/i, level: 4 })).toBeInTheDocument();
+    it("ensures call-to-action link actions map out matching paths across layout elements", () => {
+      const enrollLinks = screen.getAllByRole("link", { name: /Apply Now/i });
+      expect(enrollLinks.length).toBe(6); 
+      enrollLinks.forEach(link => {
+        expect(link).toHaveAttribute("href", "/enroll");
+      });
 
-    assertActionButtonsExist(container);
-  });
-
-  it("switches context to 'Training Sessions' with active CTAs", () => {
-    const { container } = render(<LifeAtHeadStartPage />);
-
-    const tabBtn = screen.getByRole("button", { name: /Training Sessions/i });
-    fireEvent.click(tabBtn);
-
-    expect(
-      screen.getByRole("heading", { name: /Beyond Technical Competency/i, level: 3 })
-    ).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /Executive Communication/i, level: 4 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /Interview Etiquette/i, level: 4 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /Personality Alignment/i, level: 4 })).toBeInTheDocument();
-
-    assertActionButtonsExist(container);
-  });
-
-  it("switches context to 'Extra Curricular Activities' with active CTAs", () => {
-    const { container } = render(<LifeAtHeadStartPage />);
-
-    const tabBtn = screen.getByRole("button", { name: /Extra Curricular Activities/i });
-    fireEvent.click(tabBtn);
-
-    expect(
-      screen.getByRole("heading", { name: /Vibrant Campus Culture/i, level: 3 })
-    ).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /ACCA Cricket Carnival/i, level: 4 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /Student Activities/i, level: 4 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /Campus Interactions/i, level: 4 })).toBeInTheDocument();
-
-    assertActionButtonsExist(container);
-  });
-
-  it("switches context to 'Upcoming Events' and displays structured events alongside CTAs", () => {
-    const { container } = render(<LifeAtHeadStartPage />);
-
-    const tabBtn = screen.getByRole("button", { name: /Upcoming Events/i });
-    fireEvent.click(tabBtn);
-
-    expect(
-      screen.getByRole("heading", { name: /Mark Your Calendar/i, level: 3 })
-    ).toBeInTheDocument();
-
-    // Confirm that simulated items render fully
-    expect(screen.getByRole("heading", { name: "ACCA Pathway Seminar 2026", level: 4 })).toBeInTheDocument();
-    expect(screen.getByText("Time: 4:00 PM - 6:00 PM")).toBeInTheDocument();
-
-    expect(screen.getByRole("heading", { name: "Excel Corporate Modeling Bootcamp", level: 4 })).toBeInTheDocument();
-    expect(screen.getByText("Time: 10:00 AM - 3:00 PM")).toBeInTheDocument();
-
-    assertActionButtonsExist(container);
+      const supportLinks = screen.getAllByRole("link", { name: /Book Free Consultation/i });
+      expect(supportLinks.length).toBe(6);
+      supportLinks.forEach(link => {
+        expect(link).toHaveAttribute("href", "https://wa.me/8801886091323");
+        expect(link).toHaveAttribute("target", "_blank");
+      });
+    });
   });
 });

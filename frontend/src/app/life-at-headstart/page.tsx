@@ -419,8 +419,26 @@ export default function LifeAtHeadStartPage() {
     return (
       <main className="min-h-screen bg-brand-grey-50">
         {/* Hero Section */}
-        <section className="bg-brand-gold-1000 py-24 text-brand-purple-1000">
-            <div className="max-w-7xl mx-auto px-6 md:px-8">
+        <section className="relative overflow-hidden bg-linear-to-br from-brand-gold-50 via-brand-gold-500 to-brand-grey-50 py-24 text-brand-purple-1000">
+
+          <div className="absolute inset-0 pointer-events-none opacity-20" aria-hidden="true">
+            {/* Tech/Grid Dot Pattern */}
+            <svg className="absolute top-0 left-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="hero-dot-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <circle cx="2" cy="2" r="1" fill="currentColor" className="text-black-1000" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#hero-dot-pattern)" />
+            </svg>
+            
+            {/* Abstract Geometric Shapes */}
+            <div className="absolute -top-16 -right-16 w-96 h-96 rounded-full border-4 border-brand-purple-1000/30 blur-sm" />
+            <div className="absolute bottom-10 right-1/4 w-64 h-64 border border-brand-purple-1000/20 transform rotate-45" />
+            <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-3xl bg-brand-purple-1000/5 transform -rotate-12" />
+          </div>
+        
+            <div className="relative max-w-7xl mx-auto px-6 md:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
                     {/* Left Column (Heading & Subheading) */}
                     <div className="lg:col-span-7 space-y-6">
