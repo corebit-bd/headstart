@@ -5,13 +5,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { NavLink } from "@/components/ui/NavLink";
 
-const navLinks = [
-  { name: "About Us", href: "/about" },
-  { name: "Blog", href: "/blog" },
-  { name: "Faculty", href: "/faculty" },
-  { name: "Contact Us", href: "/contact" },
-];
-
 export default function Navbar() {
 
   return (
@@ -42,14 +35,9 @@ export default function Navbar() {
                 Courses
               </NavLink>
 
-              {/* Remaining Nav Links */}
-              {navLinks
-                .filter((link) => link.name !== "About Us")
-                .map((link) => (
-                  <NavLink key={link.name} href={link.href}>
-                    {link.name}
-                  </NavLink>
-                ))}
+              <NavLink href="/life-at-headstart" className="flex items-center gap-1 text-brand-purple-50">
+                Life at HeadStart
+              </NavLink>
             </div>
           </div>
 

@@ -312,12 +312,12 @@ export default function AboutUsPage() {
         <section className="py-20 px-6 md:px-12 lg:px-24 overflow-hidden">
           <p className="text-black-700">
             HeadStart is proudly recognized as:
-            <ul className="list-disc list-inside">
+          </p>
+          <ul className="list-disc list-inside text-black-700">
               <li>ACCA Approved Learning Partner</li>
               <li>Approved Employer</li>
               <li>Licensed CBE Centre</li>
             </ul>
-          </p>
         </section>
       ),
     },

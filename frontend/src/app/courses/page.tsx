@@ -140,7 +140,7 @@ export default function CoursesPage() {
       content: (
         <div className="space-y-12">
           {/* Skill Dev Banner */}
-          <div className="border-l-4 border-brand-gold-1000 pl-6 py-2">
+          <div className="border-l-4 border-brand-purple-1000 pl-6 py-2">
             <h3 className="text-2xl font-bold font-heading text-brand-purple-1000 mb-2">
                 Professional Skills Development
             </h3>

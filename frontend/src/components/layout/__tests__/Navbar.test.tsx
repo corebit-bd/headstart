@@ -1,3 +1,4 @@
+// Navbar.test.tsx
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
@@ -16,7 +17,7 @@ jest.mock("next/image", () => {
 
 // Mocking next/link to cleanly inspect target href attributes
 jest.mock("next/link", () => {
-  return function DummyLink({ children, href, ...props }: { children: React.ReactNode; href: string }) {
+  return function DummyLink({ children, href, ...props }: React.ComponentPropsWithoutRef<"a">) {
     return (
       <a href={href} {...props}>
         {children}
@@ -25,12 +26,13 @@ jest.mock("next/link", () => {
   };
 });
 
-// Mocking local NavLink atomic component
+// Mocking local NavLink atomic component securely without using 'any'
 jest.mock("@/components/ui/NavLink", () => {
   return {
     NavLink: function DummyNavLink({ children, href, className }: { children: React.ReactNode; href: string; className?: string }) {
+      const cleanId = href.replace("/", "");
       return (
-        <a href={href} className={className} data-testid={`nav-link-${href.replace("/", "")}`}>
+        <a href={href} className={className} data-testid={`nav-link-${cleanId}`}>
           {children}
         </a>
       );
@@ -71,38 +73,24 @@ describe("Navbar Component Suite", () => {
     expect(logoLink).toHaveAttribute("href", "/");
   });
 
-  it("verifies the static, prioritized navigation links are active and accessible", () => {
-    // Explicitly rendered "About Us" Link
+  it("verifies that all navigation links are active and accessible", () => {
+    // About Us Link
     const aboutLink = screen.getByTestId("nav-link-about");
     expect(aboutLink).toBeInTheDocument();
     expect(aboutLink).toHaveAttribute("href", "/about");
     expect(aboutLink).toHaveTextContent("About Us");
 
-    // Explicitly rendered "Courses" Link
+    // Courses Link
     const coursesLink = screen.getByTestId("nav-link-courses");
     expect(coursesLink).toBeInTheDocument();
     expect(coursesLink).toHaveAttribute("href", "/courses");
     expect(coursesLink).toHaveTextContent("Courses");
-  });
 
-  it("dynamically iterates and maps the remaining navLinks configuration safely", () => {
-    // Verified mapped link: Blog
-    const blogLink = screen.getByTestId("nav-link-blog");
-    expect(blogLink).toBeInTheDocument();
-    expect(blogLink).toHaveAttribute("href", "/blog");
-    expect(blogLink).toHaveTextContent("Blog");
-
-    // Verified mapped link: Faculty
-    const facultyLink = screen.getByTestId("nav-link-faculty");
-    expect(facultyLink).toBeInTheDocument();
-    expect(facultyLink).toHaveAttribute("href", "/faculty");
-    expect(facultyLink).toHaveTextContent("Faculty");
-
-    // Verified mapped link: Contact Us
-    const contactLink = screen.getByTestId("nav-link-contact");
-    expect(contactLink).toBeInTheDocument();
-    expect(contactLink).toHaveAttribute("href", "/contact");
-    expect(contactLink).toHaveTextContent("Contact Us");
+    // Life at HeadStart Link
+    const lifeLink = screen.getByTestId("nav-link-life-at-headstart");
+    expect(lifeLink).toBeInTheDocument();
+    expect(lifeLink).toHaveAttribute("href", "/life-at-headstart");
+    expect(lifeLink).toHaveTextContent("Life at HeadStart");
   });
 
   it("renders the primary action button to enroll with appropriate variations and routes", () => {
