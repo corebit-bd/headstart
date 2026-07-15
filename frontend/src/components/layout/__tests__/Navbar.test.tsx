@@ -91,6 +91,12 @@ describe("Navbar Component Suite", () => {
     expect(lifeLink).toBeInTheDocument();
     expect(lifeLink).toHaveAttribute("href", "/life-at-headstart");
     expect(lifeLink).toHaveTextContent("Life at HeadStart");
+
+    // Student Support Link
+    const studentSupportLink = screen.getByTestId("nav-link-student-support");
+    expect(studentSupportLink).toBeInTheDocument();
+    expect(studentSupportLink).toHaveAttribute("href", "/student-support");
+    expect(studentSupportLink).toHaveTextContent("Student Support");
   });
 
   it("renders the primary action button to enroll with appropriate variations and routes", () => {

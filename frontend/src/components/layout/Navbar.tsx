@@ -38,6 +38,10 @@ export default function Navbar() {
               <NavLink href="/life-at-headstart" className="flex items-center gap-1 text-brand-purple-50">
                 Life at HeadStart
               </NavLink>
+
+              <NavLink href="/student-support" className="flex items-center gap-1 text-brand-purple-50">
+                Student Support
+              </NavLink>
             </div>
           </div>
 
