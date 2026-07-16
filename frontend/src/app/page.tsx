@@ -1,10 +1,23 @@
-export default function Home() {
+import WhyHeadStart from "@/components/home/WhyHeadStart";
+import FacultyPreview from "@/components/home/FacultyPreview";
+import { Contact } from "@/components/home/Contact";
+import Hero from "@/components/home/Hero";
+import ACCAQualificationOverview from "@/components/home/ACCAQualificationOverview";
+import StudentSuccess from "@/components/home/StudentSuccess";
+import LifeAtHeadStart from "@/components/home/LifeAtHeadStart";
+import StudentSupport from "@/components/home/StudentSupport";
+
+export default function HomePage() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <section className="text-center">
-        <h1>PEND Boilerplate</h1>
-        <p>PostgreSQL + Expo + Next.js + Django</p>
-      </section>
-    </main>
+    <>
+      <Hero />
+      <WhyHeadStart />
+      <ACCAQualificationOverview />
+      <FacultyPreview />
+      <StudentSuccess />
+      <LifeAtHeadStart />
+      <StudentSupport />
+      <Contact />
+    </>
   );
 }

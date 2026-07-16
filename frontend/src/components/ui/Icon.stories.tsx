@@ -85,31 +85,31 @@ export const CommonIcons: Story = {
     <div className="flex flex-wrap gap-6">
       <div className="flex flex-col items-center gap-2">
         <Icon icon="check" size="lg" />
-        <span className="text-xs text-gray-500">check</span>
+        <span className="text-xs text-black-500">check</span>
       </div>
       <div className="flex flex-col items-center gap-2">
         <Icon icon="close" size="lg" />
-        <span className="text-xs text-gray-500">close</span>
+        <span className="text-xs text-black-500">close</span>
       </div>
       <div className="flex flex-col items-center gap-2">
         <Icon icon="menu" size="lg" />
-        <span className="text-xs text-gray-500">menu</span>
+        <span className="text-xs text-black-500">menu</span>
       </div>
       <div className="flex flex-col items-center gap-2">
         <Icon icon="search" size="lg" />
-        <span className="text-xs text-gray-500">search</span>
+        <span className="text-xs text-black-500">search</span>
       </div>
       <div className="flex flex-col items-center gap-2">
         <Icon icon="user" size="lg" />
-        <span className="text-xs text-gray-500">user</span>
+        <span className="text-xs text-black-500">user</span>
       </div>
       <div className="flex flex-col items-center gap-2">
         <Icon icon="settings" size="lg" />
-        <span className="text-xs text-gray-500">settings</span>
+        <span className="text-xs text-black-500">settings</span>
       </div>
       <div className="flex flex-col items-center gap-2">
         <Icon icon="home" size="lg" />
-        <span className="text-xs text-gray-500">home</span>
+        <span className="text-xs text-black-500">home</span>
       </div>
     </div>
   ),
@@ -124,15 +124,15 @@ export const ArrowIcons: Story = {
     <div className="flex flex-wrap gap-6">
       <div className="flex flex-col items-center gap-2">
         <Icon icon="arrow-right" size="lg" />
-        <span className="text-xs text-gray-500">arrow-right</span>
+        <span className="text-xs text-black-500">arrow-right</span>
       </div>
       <div className="flex flex-col items-center gap-2">
         <Icon icon="arrow-left" size="lg" />
-        <span className="text-xs text-gray-500">arrow-left</span>
+        <span className="text-xs text-black-500">arrow-left</span>
       </div>
       <div className="flex flex-col items-center gap-2">
         <Icon icon="chevron-down" size="lg" />
-        <span className="text-xs text-gray-500">chevron-down</span>
+        <span className="text-xs text-black-500">chevron-down</span>
       </div>
     </div>
   ),
@@ -150,7 +150,7 @@ export const WithColors: Story = {
       <Icon icon="close" size="lg" className="text-red-600" />
       <Icon icon="search" size="lg" className="text-yellow-600" />
       <Icon icon="user" size="lg" className="text-purple-600" />
-      <Icon icon="settings" size="lg" className="text-gray-600" />
+      <Icon icon="settings" size="lg" className="text-black-600" />
     </div>
   ),
 };
@@ -246,7 +246,7 @@ export const StatusIcons: Story = {
         <Icon icon="check" size="lg" className="text-green-600" />
         <div>
           <p className="font-medium">Success</p>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-black-500">
             Operation Completed Successfully
           </p>
         </div>
@@ -255,14 +255,14 @@ export const StatusIcons: Story = {
         <Icon icon="close" size="lg" className="text-red-600" />
         <div>
           <p className="font-medium">Error</p>
-          <p className="text-sm text-gray-500">Something Went Wrong</p>
+          <p className="text-sm text-black-500">Something Went Wrong</p>
         </div>
       </div>
       <div className="flex items-center gap-2 p-3 border rounded-lg">
         <Icon icon="search" size="lg" className="text-blue-600" />
         <div>
           <p className="font-medium">Information</p>
-          <p className="text-sm text-gray-500">Additional Details Available</p>
+          <p className="text-sm text-black-500">Additional Details Available</p>
         </div>
       </div>
     </div>
@@ -293,7 +293,7 @@ export const IconGrid: Story = {
           className="flex flex-col items-center gap-2 p-3 border rounded hover:bg-gray-50 cursor-pointer"
         >
           <Icon icon={iconName} size="lg" />
-          <span className="text-xs text-gray-500 text-center">{iconName}</span>
+          <span className="text-xs text-black-500 text-center">{iconName}</span>
         </div>
       ))}
     </div>
@@ -331,7 +331,7 @@ export const UserProfile: Story = {
       </div>
       <div>
         <p className="font-medium">John Doe</p>
-        <p className="text-sm text-gray-500">john@example.com</p>
+        <p className="text-sm text-black-500">john@example.com</p>
       </div>
       <button className="ml-auto p-2 hover:bg-gray-100 rounded">
         <Icon icon="settings" />
