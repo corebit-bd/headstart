@@ -58,7 +58,7 @@
     "tailwindcss": "^4",
     "typescript": "^6",
     "typescript-eslint": "^8.64.0",
-    "vitest": "^4.1.9"
+    "vitest": "^4.1.10"
   },
   "overrides": {
     "postcss": "^8.5.10",
