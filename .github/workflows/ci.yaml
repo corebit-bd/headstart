@@ -17,6 +17,11 @@ on:
       - prodEnv # Pull Requests (PRs) to Production - Essential Tests Only
       # Backup Branches cannot have Pull Requests (PRs)
 
+# Auto-Cancel Older Running / Queued Jobs on the same Branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read # Read Repository Contents
   security-events: write # Upload Security Scan Results
