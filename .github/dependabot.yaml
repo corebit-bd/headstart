@@ -13,6 +13,11 @@ updates:
     directory: "/frontend"
     schedule:
       interval: "weekly"
+    groups:
+      vitest:
+        patterns:
+          - "vitest*"
+          - "@vitest/*"
     commit-message:
       prefix: "chore/upgrade/frontend"
 
