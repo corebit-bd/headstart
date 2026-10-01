@@ -256,6 +256,7 @@ jobs:
           onlyChanged: true
           autoAcceptChanges: main
           exitZeroOnChanges: true
+          exitOnceUploaded: true
 
       - name: Archive Storybook Build
         uses: actions/upload-artifact@v4
