@@ -23,7 +23,7 @@
     "next": "^16.3.6",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "react-hook-form": "^7.88.0",
+    "react-hook-form": "^7.89.0",
     "react-redux": "^9.2.0",
     "tailwind-merge": "^3.6.0",
     "tar": "^7.5.22",
